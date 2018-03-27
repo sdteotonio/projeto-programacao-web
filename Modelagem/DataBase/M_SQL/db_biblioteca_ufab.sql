@@ -135,10 +135,13 @@ CREATE TABLE Agrega (
     FK_Permissao_tag varchar (5)
 );
 
-CREATE TABLE Loca (
+CREATE TABLE Emprestimo (
     FK_Aluno_matricula varchar (30),
     FK_Item_cod int,
-    data_locacao datetime
+    data_locacao datetime,
+    data_entrega datetime,
+    quant_renovacao int,
+    emprestado int
 );
 
 CREATE TABLE Alocacao (
@@ -218,12 +221,12 @@ ALTER TABLE Agrega ADD CONSTRAINT FK_Agrega_1
     REFERENCES Permissao (tag)
     ON DELETE RESTRICT ON UPDATE CASCADE;
  
-ALTER TABLE Loca ADD CONSTRAINT FK_Loca_0
+ALTER TABLE Emprestimo ADD CONSTRAINT FK_Emprestimo_Aluno
     FOREIGN KEY (FK_Aluno_matricula)
     REFERENCES Aluno (matricula)
     ON DELETE RESTRICT ON UPDATE CASCADE;
  
-ALTER TABLE Loca ADD CONSTRAINT FK_Loca_1
+ALTER TABLE Emprestimo ADD CONSTRAINT  FK_Emprestimo_Item
     FOREIGN KEY (FK_Item_cod)
     REFERENCES Item (cod)
     ON DELETE RESTRICT ON UPDATE CASCADE;
