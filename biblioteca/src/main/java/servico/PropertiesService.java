@@ -12,6 +12,10 @@ import enumeador.MensagensEnum;
 public class PropertiesService {
 	private static Logger LOGGER = Logger.getLogger(PropertiesService.class);
 
+	/**
+	 * @param propiedade Propiedade do app.properties que deseja-se obter o valor.
+	 * @return Valor da propriedade informada, caso exista.
+	 */
 	public static String getProp(String propiedade) {
 		Properties props = new Properties();
 		FileInputStream file;
