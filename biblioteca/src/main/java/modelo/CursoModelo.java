@@ -1,24 +1,20 @@
 package modelo;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
 
 import entidade.Curso;
-import entidade.Item;
 import enumeador.MensagensEnum;
 import excecao.CursoModeloException;
 import excecao.CursoModeloValidacaoException;
-import excecao.ItemModeloException;
-import excecao.ItemModeloValidacaoException;
 import servico.UtilidadeServico;
 
 public class CursoModelo {
 
 	private HashMap<String, Curso> hashDeCurso;
 
-	private Logger LOGGER = Logger.getLogger(CursoModelo.class);
+	private Logger LOGGER = Logger.getLogger(CursoModelo.class); 
 	
 	
 	public CursoModelo() {
@@ -76,9 +72,6 @@ public class CursoModelo {
 	
 	public boolean atualizarCurso(Curso curso) {
 		// TODO: Atulizar os dados de um curso
-		if (listaDeCursos.contains(curso)) {
-			
-		}
 		return true ;
 	}
 	
