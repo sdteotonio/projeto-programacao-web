@@ -12,14 +12,15 @@ public class CursoModelo {
 	}
 
 	public void inserirCurso(Curso curso) {
-		// TODO: Inerir um curso no sistema //
+
 	}
 
 	public boolean atualizarCurso(Curso curso) {
-		// TODO: Atulizar os dados de um curso
 		if (listaDeCursos.contains(curso)) {
 			
 		}
 		return true ;
+	}
+		
 	}
 }

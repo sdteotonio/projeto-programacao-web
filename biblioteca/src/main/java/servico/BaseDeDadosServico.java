@@ -13,7 +13,7 @@ import enumeador.MensagensEnum;
 
 public class BaseDeDadosServico {
 	private static BaseDeDadosServico minhaInstancia;
-	private static Logger LOGGER = Logger.getLogger(BaseDeDadosServico.class);
+	private Logger LOGGER = Logger.getLogger(BaseDeDadosServico.class);
 	private static String esquemaAtual;
 
 	private BaseDeDadosServico() {
