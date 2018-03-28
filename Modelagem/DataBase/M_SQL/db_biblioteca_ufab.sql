@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS Permissao (
 
 CREATE TABLE IF NOT EXISTS Item (
     cod INT PRIMARY KEY,
-    titulo VARCHAR(30),
+    titulo VARCHAR(100) UNIQUE,
     quant_max_locacao INT,
     FK_TipoItem_cod INT
 );
@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS Aluno (
 
 CREATE TABLE IF NOT EXISTS Curso (
     cod INT PRIMARY KEY,
-    nome VARCHAR(50),
+    nome VARCHAR(50) UNIQUE,
     area VARCHAR(50),
     FK_TipoCurso_cod INT
 );

@@ -1,6 +1,7 @@
 package entidade;
 
 public abstract class Item {
+	
 	private int codigo;
 	private String titulo;
 	private int quantMax;
