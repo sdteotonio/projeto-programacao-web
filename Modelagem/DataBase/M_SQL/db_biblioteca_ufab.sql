@@ -2,153 +2,153 @@
 CREATE DATABASE IF NOT EXISTS db_biblioteca_ufab;
 USE db_biblioteca_ufab;
 
-CREATE TABLE Usuario (
-    matricula varchar (30) PRIMARY KEY,
-    nome varchar (50),
-    senha text,
-    data_nascimento datetime,
-    data_cadastro datetime,
-    FK_Perfil_cod int
+CREATE TABLE IF NOT EXISTS Usuario (
+    matricula VARCHAR(30) PRIMARY KEY,
+    nome VARCHAR(50),
+    senha TEXT,
+    data_nascimento DATETIME,
+    data_cadastro DATETIME,
+    FK_Perfil_cod INT
 );
 
-CREATE TABLE Perfil (
-    cod int PRIMARY KEY,
-    nome varchar (20)
+CREATE TABLE IF NOT EXISTS Perfil (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(20)
 );
 
-CREATE TABLE Permissao (
-    tag varchar (5) PRIMARY KEY,
-    nome varchar (30)
+CREATE TABLE IF NOT EXISTS Permissao (
+    tag VARCHAR(5) PRIMARY KEY,
+    nome VARCHAR(30)
 );
 
-CREATE TABLE Item (
-    cod int PRIMARY KEY,
-    titulo varchar (30),
-    quant_max_locacao int,
-    FK_TipoItem_cod int
+CREATE TABLE IF NOT EXISTS Item (
+    cod INT PRIMARY KEY,
+    titulo VARCHAR(30),
+    quant_max_locacao INT,
+    FK_TipoItem_cod INT
 );
 
-CREATE TABLE Livro (
-    isbn varchar (30),
-    autor text,
-    editora varchar (30),
-    ano_publicacao datetime,
-    edicao varchar (30),
-    nmr_pagina int,
-    area varchar (30),
-    tema text,
-    FK_Item_cod int PRIMARY KEY
+CREATE TABLE IF NOT EXISTS Livro (
+    isbn VARCHAR(30),
+    autor TEXT,
+    editora VARCHAR(30),
+    ano_publicacao DATETIME,
+    edicao VARCHAR(30),
+    nmr_pagina INT,
+    area VARCHAR(30),
+    tema TEXT,
+    FK_Item_cod INT PRIMARY KEY
 );
 
-CREATE TABLE Revista (
-    editora varchar (30),
-    data_publicacao datetime,
-    edicao varchar (30),
-    nmr_pagina int,
-    FK_Item_cod int PRIMARY KEY
+CREATE TABLE IF NOT EXISTS Revista (
+    editora VARCHAR(30),
+    data_publicacao DATETIME,
+    edicao VARCHAR(30),
+    nmr_pagina INT,
+    FK_Item_cod INT PRIMARY KEY
 );
 
-CREATE TABLE Jornal (
-    data datetime,
-    edicao varchar (30),
-    FK_Item_cod int PRIMARY KEY
+CREATE TABLE IF NOT EXISTS Jornal (
+    data DATETIME,
+    edicao VARCHAR(30),
+    FK_Item_cod INT PRIMARY KEY
 );
 
-CREATE TABLE AnaisCongresso (
-    autor varchar (50),
-    nome_congresso varchar (50),
-    ano_publicacao datetime,
-    local varchar (50),
-    FK_Item_cod int PRIMARY KEY,
-    FK_TipoAnaisCongresso_cod int
+CREATE TABLE IF NOT EXISTS AnaisCongresso (
+    autor VARCHAR(50),
+    nome_congresso VARCHAR(50),
+    ano_publicacao DATETIME,
+    local VARCHAR(50),
+    FK_Item_cod INT PRIMARY KEY,
+    FK_TipoAnaisCongresso_cod INT
 );
 
-CREATE TABLE TipoItem (
-    cod int PRIMARY KEY,
-    nome varchar (50)
+CREATE TABLE IF NOT EXISTS TipoItem (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(50)
 );
 
-CREATE TABLE TrabalhoConclusao (
-    autor varchar (50),
-    orientador varchar (50),
-    ano_defesa datetime,
-    local varchar (50),
-    FK_Item_cod int PRIMARY KEY,
-    FK_TipoTrabalhoConclusao_cod int
+CREATE TABLE IF NOT EXISTS TrabalhoConclusao (
+    autor VARCHAR(50),
+    orientador VARCHAR(50),
+    ano_defesa DATETIME,
+    local VARCHAR(50),
+    FK_Item_cod INT PRIMARY KEY,
+    FK_TipoTrabalhoConclusao_cod INT
 );
 
-CREATE TABLE MidiaDigital (
-    data_gravacao datetime,
-    FK_Item_cod int PRIMARY KEY,
-    FK_TipoMidiaDigital_cod int
+CREATE TABLE IF NOT EXISTS MidiaDigital (
+    data_gravacao DATETIME,
+    FK_Item_cod INT PRIMARY KEY,
+    FK_TipoMidiaDigital_cod INT
 );
 
-CREATE TABLE TipoAnaisCongresso (
-    cod int PRIMARY KEY,
-    nome varchar (20)
+CREATE TABLE IF NOT EXISTS TipoAnaisCongresso (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(20)
 );
 
-CREATE TABLE TipoTrabalhoConclusao (
-    cod int PRIMARY KEY,
-    nome varchar (20)
+CREATE TABLE IF NOT EXISTS TipoTrabalhoConclusao (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(20)
 );
 
-CREATE TABLE TipoMidiaDigital (
-    cod int PRIMARY KEY,
-    nome varchar (20)
+CREATE TABLE IF NOT EXISTS TipoMidiaDigital (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(20)
 );
 
-CREATE TABLE Aluno (
-    matricula varchar (30) PRIMARY KEY,
-    cpf int (14),
-    rg int (10),
-    naturalidade varchar (30),
-    nome_completo varchar (50),
-    nome_mae varchar (50),
-    endereco varchar (50),
-    fone varchar (50),
-    senha text
+CREATE TABLE IF NOT EXISTS Aluno (
+    matricula VARCHAR(30) PRIMARY KEY,
+    cpf INT(14),
+    rg INT(10),
+    naturalidade VARCHAR(30),
+    nome_completo VARCHAR(50),
+    nome_mae VARCHAR(50),
+    endereco VARCHAR(50),
+    fone VARCHAR(50),
+    senha TEXT
 );
 
-CREATE TABLE Curso (
-    cod int PRIMARY KEY,
-    nome varchar (50),
-    area varchar (50),
-    FK_TipoCurso_cod int
+CREATE TABLE IF NOT EXISTS Curso (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(50),
+    area VARCHAR(50),
+    FK_TipoCurso_cod INT
 );
 
-CREATE TABLE Ano (
-    cod int,
-    ano_letivo int (4),
-    abv int (2),
-    periodo int (1),
+CREATE TABLE IF NOT EXISTS Ano (
+    cod INT,
+    ano_letivo INT(4),
+    abv INT(2),
+    periodo INT(1),
     PRIMARY KEY (cod, periodo)
 );
 
-CREATE TABLE TipoCurso (
-    cod int PRIMARY KEY,
-    nome varchar (20)
+CREATE TABLE IF NOT EXISTS TipoCurso (
+    cod INT PRIMARY KEY,
+    nome VARCHAR(20)
 );
 
-CREATE TABLE Agrega (
-    FK_Perfil_cod int,
-    FK_Permissao_tag varchar (5)
+CREATE TABLE IF NOT EXISTS Agrega (
+    FK_Perfil_cod INT,
+    FK_Permissao_tag VARCHAR(5)
 );
 
-CREATE TABLE Emprestimo (
-    FK_Aluno_matricula varchar (30),
-    FK_Item_cod int,
-    data_locacao datetime,
-    data_entrega datetime,
-    quant_renovacao int,
-    emprestado int
+CREATE TABLE IF NOT EXISTS Emprestimo (
+    FK_Aluno_matricula VARCHAR(30),
+    FK_Item_cod INT,
+    data_locacao DATETIME,
+    data_entrega DATETIME,
+    quant_renovacao INT,
+    emprestado INT
 );
 
-CREATE TABLE Alocacao (
-    FK_Curso_cod int,
-    FK_Aluno_matricula varchar (30),
-    FK_Ano_cod int,
-    FK_Ano_periodo int (1)
+CREATE TABLE IF NOT EXISTS Alocacao (
+    FK_Curso_cod INT,
+    FK_Aluno_matricula VARCHAR(30),
+    FK_Ano_cod INT,
+    FK_Ano_periodo INT(1)
 );
  
 ALTER TABLE Usuario ADD CONSTRAINT FK_Usuario_1
