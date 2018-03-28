@@ -48,8 +48,8 @@ public class ItemModelo {
 	 * @param item
 	 *            Item recebido para validacao
 	 * @throws ItemModeloValidacaoException
-	 *             Caso seja detectado que o Item está inválido para iserção, uma
-	 *             exception como essa será disparada.
+	 *             Caso seja detectado que o Item está inválido para inserção, uma
+	 *             exception como esta será disparada.
 	 */
 	private void validarItem(Item item) throws ItemModeloValidacaoException {
 		if (item == null) {
