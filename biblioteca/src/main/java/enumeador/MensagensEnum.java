@@ -10,7 +10,8 @@ public enum MensagensEnum {
 	ITEM_MODELO_O_NOME_PODE_NAO_SER_NULO("O Item deve conter um nome."),
 	ITEM_MODELO_O_TITULO_PODE_NAO_SER_NULO("O Item deve conter um título."),
 	ITEM_MODELO_ITEM_JA_CADASTRADO("O Item informado já está cadastrado no sistema."),
-	ITEM_MODELO_O_TIPO_DE_ITEM_NAO_PODE_SER_NULO("O Tipo de item deve ser informado.");
+	ITEM_MODELO_O_TIPO_DE_ITEM_NAO_PODE_SER_NULO("O Tipo de item deve ser informado."), 
+	ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO("O paramêtro titulo deve ser informado.");
 
 	private String valor;
 

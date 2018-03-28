@@ -64,16 +64,36 @@ public class ItemModelo {
 		}
 	}
 
-	public Item recuperarItemPorCodigo(int cod) {
-		// TODO: Recuperar um item por codigo
-		return null;
+	/**
+	 * @param titulo Titulo do Item que deseja recuperar
+	 * @return Caso encontre, retorna com o objeto Item, que contem o titulo especificado
+	 * @throws ItemModeloException Caso o Titulo especificado seja inválido
+	 */
+	public Item recuperarItemPorTitulo(String titulo) throws ItemModeloException {
+		if (titulo == null) {
+			LOGGER.error(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+			throw new ItemModeloException(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+		}
+		return hashDeItem.get(titulo);
 	}
 
-	public void atualizarItem(Item item) {
-		// TODO: Atualizar dados do item
+	/**
+	 * @param item Item para ser atualziado
+	 * @throws ItemModeloException Caso ocorra algum erro na validacao do Item especificado
+	 */
+	public void atualizarItem(Item item) throws ItemModeloException {
+		try {
+			validarItem(item);
+			Item itemRecuperado = recuperarItemPorTitulo(item.getTitulo());
+			hashDeItem.put(itemRecuperado.getTitulo(), item);
+		} catch (ItemModeloValidacaoException e) {
+			LOGGER.error(UtilidadeServico
+					.gerarMensagemComErro(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor(), e.getMessage()));
+			throw new ItemModeloException(e.getMessage());
+		}
 	}
 
-	public void removerItem(int cod) {
-		// TODO: Remover um item por codigo
+	public void removerItem(String titulo) {
+		
 	}
 }
