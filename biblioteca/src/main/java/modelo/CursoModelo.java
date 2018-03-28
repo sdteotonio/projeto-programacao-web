@@ -16,11 +16,14 @@ public class CursoModelo {
 	}
 
 	public boolean atualizarCurso(Curso curso) {
+		// TODO: Atulizar os dados de um curso
 		if (listaDeCursos.contains(curso)) {
 			
 		}
 		return true ;
 	}
+	
+	private void validarCurso(Curso curso) {
 		
 	}
 }
