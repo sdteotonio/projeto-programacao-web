@@ -24,13 +24,13 @@ public class ItemModeloTeste {
 	}
 
 	@Test(expected = ItemModeloException.class)
-	public void testeInserirItemVazio() throws ItemModeloException {
+	public void testInserirItemVazio() throws ItemModeloException {
 		Jornal jornal = null;
 		itemModelo.inserirItem(jornal);
 	}
 
 	@Test(expected = ItemModeloException.class)
-	public void testeInserirOItemDuplicado() throws ItemModeloException {
+	public void testInserirOItemDuplicado() throws ItemModeloException {
 		Jornal jornal = new Jornal();
 
 		jornal.setTitulo("TituloJornal_1");
@@ -47,7 +47,7 @@ public class ItemModeloTeste {
 	}
 
 	@Test
-	public void testeInserirItemIncompletoDeAtributosPrincipais() {
+	public void testInserirItemIncompletoDeAtributosPrincipais() {
 		Jornal jornal = new Jornal();
 		// Enviar sem Nome
 		try {
@@ -72,7 +72,7 @@ public class ItemModeloTeste {
 	}
 
 	@Test
-	public void testeInserirRecuperarItemJornal() {
+	public void testInserirRecuperarItemJornal() {
 		Jornal jornal = new Jornal();
 		jornal.setTitulo("TituloJornal");
 
@@ -102,7 +102,7 @@ public class ItemModeloTeste {
 	}
 
 	@Test
-	public void testeInserirRecuperarLivro() {
+	public void testInserirRecuperarLivro() {
 		Livro livro = new Livro();
 		livro.setAnoPublicacao(new Date());
 		livro.setArea("AreaDoLivro");
@@ -137,7 +137,7 @@ public class ItemModeloTeste {
 	}
 
 	@Test
-	public void testeInserirRecuperarMidiaDigital() {
+	public void testInserirRecuperarMidiaDigital() {
 		MidiaDigital midiaDigital = new MidiaDigital();
 		midiaDigital.setTitulo("TituloMidiaDigital");
 
@@ -172,7 +172,7 @@ public class ItemModeloTeste {
 	}
 
 	@Test
-	public void testeAtualizarItem() {
+	public void testAtualizarItem() {
 		Jornal j1 = new Jornal();
 		j1.setTitulo("Jornal");
 		j1.setNome("NomeJornal");
@@ -213,7 +213,7 @@ public class ItemModeloTeste {
 	}
 	
 	@Test
-	public void testeRemoverItem() {
+	public void testRemoverItem() {
 		Jornal j1 = new Jornal();
 		j1.setTitulo("JornalExcluir");
 		j1.setNome("NomeJornalExcluir");

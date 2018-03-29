@@ -23,12 +23,12 @@ public class CursoModeloTeste {
 	}
 	
 	@Test(expected = CursoModeloException.class)
-	public void testeInserirCursoVazio() throws CursoModeloException {
+	public void testInserirCursoVazio() throws CursoModeloException {
 		cursoModelo.inserirCurso(null);
 	}
 	
 	@Test
-	public void testeInserirCursoIncompletoDeAtributos() {
+	public void testInserirCursoIncompletoDeAtributos() {
 		Curso curso = new Curso();
 		//Enviar sem Nome
 		try {
@@ -46,7 +46,7 @@ public class CursoModeloTeste {
 	}
 	
 	@Test (expected = CursoModeloException.class)
-	public void testeInserirCursoDuplicado() throws CursoModeloException{
+	public void testInserirCursoDuplicado() throws CursoModeloException{
 		Curso curso  = new Curso();
 
 		curso.setNome("Medicina");
@@ -66,7 +66,7 @@ public class CursoModeloTeste {
 	
 	
 	@Test 
-	public void testeInserirRecuperarCurso() throws CursoModeloException{
+	public void testInserirRecuperarCurso() throws CursoModeloException{
 		Curso curso  = new Curso();
 
 		curso.setNome("Ciência da Computação");
@@ -93,11 +93,82 @@ public class CursoModeloTeste {
 		}
 	}
 	
-	
-	
-	
+
+	@Test
+	public void testRemoverCurso() {
+		
+		Curso curso = new Curso();
+		curso.setArea("Area_Excluir");
+		curso.setNome("Curso_Excluir");
+		
+		curso.setTipoCurso(new TipoCurso());
+		
+		try {
+			cursoModelo.inserirCurso(curso);
+		} catch (CursoModeloException e) {
+			assertFalse(e != null);
+		}
+
+		try {
+			cursoModelo.removerCursoPorNome(curso.getNome());
+		} catch (CursoModeloException e) {
+			assertFalse(e != null);
+		}
+		
+		Curso c1 = null;
+		Curso c2 = new Curso();
+		
+		try {
+			c2 = (Curso) cursoModelo.recuperarCursoPorNome(curso.getNome());
+		}catch(CursoModeloException e){
+			assertFalse(e != null);
+		}
+		
+		assertEquals(c1 , c2);
+	}
 		
 		
+	@Test
+	public void testAtualizarCurso() {
+		Curso c4 = new Curso();
+		c4.setNome("Matemática");
+		c4.setArea("Exatas");
+		
+		c4.setTipoCurso(new TipoCurso());
+		
+		try {
+			cursoModelo.inserirCurso(c4);
+		}catch(CursoModeloException e){
+			assertFalse(e != null);
+		}
+		
+		Curso c5 = null;
+		try {
+			c5 = (Curso) cursoModelo.recuperarCursoPorNome("Matemática");
+		}catch(CursoModeloException e){
+			assertFalse(e != null);
+		}
+		
+		String atualizarNome = "Estatística";
+		
+		assertEquals(c4.getNome(), c5.getNome());
+		
+		c5.setNome(atualizarNome);
+		
+		
+		try {
+			cursoModelo.atualizarCurso(c4);
+		}catch(CursoModeloException e){
+			assertFalse(e != null);
+		}
+		try {
+			c5 = (Curso) cursoModelo.recuperarCursoPorNome("Matemática");
+		} catch (CursoModeloException e) {
+			assertFalse(e != null);
+		}
+		
+		assertEquals(atualizarNome, c5.getNome());
+	}
 }
 
 
