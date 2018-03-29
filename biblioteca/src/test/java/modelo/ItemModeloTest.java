@@ -16,10 +16,10 @@ import entidade.TipoItem;
 import entidade.TipoMidiaDigital;
 import excecao.ItemModeloException;
 
-public class ItemModeloTeste {
+public class ItemModeloTest {
 	private ItemModelo itemModelo;
 
-	public ItemModeloTeste() {
+	public ItemModeloTest() {
 		this.itemModelo = new ItemModelo();
 	}
 

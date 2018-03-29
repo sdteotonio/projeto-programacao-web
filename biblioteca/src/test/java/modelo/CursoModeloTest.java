@@ -14,11 +14,11 @@ import excecao.CursoModeloException;
 import excecao.ItemModeloException;
 
 
-public class CursoModeloTeste {
+public class CursoModeloTest {
 	
 	private CursoModelo cursoModelo;
 	
-	public CursoModeloTeste(){
+	public CursoModeloTest(){
 		this.cursoModelo = new CursoModelo();
 	}
 	
@@ -130,44 +130,43 @@ public class CursoModeloTeste {
 		
 	@Test
 	public void testAtualizarCurso() {
-		Curso c4 = new Curso();
-		c4.setNome("Matemática");
-		c4.setArea("Exatas");
+		Curso j1 = new Curso();
+		j1.setNome("NomeCurso");
+		j1.setArea("AreaDoCurso");
 		
-		c4.setTipoCurso(new TipoCurso());
-		
+		j1.setTipoCurso(new TipoCurso());
 		try {
-			cursoModelo.inserirCurso(c4);
-		}catch(CursoModeloException e){
+			cursoModelo.inserirCurso(j1);
+		} catch (CursoModeloException e) {
 			assertFalse(e != null);
 		}
-		
-		Curso c5 = null;
+
+		Curso j = null;
 		try {
-			c5 = (Curso) cursoModelo.recuperarCursoPorNome("Matemática");
-		}catch(CursoModeloException e){
+			j = (Curso) cursoModelo.recuperarCursoPorNome("NomeCurso");
+		} catch (CursoModeloException e) {
 			assertFalse(e != null);
 		}
+
+		String novaArea = "NovaAreaDoCurso";
 		
-		String atualizarNome = "Estatística";
-		
-		assertEquals(c4.getNome(), c5.getNome());
-		
-		c5.setNome(atualizarNome);
-		
-		
+
+		assertEquals(j1.getNome(), j.getNome());
+
+		j.setArea(novaArea);
+
 		try {
-			cursoModelo.atualizarCurso(c4);
-		}catch(CursoModeloException e){
+			cursoModelo.atualizarCurso(j1);
+		} catch (CursoModeloException e) {
 			assertFalse(e != null);
 		}
 		try {
-			c5 = (Curso) cursoModelo.recuperarCursoPorNome("Matemática");
+			j = (Curso) cursoModelo.recuperarCursoPorNome("NomeCurso");
 		} catch (CursoModeloException e) {
 			assertFalse(e != null);
 		}
 		
-		assertEquals(atualizarNome, c5.getNome());
+		assertEquals(novaArea, j.getArea());
 	}
 }
 
