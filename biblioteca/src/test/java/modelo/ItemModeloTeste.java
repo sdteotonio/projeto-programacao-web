@@ -210,7 +210,36 @@ public class ItemModeloTeste {
 		}
 		
 		assertEquals(novoNome, j.getNome());
+	}
+	
+	@Test
+	public void testeRemoverItem() {
+		Jornal j1 = new Jornal();
+		j1.setTitulo("JornalExcluir");
+		j1.setNome("NomeJornalExcluir");
+
+		j1.setTipoItem(new TipoItem());
+		try {
+			itemModelo.inserirItem(j1);
+		} catch (ItemModeloException e) {
+			assertFalse(e != null);
+		}
 		
+		try {
+			itemModelo.removerItemPorTitulo(j1.getTitulo());
+		} catch (ItemModeloException e) {
+			assertFalse(e != null);
+		}
+		
+		Jornal j2 = null;
+		Jornal j3 = new Jornal();
+		try {
+			j3 = (Jornal) itemModelo.recuperarItemPorTitulo(j1.getTitulo());
+		} catch (ItemModeloException e) {
+			assertFalse(e != null);
+		}
+		
+		assertEquals(j2, j3);
 		
 	}
 }
