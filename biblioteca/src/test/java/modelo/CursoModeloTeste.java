@@ -1,11 +1,15 @@
 package modelo;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import entidade.Curso;
 import entidade.Jornal;
+import entidade.TipoCurso;
+import entidade.TipoItem;
 import excecao.CursoModeloException;
 import excecao.ItemModeloException;
 
@@ -39,14 +43,61 @@ public class CursoModeloTeste {
 		} catch (CursoModeloException e) {
 			assertTrue(true);
 		}	
+	}
+	
+	@Test (expected = CursoModeloException.class)
+	public void testeInserirCursoDuplicado() throws CursoModeloException{
+		Curso curso  = new Curso();
+
+		curso.setNome("Medicina");
+		curso.setArea("Saúde");
+		
+		TipoCurso tipoCurso  = new TipoCurso();
+		tipoCurso.setCod(0);
+		tipoCurso.setNome("Graduacao");
+		
+		curso.setTipoCurso(tipoCurso);
+		
+		cursoModelo.inserirCurso(curso);
+		cursoModelo.inserirCurso(curso);
 		
 	}
 	
 	
 	
-	@Test
-	public void inserirCursoTest() {
-		assertTrue(true);
-	}
+	@Test 
+	public void testeInserirRecuperarCurso() throws CursoModeloException{
+		Curso curso  = new Curso();
 
+		curso.setNome("Ciência da Computação");
+		curso.setArea("Exatas");
+		
+		TipoCurso tipoCurso  = new TipoCurso();
+		tipoCurso.setCod(0);
+		tipoCurso.setNome("Graduacao");
+		
+		curso.setTipoCurso(tipoCurso);
+		
+		try {
+			cursoModelo.inserirCurso(curso);
+		} catch (CursoModeloException e) {
+			assertFalse(e == null);
+		}
+
+		Curso cursoRecuperado;
+		try {
+			cursoRecuperado = (Curso) cursoModelo.recuperarCursoPorNome(curso.getNome());
+			assertEquals(curso, cursoRecuperado);
+		} catch (CursoModeloException e) {
+			assertFalse(e != null);
+		}
+	}
+	
+	
+	
+	
+		
+		
 }
+
+

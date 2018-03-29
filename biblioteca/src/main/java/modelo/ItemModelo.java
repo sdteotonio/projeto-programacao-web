@@ -65,7 +65,6 @@ public class ItemModelo {
 	}
 
 	/**
-	 * @deprecated
 	 * @param titulo Titulo do Item que deseja recuperar
 	 * @return Caso encontre, retorna com o objeto Item, que contem o titulo especificado
 	 * @throws ItemModeloException Caso o Titulo especificado seja inválido
@@ -95,7 +94,6 @@ public class ItemModelo {
 	}
 
 	/**
-	 * @deprecated
 	 * @param titulo Remover um item passando seu título como chave
 	 * @return  Caso encontre, remove o item que tenha o nome especificado
 	 * @throws ItemModeloException caso o titulo especificado seja inválido, lança uma exceção
