@@ -70,6 +70,7 @@ public class CursoModelo {
 	
 	
 	/**
+	 * @deprecated
 	 * @param nome Nome do Curso que deseja recuperar
 	 * @return Encontrando retorna com o objeto Curso, que contém o nome especificado
 	 * @throws CursoModeloException lança exceção caso ocorra um erro na validação do curso
@@ -104,7 +105,7 @@ public class CursoModelo {
 	
 	
 	/**
-	 * 
+	 * @deprecated
 	 * @param curso Remover um curso passando seu Nome como chave 
 	 * @return	Caso encontre remove o curso que tenha o nome especificado
 	 * @throws CursoModeloException caso o Nome especificado seja inválido, lança uma exceção
