@@ -4,6 +4,7 @@ public abstract class Item {
 	
 	private int codigo;
 	private String titulo;
+	private String nome;
 	private int quantMax;
 	private TipoItem tipoItem;
 
@@ -32,11 +33,11 @@ public abstract class Item {
 	}
 
 	public String getNome() {
-		return titulo;
+		return nome;
 	}
 
 	public void setNome(String nome) {
-		this.titulo = nome;
+		this.nome = nome;
 	}
 
 	public int getQuantMax() {
