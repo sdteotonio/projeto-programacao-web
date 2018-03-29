@@ -69,10 +69,50 @@ public class CursoModelo {
 	
 	
 	
+	/**
+	 * @param nome Nome do Curso que deseja recuperar
+	 * @return Encontrando retorna com o objeto Curso, que contém o nome especificado
+	 * @throws CursoModeloException
+	 */
+	public Curso recuperarCursoPorNome(String nome) throws CursoModeloException {
+		if (nome == null) { 
+			LOGGER.error(MensagensEnum.CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO.getValor());
+			throw new CursoModeloException(MensagensEnum.CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO.getValor());
+		}
+		return hashDeCurso.get(nome);
+	}
+
 	
-	public boolean atualizarCurso(Curso curso) {
-		// TODO: Atulizar os dados de um curso
-		return true ;
+	
+	
+	/**
+	 * @param curso Atualizar um curso 
+	 * @throws CursoModeloException Caso ocorra um erro na validacao do Curso
+	 */
+	public void atualizarCurso(Curso curso) throws CursoModeloException {
+		try {
+			validarCurso(curso);
+			Curso cursoRecuperado = recuperarCursoPorNome(curso.getNome());
+			hashDeCurso.put(cursoRecuperado.getNome(), curso);
+		} catch (CursoModeloValidacaoException e) {
+			LOGGER.error(UtilidadeServico
+					.gerarMensagemComErro(MensagensEnum.CURSO_MODELO_ERRO_AO_VALIDAR_CURSO.getValor(), e.getMessage()));
+			throw new CursoModeloException(e.getMessage());
+		}
+	}
+	
+	
+	/**
+	 * @param curso Remover um curso passando seu Nome como chave 
+	 * @throws CursoModeloException
+	 */
+	public Curso removerCurso(String nome) throws CursoModeloException {
+		if (nome == null) {
+			LOGGER.error(MensagensEnum.CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO.getValor());
+			throw new CursoModeloException(MensagensEnum.CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO.getValor());
+		} 
+		return hashDeCurso.remove(nome);
+	
 	}
 	
 }
