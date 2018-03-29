@@ -72,7 +72,7 @@ public class CursoModelo {
 	/**
 	 * @param nome Nome do Curso que deseja recuperar
 	 * @return Encontrando retorna com o objeto Curso, que contém o nome especificado
-	 * @throws CursoModeloException
+	 * @throws CursoModeloException lança exceção caso ocorra um erro na validação do curso
 	 */
 	public Curso recuperarCursoPorNome(String nome) throws CursoModeloException {
 		if (nome == null) { 
@@ -87,7 +87,8 @@ public class CursoModelo {
 	
 	/**
 	 * @param curso Atualizar um curso 
-	 * @throws CursoModeloException Caso ocorra um erro na validacao do Curso
+	 * 		  Caso encontre o curso pelo nome especificado, atualiza.
+	 * @throws CursoModeloException Lança exceção caso ocorra um erro na validacao do Curso
 	 */
 	public void atualizarCurso(Curso curso) throws CursoModeloException {
 		try {
@@ -103,10 +104,12 @@ public class CursoModelo {
 	
 	
 	/**
+	 * 
 	 * @param curso Remover um curso passando seu Nome como chave 
-	 * @throws CursoModeloException
+	 * @return	Caso encontre remove o curso que tenha o nome especificado
+	 * @throws CursoModeloException caso o Nome especificado seja inválido, lança uma exceção
 	 */
-	public Curso removerCurso(String nome) throws CursoModeloException {
+	public Curso removerCursoPorNome(String nome) throws CursoModeloException {
 		if (nome == null) {
 			LOGGER.error(MensagensEnum.CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO.getValor());
 			throw new CursoModeloException(MensagensEnum.CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO.getValor());

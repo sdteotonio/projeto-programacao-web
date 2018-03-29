@@ -78,7 +78,7 @@ public class ItemModelo {
 	}
 
 	/**
-	 * @param item Item para ser atualziado
+	 * @param item Item para ser atualizado
 	 * @throws ItemModeloException Caso ocorra algum erro na validacao do Item especificado
 	 */
 	public void atualizarItem(Item item) throws ItemModeloException {
@@ -93,7 +93,17 @@ public class ItemModelo {
 		}
 	}
 
-	public void removerItem(String titulo) {
-		
+	/**
+	 * @param titulo Remover um item passando seu título como chave
+	 * @return  Caso encontre, remove o item que tenha o nome especificado
+	 * @throws ItemModeloException caso o titulo especificado seja inválido, lança uma exceção
+	 */
+	public Item removerItemPorTitulo(String titulo) throws ItemModeloException {
+		if (titulo == null) {
+			LOGGER.error(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+			throw new ItemModeloException(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+		}
+		return hashDeItem.remove(titulo);
 	}
+
 }
