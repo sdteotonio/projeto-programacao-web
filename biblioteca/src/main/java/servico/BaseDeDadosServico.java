@@ -9,8 +9,15 @@ import java.sql.Statement;
 import org.apache.log4j.Logger;
 
 import enumerador.MensagensEnum;
-
+/**
+ * Serviço que ira dispor uma conexão ao banco de dados
+ * @author Davi
+ *
+ */
 public class BaseDeDadosServico {
+	/**
+	 * Singleton
+	 */
 	private static BaseDeDadosServico minhaInstancia;
 	private Logger LOGGER = Logger.getLogger(BaseDeDadosServico.class);
 	private static String esquemaAtual;
@@ -19,6 +26,10 @@ public class BaseDeDadosServico {
 
 	}
 
+	/**
+	 * Metodo para implementacao do padrao Singleton
+	 * @return Retorna uma instancia do Servico
+	 */
 	public static BaseDeDadosServico getInstancia() {
 		if (minhaInstancia == null) {
 			minhaInstancia = new BaseDeDadosServico();
@@ -27,7 +38,8 @@ public class BaseDeDadosServico {
 	}
 
 	/**
-	 * @return Retorna com uma conex�o com a base de dados.
+	 * Metodo que centraliza toda e qualquer conexão com a base de dados
+	 * @return Retorna com uma conexao com a base de dados.
 	 */
 	public Connection getConnection() {
 		Connection conn = null;
@@ -51,6 +63,7 @@ public class BaseDeDadosServico {
 	}
 
 	/**
+	 * Metodo para iniciar a base de dados em uma nova maquina
 	 * @param excluirAntesDeCriar
 	 *            Parametro utilizado para determinar se ao crair a DataBase dever�
 	 *            tamb�m deletar a base atual
@@ -100,7 +113,7 @@ public class BaseDeDadosServico {
 	}
 
 	/**
-	 * Cria todas as tabelas necessarias para a aplicacao.
+	 * Cria todas as tabelas necessarias para a aplicacao
 	 */
 	private void criarTabelas() {
 		String sql = "CREATE TABLE Usuario " + "(matricula VARCHAR(30) PRIMARY KEY," + "nome VARCHAR(50),"

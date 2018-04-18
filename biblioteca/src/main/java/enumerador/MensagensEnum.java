@@ -1,5 +1,10 @@
 package enumerador;
 
+/***
+ * Enumerador contendo todas as mensagens que os sistema loga, ou apresenta para o usuário final.
+ * @author Davi
+ *
+ */
 public enum MensagensEnum {
 	ERRO_AO_CONECTAR_MYSQL("Erro ao conectar a base de dados."), 
 	ERRO_AO_EXECUTAR_SQL("Erro ao executar script SQL."), 
