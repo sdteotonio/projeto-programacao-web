@@ -2,10 +2,14 @@ package entidade;
 
 import java.io.Serializable;
 
+/***
+ * Classe de objetos do tipo "trabalhoConclusão", que herdam as características de Item. Com seus respectivos
+ * valores e métodos. 
+ * @author Bianca
+ *
+ */
 public class TrabalhoConclusao extends Item implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -4654520096435655910L;
 	private String orientador;
 	private String autor;

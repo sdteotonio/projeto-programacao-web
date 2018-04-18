@@ -2,10 +2,13 @@ package entidade;
 
 import java.io.Serializable;
 
+/***
+ * Classe e de objetos do tipo "TipoMidiaDigital", com seus respectivos valores e métodos.
+ * @author Bianca
+ *
+ */
 public class TipoMidiaDigital implements Serializable{
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 3940390738051218355L;
 	private int cod;
 	private String nome;
