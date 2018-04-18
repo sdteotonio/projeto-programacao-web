@@ -2,6 +2,13 @@ package entidade;
 
 import java.io.Serializable;
 
+/***
+ * Classe para objetos  do tipo Anais de Congresso que herdam de item suas caracteríticas, 
+ * com valores e métodos para os mesmos. 
+ * 
+ * @author Bianca
+ */
+
 public class AnaisCongresso extends Item implements Serializable{
 	private static final long serialVersionUID = -4450914185431808017L;
 	private String nomeCongresso;

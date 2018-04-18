@@ -3,10 +3,14 @@ package entidade;
 import java.io.Serializable;
 import java.util.Date;
 
+/***
+ * Classe de objetos do tipo Revista, que herdam as características do Item,
+ * com valores e métodos dos mesmos.
+ * @author Bianca
+ *
+ */
 public class Revista extends Item implements Serializable{
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -1075557342519416764L;
 	private int nmrPagina;
 	private Date dataPublicacao;

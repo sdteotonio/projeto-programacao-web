@@ -3,10 +3,14 @@ package entidade;
 import java.io.Serializable;
 import java.util.Date;
 
+/***
+ * Classe de objetos do tipo Livro, que herdam as características do Item, 
+ * com valores e métodos dos mesmos. 
+ * @author Bianca
+ *
+ */
 public class Livro extends Item implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 505142922211968398L;
 	private String autor;
 	private String isbn;

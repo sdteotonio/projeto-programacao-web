@@ -2,10 +2,14 @@ package entidade;
 
 import java.io.Serializable;
 
+/***
+ * Classe de objetos do tipo "TipoCurso" , com seus respectivos valores e métodos.
+ * @author Bianca
+ *
+ */
 public class TipoCurso implements Serializable{
-	/**
-	 * 
-	 */
+	
+
 	private static final long serialVersionUID = 6926900901277238142L;
 	private int cod;
 	private String nome;

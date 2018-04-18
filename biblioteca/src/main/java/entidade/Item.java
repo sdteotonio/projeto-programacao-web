@@ -2,6 +2,11 @@ package entidade;
 
 import java.io.Serializable;
 
+/***
+ * Classe de objetos do tipo Item, com valores e métodos dos mesmos. 
+ * @author Bianca
+ *
+ */
 public abstract class Item implements Serializable{
 	
 	/**
