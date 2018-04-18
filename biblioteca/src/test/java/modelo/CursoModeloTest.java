@@ -36,7 +36,7 @@ public class CursoModeloTest {
 		} catch (CursoModeloException e) {
 			assertTrue(true);
 		}
-		//Enviar sem área
+		//Enviar sem ï¿½rea
 		curso.setArea("Exatas");
 		try {
 		cursoModelo.inserirCurso(curso);
@@ -50,7 +50,7 @@ public class CursoModeloTest {
 		Curso curso  = new Curso();
 
 		curso.setNome("Medicina");
-		curso.setArea("Saúde");
+		curso.setArea("Saï¿½de");
 		
 		TipoCurso tipoCurso  = new TipoCurso();
 		tipoCurso.setCod(0);
@@ -69,7 +69,7 @@ public class CursoModeloTest {
 	public void testInserirRecuperarCurso() throws CursoModeloException{
 		Curso curso  = new Curso();
 
-		curso.setNome("Ciência da Computação");
+		curso.setNome("Ciï¿½ncia da Computaï¿½ï¿½o");
 		curso.setArea("Exatas");
 		
 		TipoCurso tipoCurso  = new TipoCurso();

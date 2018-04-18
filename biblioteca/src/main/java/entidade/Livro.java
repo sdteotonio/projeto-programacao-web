@@ -1,8 +1,13 @@
 package entidade;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Livro extends Item {
+public class Livro extends Item implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 505142922211968398L;
 	private String autor;
 	private String isbn;
 	private String tema;

@@ -1,6 +1,12 @@
 package entidade;
 
-public class TrabalhoConclusao extends Item {
+import java.io.Serializable;
+
+public class TrabalhoConclusao extends Item implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4654520096435655910L;
 	private String orientador;
 	private String autor;
 	private int anoDefesa;

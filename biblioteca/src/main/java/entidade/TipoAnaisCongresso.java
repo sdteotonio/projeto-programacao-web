@@ -1,6 +1,12 @@
 package entidade;
 
-public class TipoAnaisCongresso {
+import java.io.Serializable;
+
+public class TipoAnaisCongresso implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4296178742676921434L;
 	private int cod;
 	private String nome;
 	

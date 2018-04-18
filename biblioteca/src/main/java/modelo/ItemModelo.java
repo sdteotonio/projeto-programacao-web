@@ -5,10 +5,10 @@ import java.util.HashMap;
 import org.apache.log4j.Logger;
 
 import entidade.Item;
-import enumeador.MensagensEnum;
+import enumerador.MensagensEnum;
 import excecao.ItemModeloException;
 import excecao.ItemModeloValidacaoException;
-import servico.UtilidadeServico;
+
 
 public class ItemModelo {
 	private HashMap<String, Item> hashDeItem;
@@ -23,23 +23,19 @@ public class ItemModelo {
 	 * @param item
 	 *            Utilizado para inserir um Item no sistema.
 	 * @throws ItemModeloException
-	 *             Caso ocorra algum erro ao inserir, seja por validação ou outro
-	 *             tipo, será disparado uma exeception como essa.
+	 *             Caso ocorra algum erro ao inserir, seja por validaï¿½ï¿½o ou outro
+	 *             tipo, serï¿½ disparado uma exeception como essa.
 	 */
 	public void inserirItem(Item item) throws ItemModeloException {
 		try {
 			validarItem(item);
 			if (hashDeItem.containsKey(item.getTitulo())) {
-				LOGGER.error(
-						UtilidadeServico.gerarMensagemComErro(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor(),
-								MensagensEnum.ITEM_MODELO_ITEM_JA_CADASTRADO.getValor()));
-				throw new ItemModeloException(MensagensEnum.ITEM_MODELO_ITEM_JA_CADASTRADO.getValor());
+								throw new ItemModeloException(MensagensEnum.ITEM_MODELO_ITEM_JA_CADASTRADO.getValor());
 			}
 			hashDeItem.put(item.getTitulo(), item);
 
 		} catch (ItemModeloValidacaoException e) {
-			LOGGER.error(UtilidadeServico
-					.gerarMensagemComErro(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor(), e.getMessage()));
+			LOGGER.warn(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor());
 			throw new ItemModeloException(e.getMessage());
 		}
 	}
@@ -48,8 +44,8 @@ public class ItemModelo {
 	 * @param item
 	 *            Item recebido para validacao
 	 * @throws ItemModeloValidacaoException
-	 *             Caso seja detectado que o Item está inválido para inserção, uma
-	 *             exception como esta será disparada.
+	 *             Caso seja detectado que o Item estï¿½ invï¿½lido para inserï¿½ï¿½o, uma
+	 *             exception como esta serï¿½ disparada.
 	 */
 	private void validarItem(Item item) throws ItemModeloValidacaoException {
 		if (item == null) {
@@ -67,7 +63,7 @@ public class ItemModelo {
 	/**
 	 * @param titulo Titulo do Item que deseja recuperar
 	 * @return Caso encontre, retorna com o objeto Item, que contem o titulo especificado
-	 * @throws ItemModeloException Caso o Titulo especificado seja inválido
+	 * @throws ItemModeloException Caso o Titulo especificado seja invï¿½lido
 	 */
 	public Item recuperarItemPorTitulo(String titulo) throws ItemModeloException {
 		if (titulo == null) {
@@ -87,16 +83,15 @@ public class ItemModelo {
 			Item itemRecuperado = recuperarItemPorTitulo(item.getTitulo());
 			hashDeItem.put(itemRecuperado.getTitulo(), item);
 		} catch (ItemModeloValidacaoException e) {
-			LOGGER.error(UtilidadeServico
-					.gerarMensagemComErro(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor(), e.getMessage()));
+			LOGGER.warn(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor());
 			throw new ItemModeloException(e.getMessage());
 		}
 	}
 
 	/**
-	 * @param titulo Remover um item passando seu título como chave
+	 * @param titulo Remover um item passando seu tï¿½tulo como chave
 	 * @return  Caso encontre, remove o item que tenha o nome especificado
-	 * @throws ItemModeloException caso o titulo especificado seja inválido, lança uma exceção
+	 * @throws ItemModeloException caso o titulo especificado seja invï¿½lido, lanï¿½a uma exceï¿½ï¿½o
 	 */
 	public Item removerItemPorTitulo(String titulo) throws ItemModeloException {
 		if (titulo == null) {

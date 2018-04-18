@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
-import enumeador.MensagensEnum;
+import enumerador.MensagensEnum;
 
 public class PropertiesService {
 	private static Logger LOGGER = Logger.getLogger(PropertiesService.class);
@@ -24,11 +24,11 @@ public class PropertiesService {
 			props.load(file);
 			file.close();
 		} catch (FileNotFoundException e) {
-			LOGGER.error(UtilidadeServico.gerarMensagemComErro(MensagensEnum.ERRO_AO_LER_ARQUIVO_PROPERTIES.getValor(),
-					e.getMessage()));
+			LOGGER.warn(MensagensEnum.ERRO_AO_LER_ARQUIVO_PROPERTIES.getValor());
+			LOGGER.error(e);
 		} catch (IOException e) {
-			LOGGER.error(UtilidadeServico.gerarMensagemComErro(MensagensEnum.ERRO_AO_EXECUTAR_IO.getValor(),
-					e.getMessage()));
+			LOGGER.warn(MensagensEnum.ERRO_AO_EXECUTAR_IO.getValor());
+			LOGGER.error(e);
 		}
 		
 		String valorDaPropiedade = props.getProperty(propiedade);

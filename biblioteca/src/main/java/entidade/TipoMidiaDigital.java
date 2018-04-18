@@ -1,6 +1,12 @@
 package entidade;
 
-public class TipoMidiaDigital {
+import java.io.Serializable;
+
+public class TipoMidiaDigital implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3940390738051218355L;
 	private int cod;
 	private String nome;
 	public int getCod() {

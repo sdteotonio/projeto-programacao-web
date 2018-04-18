@@ -1,8 +1,13 @@
 package entidade;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Jornal extends Item {
+public class Jornal extends Item implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6797923940253789080L;
 	private String edicao;
 	private Date data;
 	public String getEdicao() {

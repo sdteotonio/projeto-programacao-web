@@ -1,6 +1,12 @@
 package entidade;
 
-public class TipoCurso {
+import java.io.Serializable;
+
+public class TipoCurso implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6926900901277238142L;
 	private int cod;
 	private String nome;
 

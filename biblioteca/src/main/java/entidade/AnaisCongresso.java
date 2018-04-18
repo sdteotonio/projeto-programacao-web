@@ -1,7 +1,9 @@
 package entidade;
 
+import java.io.Serializable;
 
-public class AnaisCongresso extends Item {
+public class AnaisCongresso extends Item implements Serializable{
+	private static final long serialVersionUID = -4450914185431808017L;
 	private String nomeCongresso;
 	private int anoPublicacao;
 	private String autor;

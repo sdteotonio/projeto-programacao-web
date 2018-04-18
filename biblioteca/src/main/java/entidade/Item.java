@@ -1,7 +1,13 @@
 package entidade;
 
-public abstract class Item {
+import java.io.Serializable;
+
+public abstract class Item implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2445630987238795469L;
 	private int codigo;
 	private String titulo;
 	private String nome;

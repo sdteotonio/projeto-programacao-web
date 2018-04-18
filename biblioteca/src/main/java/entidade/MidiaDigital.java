@@ -1,9 +1,14 @@
 package entidade;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
-public class MidiaDigital extends Item {
+public class MidiaDigital extends Item implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2482943632687981431L;
 	private Date dataGravacao;
 	private TipoMidiaDigital tipoMidiaDigital;
 	

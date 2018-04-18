@@ -1,4 +1,4 @@
-package enumeador;
+package enumerador;
 
 public enum MensagensEnum {
 	ERRO_AO_CONECTAR_MYSQL("Erro ao conectar a base de dados."), 
@@ -18,7 +18,7 @@ public enum MensagensEnum {
 	CURSO_MODELO_A_AREA_PODE_NAO_SER_NULO("O Curso deve conter uma area."),
 	CURSO_MODELO_CURSO_JA_CADASTRADO("O Curso informado ja esta cadastrado no sistema."),
 	CURSO_MODELO_O_TIPO_DE_CURSO_NAO_PODE_SER_NULO("O Tipo de Curso deve ser informado."),
-	CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO("O parâmetro nome do curso deve ser informado");
+	CURSO_MODELO_PARAMETRO_DE_BUSCA_NOME_VAZIO("O parï¿½metro nome do curso deve ser informado");
 	
 
 	private String valor;

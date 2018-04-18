@@ -3,13 +3,12 @@ package servico;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.apache.log4j.Logger;
 
-import enumeador.MensagensEnum;
+import enumerador.MensagensEnum;
 
 public class BaseDeDadosServico {
 	private static BaseDeDadosServico minhaInstancia;
@@ -28,7 +27,7 @@ public class BaseDeDadosServico {
 	}
 
 	/**
-	 * @return Retorna com uma conexão com a base de dados.
+	 * @return Retorna com uma conexï¿½o com a base de dados.
 	 */
 	public Connection getConnection() {
 		Connection conn = null;
@@ -45,14 +44,16 @@ public class BaseDeDadosServico {
 			conn = DriverManager.getConnection(stringBuilder.toString(), PropertiesService.getProp("database.usuario"),
 					PropertiesService.getProp("database.senha"));
 		} catch (SQLException e) {
-			LOGGER.error(UtilidadeServico.gerarMensagemComErro(MensagensEnum.ERRO_AO_CONECTAR_MYSQL.getValor(),
-					e.getMessage()));
+			LOGGER.warn(MensagensEnum.ERRO_AO_CONECTAR_MYSQL.getValor());
+			LOGGER.error(e);
 		}
 		return conn;
 	}
 
 	/**
-	 * @param excluirAntesDeCriar Parametro utilizado para determinar se ao crair a DataBase deverá também deletar a base atual 
+	 * @param excluirAntesDeCriar
+	 *            Parametro utilizado para determinar se ao crair a DataBase deverï¿½
+	 *            tambï¿½m deletar a base atual
 	 */
 	public void criarDataBase(boolean excluirAntesDeCriar) {
 		if (excluirAntesDeCriar) {
@@ -74,8 +75,8 @@ public class BaseDeDadosServico {
 			stament.close();
 			conn.close();
 		} catch (SQLException e) {
-			LOGGER.error(UtilidadeServico.gerarMensagemComErro(MensagensEnum.ERRO_AO_EXECUTAR_SQL.getValor(),
-					e.getMessage()));
+			LOGGER.warn(MensagensEnum.ERRO_AO_EXECUTAR_SQL.getValor());
+			LOGGER.error(e);
 		}
 	}
 
@@ -92,12 +93,11 @@ public class BaseDeDadosServico {
 			esquemaAtual = PropertiesService.getProp("database.esquema");
 			conn.close();
 		} catch (SQLException e) {
-			LOGGER.error(UtilidadeServico.gerarMensagemComErro(MensagensEnum.ERRO_AO_EXECUTAR_SQL.getValor(),
-					e.getMessage()));
+			LOGGER.warn(MensagensEnum.ERRO_AO_EXECUTAR_SQL.getValor());
+			LOGGER.error(e);
 		}
 
 	}
-
 
 	/**
 	 * Cria todas as tabelas necessarias para a aplicacao.
@@ -112,8 +112,8 @@ public class BaseDeDadosServico {
 			stament.close();
 			conn.close();
 		} catch (SQLException e) {
-			LOGGER.error(UtilidadeServico.gerarMensagemComErro(MensagensEnum.ERRO_AO_EXECUTAR_SQL.getValor(),
-					e.getMessage()));
+			LOGGER.warn(MensagensEnum.ERRO_AO_EXECUTAR_SQL.getValor());
+			LOGGER.error(e);
 		}
 	}
 }

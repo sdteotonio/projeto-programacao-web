@@ -1,6 +1,12 @@
 package entidade;
 
-public class TipoItem {
+import java.io.Serializable;
+
+public class TipoItem implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -553068684884804242L;
 	private int cod;
 	private String nome;
 
