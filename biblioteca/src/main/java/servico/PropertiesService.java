@@ -8,11 +8,16 @@ import java.util.Properties;
 import org.apache.log4j.Logger;
 
 import enumerador.MensagensEnum;
-
+/**
+ * Classe responsavel por servir os parametros que estao no .properties da aplicação
+ * @author Davi
+ *
+ */
 public class PropertiesService {
 	private static Logger LOGGER = Logger.getLogger(PropertiesService.class);
 
 	/**
+	 * Metodo para utilizar algum parametro do properties.
 	 * @param propiedade Propiedade do app.properties que deseja-se obter o valor.
 	 * @return Valor da propriedade informada, caso exista.
 	 */

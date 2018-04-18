@@ -9,7 +9,13 @@ import enumerador.MensagensEnum;
 import excecao.ItemModeloException;
 import excecao.ItemModeloValidacaoException;
 
-
+//TODO: Alterar a ItemModelo para trablhar com todos os tipoos de Itens, passar a responsabildiade para cada Modelo de item.
+/**
+ * Responsavel por gerenciar todas as funcionalidades de Item
+ * 
+ * @author Davi
+ *
+ */
 public class ItemModelo {
 	private HashMap<String, Item> hashDeItem;
 
@@ -20,8 +26,10 @@ public class ItemModelo {
 	}
 
 	/**
+	 * Inserir um Item no sistema, caso o mesmo esteja válido.
+	 * 
 	 * @param item
-	 *            Utilizado para inserir um Item no sistema.
+	 *            Item que deseja ser inerido no sistema.
 	 * @throws ItemModeloException
 	 *             Caso ocorra algum erro ao inserir, seja por valida��o ou outro
 	 *             tipo, ser� disparado uma exeception como essa.
@@ -30,7 +38,7 @@ public class ItemModelo {
 		try {
 			validarItem(item);
 			if (hashDeItem.containsKey(item.getTitulo())) {
-								throw new ItemModeloException(MensagensEnum.ITEM_MODELO_ITEM_JA_CADASTRADO.getValor());
+				throw new ItemModeloException(MensagensEnum.ITEM_MODELO_ITEM_JA_CADASTRADO.getValor());
 			}
 			hashDeItem.put(item.getTitulo(), item);
 
@@ -41,6 +49,9 @@ public class ItemModelo {
 	}
 
 	/**
+	 * Validar se o Item recebido está pronto para ser utilizado, inserido, alterado
+	 * e etc.
+	 * 
 	 * @param item
 	 *            Item recebido para validacao
 	 * @throws ItemModeloValidacaoException
@@ -61,9 +72,14 @@ public class ItemModelo {
 	}
 
 	/**
-	 * @param titulo Titulo do Item que deseja recuperar
-	 * @return Caso encontre, retorna com o objeto Item, que contem o titulo especificado
-	 * @throws ItemModeloException Caso o Titulo especificado seja inv�lido
+	 * Metodo utilizado para recuperar um Item de acordo como seu Titulo.
+	 * 
+	 * @param titulo
+	 *            Titulo do Item que deseja recuperar
+	 * @return Caso encontre, retorna com o objeto Item, que contem o titulo
+	 *         especificado.
+	 * @throws ItemModeloException
+	 *             Caso o Titulo especificado seja inv�lido
 	 */
 	public Item recuperarItemPorTitulo(String titulo) throws ItemModeloException {
 		if (titulo == null) {
@@ -74,8 +90,12 @@ public class ItemModelo {
 	}
 
 	/**
-	 * @param item Item para ser atualizado
-	 * @throws ItemModeloException Caso ocorra algum erro na validacao do Item especificado
+	 * Atualizar um Item no sistema.
+	 * 
+	 * @param item
+	 *            Item que deseja ser atualizado.
+	 * @throws ItemModeloException
+	 *             Caso ocorra algum erro na validacao do Item especificado
 	 */
 	public void atualizarItem(Item item) throws ItemModeloException {
 		try {
@@ -89,9 +109,14 @@ public class ItemModelo {
 	}
 
 	/**
-	 * @param titulo Remover um item passando seu t�tulo como chave
-	 * @return  Caso encontre, remove o item que tenha o nome especificado
-	 * @throws ItemModeloException caso o titulo especificado seja inv�lido, lan�a uma exce��o
+	 * Remover um Item do sistema que possu ao Titulo informado.
+	 * 
+	 * @param titulo
+	 *            Titulo do item que deseja ser removido.
+	 * @return Caso encontre, remove o item que tenha o nome especificado e retorna
+	 *         o mesmo.
+	 * @throws ItemModeloException
+	 *             caso o titulo especificado seja invalido, lanca uma excecao
 	 */
 	public Item removerItemPorTitulo(String titulo) throws ItemModeloException {
 		if (titulo == null) {

@@ -9,7 +9,12 @@ import enumerador.MensagensEnum;
 import excecao.CursoModeloException;
 import excecao.CursoModeloValidacaoException;
 
-
+/**
+ * Responsavel por gerenciar todas as acoes que trabalham com Curso
+ * 
+ * @author Davi
+ *
+ */
 public class CursoModelo {
 
 	private HashMap<String, Curso> hashDeCurso;
@@ -21,8 +26,10 @@ public class CursoModelo {
 	}
 
 	/**
+	 * Inserir um Curso no sistema
+	 * 
 	 * @param curso
-	 *            Utilizado para inserir um curso no sistema
+	 *            Curso que deseja ser inserido no sistema.
 	 * @throws CursoModeloException
 	 *             Caso ocorra algum erro ao inserir, seja por valida��o ou outro
 	 *             tipo, ser� disparado uma exeception como esta.
@@ -43,6 +50,9 @@ public class CursoModelo {
 	}
 
 	/**
+	 * Validar os parametros de um curso, para verificar se o mesmo está válido par
+	 * utilização.
+	 * 
 	 * @param curso
 	 *            Curso recebido para validacao
 	 * @throws CursoModeloValidacaoException
@@ -63,6 +73,8 @@ public class CursoModelo {
 	}
 
 	/**
+	 * Recuperar um curso de acordo com seu nome.
+	 * 
 	 * @param nome
 	 *            Nome do Curso que deseja recuperar
 	 * @return Encontrando retorna com o objeto Curso, que cont�m o nome
@@ -79,11 +91,13 @@ public class CursoModelo {
 	}
 
 	/**
+	 * Atualizar os dados de um curso, sendo ele informado via parametro para o
+	 * metodo.
+	 * 
 	 * @param curso
-	 *            Atualizar um curso Caso encontre o curso pelo nome especificado,
-	 *            atualiza.
+	 *            O Curso que deseja ser atualizado.
 	 * @throws CursoModeloException
-	 *             Lan�a exce��o caso ocorra um erro na validacao do Curso
+	 *             Lan�a excecao caso ocorra um erro na validacao do Curso
 	 */
 	public void atualizarCurso(Curso curso) throws CursoModeloException {
 		try {
@@ -98,11 +112,13 @@ public class CursoModelo {
 	}
 
 	/**
+	 * Remover um curso informando seu nome.
+	 * 
 	 * @param curso
-	 *            Remover um curso passando seu Nome como chave
-	 * @return Caso encontre remove o curso que tenha o nome especificado
+	 *            Curso que existe no sistema, e deseja ser removido
+	 * @return Retorna com o curso removido, caso encontre-o.
 	 * @throws CursoModeloException
-	 *             caso o Nome especificado seja inv�lido, lan�a uma exce��o
+	 *             caso o Nome especificado seja invalido, lanca uma excecao
 	 */
 	public Curso removerCursoPorNome(String nome) throws CursoModeloException {
 		if (nome == null) {
