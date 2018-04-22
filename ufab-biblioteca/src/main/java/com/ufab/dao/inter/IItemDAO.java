@@ -13,7 +13,7 @@ public interface IItemDAO {
 
 	public List<Item> recuperarTodos();
 
-	public void atualizar(Item item);
+	public void atualizar(Item item) throws ItemServicoException;
 
 	public void remover(Item item);
 }
