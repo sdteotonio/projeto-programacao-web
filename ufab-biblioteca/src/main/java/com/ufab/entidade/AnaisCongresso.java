@@ -11,20 +11,28 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "anaiscongresso")
-@PrimaryKeyJoinColumn(name="FK_Item_cod")
+@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 public class AnaisCongresso extends Item implements Serializable {
+
+	/***
+	 * Classe para objetos do tipo Anais de Congresso que herdam de item suas
+	 * caracter�ticas, com valores e m�todos para os mesmos.
+	 * 
+	 * @author Bianca
+	 */
+
 	private static final long serialVersionUID = -4450914185431808017L;
 	@Column(name = "nome_congresso")
 	private String nomeCongresso;
 
-	@Column(name="ano_publicacao")
+	@Column(name = "ano_publicacao")
 	private int anoPublicacao;
-	
+
 	private String autor;
 	private String local;
-	
+
 	@ManyToOne
-	@JoinColumn(name="FK_TipoAnaisCongresso_cod")
+	@JoinColumn(name = "FK_TipoAnaisCongresso_cod")
 	private TipoAnaisCongresso tipoAnaisCongresso;
 
 	public TipoAnaisCongresso getTipoAnaisCongresso() {

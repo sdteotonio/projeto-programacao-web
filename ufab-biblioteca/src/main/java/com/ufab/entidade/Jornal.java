@@ -11,10 +11,16 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "jornal")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
+
+/***
+ *  Classe de objetos do tipo jornal, que herdam do item suas caracter�sticas. 
+ *  Com valores e m�todos dos mesmos. 
+ * @author Bianca
+ *
+ */
+
 public class Jornal extends Item implements Serializable {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = -6797923940253789080L;
 	private String edicao;
 	private Date data;

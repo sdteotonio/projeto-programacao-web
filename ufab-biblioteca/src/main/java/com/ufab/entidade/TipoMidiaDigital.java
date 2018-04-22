@@ -9,10 +9,12 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "tipomidiadigital")
-public class TipoMidiaDigital implements Serializable {
-	/**
-	 * 
-	 */
+/***
+ * Classe e de objetos do tipo "TipoMidiaDigital", com seus respectivos valores e m�todos.
+ * @author Bianca
+ *
+ */
+public class TipoMidiaDigital implements Serializable{
 	private static final long serialVersionUID = 3940390738051218355L;
 	@Id
 	@GeneratedValue

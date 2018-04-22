@@ -9,12 +9,18 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="trabalhoconclusao")
+@Table(name = "trabalhoconclusao")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
-public class TrabalhoConclusao extends Item implements Serializable{
-	/**
-	 * 
-	 */
+
+/***
+ * Classe de objetos do tipo "trabalhoConclus�o", que herdam as caracter�sticas
+ * de Item. Com seus respectivos valores e m�todos.
+ * 
+ * @author Bianca
+ *
+ */
+public class TrabalhoConclusao extends Item implements Serializable {
+
 	private static final long serialVersionUID = -4654520096435655910L;
 	private String orientador;
 	private String autor;
@@ -22,9 +28,9 @@ public class TrabalhoConclusao extends Item implements Serializable{
 	private String local;
 
 	@ManyToOne
-	@JoinColumn(name="FK_TipoTrabalhoConclusao_cod")
+	@JoinColumn(name = "FK_TipoTrabalhoConclusao_cod")
 	private TipoTrabalhoConclusao tipoTrabalhoConclusao;
-	
+
 	public String getOrientador() {
 		return orientador;
 	}

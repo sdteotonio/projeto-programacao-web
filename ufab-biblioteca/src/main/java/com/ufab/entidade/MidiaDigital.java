@@ -13,14 +13,23 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "midiadigital")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
+/***
+ * Classe de objetos do tipo Midia Digital, que herdam as caracter�sticas do
+ * Item, com valores e m�todos dos mesmos.
+ * 
+ * @author Bianca
+ *
+ */
+
 public class MidiaDigital extends Item implements Serializable {
 	/**
 	 * 
 	 */
+
 	private static final long serialVersionUID = 2482943632687981431L;
 
 	@Column(name = "data_gravacao")
-	private Date dataGravacao; 
+	private Date dataGravacao;
 
 	@ManyToOne
 	@JoinColumn(name = "FK_TipoMidiaDigital_cod")

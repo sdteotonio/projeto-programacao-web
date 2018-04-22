@@ -11,10 +11,17 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "livro")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
+
+/***
+ * Classe de objetos do tipo Livro, que herdam as caracter�sticas do Item, com
+ * valores e m�todos dos mesmos.
+ * 
+ * @author Bianca
+ *
+ */
+
 public class Livro extends Item implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 505142922211968398L;
 	private String autor;
 	private String isbn;

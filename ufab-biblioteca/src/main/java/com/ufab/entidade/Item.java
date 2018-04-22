@@ -17,6 +17,13 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(name = "item")
 @Inheritance(strategy = InheritanceType.JOINED)
+
+/***
+ * Classe de objetos do tipo Item, com valores e m�todos dos mesmos.
+ * 
+ * @author Bianca
+ *
+ */
 public abstract class Item implements Serializable {
 
 	/**

@@ -3,6 +3,7 @@ package com.ufab.entidade;
 import java.io.Serializable;
 import java.util.Date;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
@@ -11,10 +12,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "revista")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
-public class Revista extends Item implements Serializable {
-	/**
-	 * 
-	 */
+
+/***
+ * Classe de objetos do tipo Revista, que herdam as caracter�sticas do Item,
+ * com valores e m�todos dos mesmos.
+ * @author Bianca
+ *
+ */
+public class Revista extends Item implements Serializable{
+	
+
 	private static final long serialVersionUID = -1075557342519416764L;
 
 	@Column(name = "nmr_pagina")

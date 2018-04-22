@@ -9,14 +9,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 @Entity(name = "curso")
 @Table(name = "curso")
+
+/***
+ * Classe par objetos do tipo Curso, com valores e m�todos para os mesmos.
+ * 
+ * @author Bianca
+ *
+ */
 public class Curso implements Serializable {
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 3059184459770169333L;
 	@Id
 	@GeneratedValue

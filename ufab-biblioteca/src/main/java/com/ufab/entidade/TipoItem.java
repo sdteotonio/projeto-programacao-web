@@ -8,11 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tipoitem")
-public class TipoItem implements Serializable{
-	/**
-	 * 
-	 */
+@Table(name = "tipoitem")
+
+/***
+ * Classe de objetos do tipo "TipoItem", com seus respectivos valores e m�todos.
+ * 
+ * @author Bianca
+ *
+ */
+
+public class TipoItem implements Serializable {
+
 	private static final long serialVersionUID = -553068684884804242L;
 	@Id
 	@GeneratedValue
