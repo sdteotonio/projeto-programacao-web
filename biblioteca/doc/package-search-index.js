@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"entidade"},{"l":"enumerador"},{"l":"excecao"},{"l":"servico"}]

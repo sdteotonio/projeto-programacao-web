@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"com.ufab.config"},{"l":"com.ufab.controlador"},{"l":"com.ufab.dao"},{"l":"com.ufab.entidade"},{"l":"com.ufab.enumerador"},{"l":"com.ufab.excecao"},{"l":"com.ufab.modelo.test"},{"l":"com.ufab.servico.test"}]

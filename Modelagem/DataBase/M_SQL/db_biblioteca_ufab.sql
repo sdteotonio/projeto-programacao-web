@@ -3,12 +3,29 @@ CREATE DATABASE IF NOT EXISTS db_biblioteca_ufab;
 USE db_biblioteca_ufab;
 
 CREATE TABLE IF NOT EXISTS Usuario (
-    matricula VARCHAR(30) PRIMARY KEY,
+    cpf INT(11) PRIMARY KEY,
+	senha TEXT,
+    rg INT(10),
     nome VARCHAR(50),
-    senha TEXT,
-    data_nascimento DATETIME,
-    data_cadastro DATETIME,
+	endereco VARCHAR(50),
+    data_nascimento DATE,
+    data_cadastro DATE,
+    naturalidade VARCHAR(30),
+    fone VARCHAR(10),
     FK_Perfil_cod INT
+);
+
+CREATE TABLE IF NOT EXISTS Aluno (
+    cpf INT(11) UNIQUE,
+    matricula VARCHAR(30) PRIMARY KEY,
+    nome_mae VARCHAR(50),
+    CONSTRAINT fk_alu_usu FOREIGN KEY (cpf) REFERENCES Usuario (cpf) ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Funcionario (
+    cpf INT(11) UNIQUE,
+    nome_usuario VARCHAR(30) PRIMARY KEY,
+    CONSTRAINT fk_fun_usu FOREIGN KEY (cpf) REFERENCES Usuario (cpf) ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS Perfil (
@@ -32,34 +49,34 @@ CREATE TABLE IF NOT EXISTS Livro (
     isbn VARCHAR(30),
     autor TEXT,
     editora VARCHAR(30),
-    ano_publicacao DATETIME,
+    ano_publicacao DATE,
     edicao VARCHAR(30),
     nmr_pagina INT,
     area VARCHAR(30),
     tema TEXT,
-    FK_Item_cod INT PRIMARY KEY
+    FK_Item_cod INT 
 );
 
 CREATE TABLE IF NOT EXISTS Revista (
     editora VARCHAR(30),
-    data_publicacao DATETIME,
+    data_publicacao DATE,
     edicao VARCHAR(30),
     nmr_pagina INT,
-    FK_Item_cod INT PRIMARY KEY
+    FK_Item_cod INT 
 );
 
 CREATE TABLE IF NOT EXISTS Jornal (
-    data DATETIME,
+    data DATE,
     edicao VARCHAR(30),
-    FK_Item_cod INT PRIMARY KEY
+    FK_Item_cod INT 
 );
 
 CREATE TABLE IF NOT EXISTS AnaisCongresso (
     autor VARCHAR(50),
     nome_congresso VARCHAR(50),
-    ano_publicacao DATETIME,
+    ano_publicacao DATE,
     local VARCHAR(50),
-    FK_Item_cod INT PRIMARY KEY,
+    FK_Item_cod INT ,
     FK_TipoAnaisCongresso_cod INT
 );
 
@@ -71,15 +88,15 @@ CREATE TABLE IF NOT EXISTS TipoItem (
 CREATE TABLE IF NOT EXISTS TrabalhoConclusao (
     autor VARCHAR(50),
     orientador VARCHAR(50),
-    ano_defesa DATETIME,
+    ano_defesa DATE,
     local VARCHAR(50),
-    FK_Item_cod INT PRIMARY KEY,
+    FK_Item_cod INT ,
     FK_TipoTrabalhoConclusao_cod INT
 );
 
 CREATE TABLE IF NOT EXISTS MidiaDigital (
-    data_gravacao DATETIME,
-    FK_Item_cod INT PRIMARY KEY,
+    data_gravacao DATE,
+    FK_Item_cod INT ,
     FK_TipoMidiaDigital_cod INT
 );
 
@@ -96,18 +113,6 @@ CREATE TABLE IF NOT EXISTS TipoTrabalhoConclusao (
 CREATE TABLE IF NOT EXISTS TipoMidiaDigital (
     cod INT PRIMARY KEY,
     nome VARCHAR(20)
-);
-
-CREATE TABLE IF NOT EXISTS Aluno (
-    matricula VARCHAR(30) PRIMARY KEY,
-    cpf INT(14),
-    rg INT(10),
-    naturalidade VARCHAR(30),
-    nome_completo VARCHAR(50),
-    nome_mae VARCHAR(50),
-    endereco VARCHAR(50),
-    fone VARCHAR(50),
-    senha TEXT
 );
 
 CREATE TABLE IF NOT EXISTS Curso (
@@ -138,8 +143,8 @@ CREATE TABLE IF NOT EXISTS Agrega (
 CREATE TABLE IF NOT EXISTS Emprestimo (
     FK_Aluno_matricula VARCHAR(30),
     FK_Item_cod INT,
-    data_locacao DATETIME,
-    data_entrega DATETIME,
+    data_locacao DATE,
+    data_entrega DATE,
     quant_renovacao INT,
     emprestado INT
 );
@@ -234,14 +239,14 @@ ALTER TABLE Emprestimo ADD CONSTRAINT  FK_Emprestimo_Item
 ALTER TABLE Alocacao ADD CONSTRAINT FK_Alocacao_0
     FOREIGN KEY (FK_Curso_cod)
     REFERENCES Curso (cod)
-    ON DELETE RESTRICT ON UPDATE NO ACTION;
+    ON DELETE RESTRICT ON UPDATE CASCADE;
  
 ALTER TABLE Alocacao ADD CONSTRAINT FK_Alocacao_1
     FOREIGN KEY (FK_Aluno_matricula)
     REFERENCES Aluno (matricula)
-    ON DELETE RESTRICT ON UPDATE NO ACTION;
+    ON DELETE RESTRICT ON UPDATE CASCADE;
  
 ALTER TABLE Alocacao ADD CONSTRAINT FK_Alocacao_2
     FOREIGN KEY (FK_Ano_cod, FK_Ano_periodo)
     REFERENCES Ano (cod, periodo)
-    ON DELETE RESTRICT ON UPDATE RESTRICT;
+    ON DELETE RESTRICT ON UPDATE CASCADE;
