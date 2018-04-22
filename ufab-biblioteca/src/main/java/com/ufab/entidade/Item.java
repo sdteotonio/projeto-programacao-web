@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-@Entity
+@Entity(name = "item")
 @Table(name = "item")
 @Inheritance(strategy = InheritanceType.JOINED)
 

@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "revista")
 @Table(name = "revista")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 

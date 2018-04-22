@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "trabalhoconclusao")
 @Table(name = "trabalhoconclusao")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 

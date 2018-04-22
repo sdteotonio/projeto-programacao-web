@@ -12,36 +12,32 @@ import com.ufab.excecao.ItemServicoException;
 
 @Repository
 @Transactional
-public class ItemDAO implements IItemDAO {
+public class ItemDAO extends DAO implements IItemDAO {
 
 	@Override
 	public void inserir(Item item) throws ItemServicoException {
-		// TODO Auto-generated method stub
-
+		getCurrentSession().save(item);
 	}
 
 	@Override
 	public Item recuperarPorCodigo(int codigo) {
-		// TODO Auto-generated method stub
-		return null;
+		return (Item) getCurrentSession().createQuery("FROM item WHERE codigo = :cod").setInteger("cod", codigo)
+				.uniqueResult();
 	}
 
 	@Override
 	public List<Item> recuperarTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return getCurrentSession().createQuery("FROM item").list();
 	}
 
 	@Override
 	public void atualizar(Item item) throws ItemServicoException {
-		// TODO Auto-generated method stub
-
+		getCurrentSession().update(item);
 	}
 
 	@Override
 	public void remover(Item item) {
-		// TODO Auto-generated method stub
-
+		getCurrentSession().delete(item);
 	}
 
 }

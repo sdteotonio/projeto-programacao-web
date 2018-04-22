@@ -7,7 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "tipomidiadigital")
 @Table(name = "tipomidiadigital")
 /***
  * Classe e de objetos do tipo "TipoMidiaDigital", com seus respectivos valores e m�todos.

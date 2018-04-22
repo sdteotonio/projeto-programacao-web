@@ -8,7 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "livro")
 @Table(name = "livro")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 

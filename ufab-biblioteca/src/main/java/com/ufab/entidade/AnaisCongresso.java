@@ -9,7 +9,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "anaiscongresso")
 @Table(name = "anaiscongresso")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 public class AnaisCongresso extends Item implements Serializable {

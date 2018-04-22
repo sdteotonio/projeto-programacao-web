@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity
+@Entity(name = "midiadigital")
 @Table(name = "midiadigital")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 /***

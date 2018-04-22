@@ -4,31 +4,16 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.apache.log4j.Logger;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.exception.ConstraintViolationException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ufab.dao.inter.ICursoDAO;
 import com.ufab.entidade.Curso;
-import com.ufab.enumerador.MensagensEnum;
 
 
 @Repository
 @Transactional
-public class CursoDAO implements ICursoDAO {
+public class CursoDAO extends DAO implements ICursoDAO {
 
-	private Logger LOGGER = Logger.getLogger(CursoDAO.class);
-
-	@Autowired
-	private SessionFactory sessionFactory;
-
-	private Session getCurrentSession() {
-		return sessionFactory.getCurrentSession();
-	}
 
 	@Override
 	public void inserir(Curso c) {
