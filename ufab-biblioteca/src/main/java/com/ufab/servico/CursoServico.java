@@ -8,13 +8,20 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ufab.dao.ICursoDAO;
+import com.ufab.dao.inter.ICursoDAO;
 import com.ufab.entidade.Curso;
 import com.ufab.enumerador.MensagensEnum;
-import com.ufab.excecao.CursoDaoException;
+import com.ufab.excecao.CursoModeloException;
 import com.ufab.excecao.CursoServicoException;
 import com.ufab.excecao.CursoValidacaoException;
+import com.ufab.servico.inter.ICursoServico;
 
+/***
+ * Servico para tratar de todas as manipulações de negocio com o Curso
+ * 
+ * @author Davi
+ *
+ */
 @Service
 public class CursoServico implements ICursoServico {
 
@@ -23,27 +30,21 @@ public class CursoServico implements ICursoServico {
 	@Autowired
 	private ICursoDAO cursoDao;
 
-	@Autowired
-	private ITipoCursoServico iTipoCursoServico;
-
 	@Override
 	public List<Curso> recuperarTodos() {
 		return cursoDao.recuperarTodos();
 	}
 
 	@Override
-	public void inserir(Curso c) throws CursoServicoException {
+	public void inserir(Curso curso) throws CursoServicoException {
 		try {
-			validar(c);
-			cursoDao.inserir(c);
+			validar(curso);
+			cursoDao.inserir(curso);
 		} catch (CursoValidacaoException e) {
-			LOGGER.error(e);
-			throw new CursoServicoException(MensagensEnum.CURSO_MODELO_ERRO_AO_VALIDAR_CURSO.getValor());
-		} catch (CursoDaoException e) {
-			LOGGER.error(e);
-			throw new CursoServicoException(MensagensEnum.CURSO_MODELO_CURSO_JA_CADASTRADO.getValor());
+			LOGGER.error(MensagensEnum.CURSO_SERVICO_ERRO_AO_VALIDAR_CURSO.getValor(), e);
+			throw new CursoServicoException(MensagensEnum.CURSO_SERVICO_ERRO_AO_VALIDAR_CURSO.getValor());
 		} catch (Exception e) {
-			LOGGER.error(e);
+			LOGGER.error(MensagensEnum.CURSO_SERVICO_ERRO_DESCONHECIDO.getValor(), e);
 			throw new CursoServicoException(MensagensEnum.CURSO_SERVICO_ERRO_DESCONHECIDO.getValor());
 		}
 	}
@@ -54,13 +55,25 @@ public class CursoServico implements ICursoServico {
 	}
 
 	@Override
-	public void remover(Curso curso) {
+	public void remover(Curso curso) throws CursoServicoException {
+		if (curso == null) {
+			throw new CursoServicoException(MensagensEnum.CURSO_SERVICO_ERRO_PARAMETRO_CURSO_NULO.getValor());
+		}
 		cursoDao.remover(curso);
 	}
 
 	@Override
 	public void atualizar(Curso curso) throws CursoServicoException {
-		cursoDao.atualizar(curso);
+		if (curso == null) {
+			throw new CursoServicoException(MensagensEnum.CURSO_SERVICO_ERRO_PARAMETRO_CURSO_NULO.getValor());
+		}
+		try {
+			validar(curso);
+			cursoDao.atualizar(curso);
+		} catch (CursoValidacaoException e) {
+			LOGGER.error(MensagensEnum.CURSO_SERVICO_ERRO_AO_VALIDAR_CURSO.getValor(), e);
+			throw new CursoServicoException(MensagensEnum.CURSO_SERVICO_ERRO_AO_VALIDAR_CURSO.getValor());
+		}
 	}
 
 	/**
@@ -75,13 +88,13 @@ public class CursoServico implements ICursoServico {
 	 */
 	private void validar(Curso curso) throws CursoValidacaoException {
 		if (curso == null) {
-			throw new CursoValidacaoException(MensagensEnum.CURSO_MODELO_O_CURSO_NAO_PODE_SER_NULO.getValor());
+			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_O_CURSO_NAO_PODE_SER_NULO.getValor());
 		} else if (curso.getNome() == null) {
-			throw new CursoValidacaoException(MensagensEnum.CURSO_MODELO_O_NOME_PODE_NAO_SER_NULO.getValor());
+			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_O_NOME_PODE_NAO_SER_NULO.getValor());
 		} else if (curso.getTipoCurso() == null) {
-			throw new CursoValidacaoException(MensagensEnum.CURSO_MODELO_O_TIPO_DE_CURSO_NAO_PODE_SER_NULO.getValor());
+			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_O_TIPO_DE_CURSO_NAO_PODE_SER_NULO.getValor());
 		} else if (curso.getArea() == null) {
-			throw new CursoValidacaoException(MensagensEnum.CURSO_MODELO_A_AREA_PODE_NAO_SER_NULO.getValor());
+			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_A_AREA_PODE_NAO_SER_NULO.getValor());
 		}
 	}
 

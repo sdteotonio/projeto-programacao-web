@@ -12,9 +12,10 @@ import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ufab.dao.inter.ICursoDAO;
 import com.ufab.entidade.Curso;
 import com.ufab.enumerador.MensagensEnum;
-import com.ufab.excecao.CursoDaoException;
+
 
 @Repository
 @Transactional
@@ -30,7 +31,7 @@ public class CursoDAO implements ICursoDAO {
 	}
 
 	@Override
-	public void inserir(Curso c) throws CursoDaoException {
+	public void inserir(Curso c) {
 		getCurrentSession().save(c);
 	}
 

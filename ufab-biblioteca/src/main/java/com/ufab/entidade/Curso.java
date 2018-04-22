@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @Entity(name = "curso")
 @Table(name = "curso")
 
-/***
- * Classe par objetos do tipo Curso, com valores e m�todos para os mesmos.
+/**
+ * Classe par objetos do tipo Curso, com valores e métodos para os mesmos.
  * 
  * @author Bianca
  *

@@ -38,12 +38,12 @@ public class ItemModelo {
 		try {
 			validarItem(item);
 			if (hashDeItem.containsKey(item.getTitulo())) {
-				throw new ItemModeloException(MensagensEnum.ITEM_MODELO_ITEM_JA_CADASTRADO.getValor());
+				throw new ItemModeloException(MensagensEnum.ITEM_SERVICO_ITEM_JA_CADASTRADO.getValor());
 			}
 			hashDeItem.put(item.getTitulo(), item);
 
 		} catch (ItemModeloValidacaoException e) {
-			LOGGER.warn(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor());
+			LOGGER.warn(MensagensEnum.ITEM_SERVICO_ERRO_AO_VALIDAR_ITEM.getValor());
 			throw new ItemModeloException(e.getMessage());
 		}
 	}
@@ -60,14 +60,14 @@ public class ItemModelo {
 	 */
 	private void validarItem(Item item) throws ItemModeloValidacaoException {
 		if (item == null) {
-			throw new ItemModeloValidacaoException(MensagensEnum.ITEM_MODELO_O_ITEM_NAO_PODE_SER_NULO.getValor());
+			throw new ItemModeloValidacaoException(MensagensEnum.ITEM_SERVICO_O_ITEM_NAO_PODE_SER_NULO.getValor());
 		} else if (item.getNome() == (null)) {
-			throw new ItemModeloValidacaoException(MensagensEnum.ITEM_MODELO_O_NOME_PODE_NAO_SER_NULO.getValor());
+			throw new ItemModeloValidacaoException(MensagensEnum.ITEM_SERVICO_O_NOME_PODE_NAO_SER_NULO.getValor());
 		} else if (item.getTitulo() == (null)) {
-			throw new ItemModeloValidacaoException(MensagensEnum.ITEM_MODELO_O_TITULO_PODE_NAO_SER_NULO.getValor());
+			throw new ItemModeloValidacaoException(MensagensEnum.ITEM_SERVICO_O_TITULO_PODE_NAO_SER_NULO.getValor());
 		} else if (item.getTipoItem() == (null)) {
 			throw new ItemModeloValidacaoException(
-					MensagensEnum.ITEM_MODELO_O_TIPO_DE_ITEM_NAO_PODE_SER_NULO.getValor());
+					MensagensEnum.ITEM_SERVICO_O_TIPO_DE_ITEM_NAO_PODE_SER_NULO.getValor());
 		}
 	}
 
@@ -83,8 +83,8 @@ public class ItemModelo {
 	 */
 	public Item recuperarItemPorTitulo(String titulo) throws ItemModeloException {
 		if (titulo == null) {
-			LOGGER.error(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
-			throw new ItemModeloException(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+			LOGGER.error(MensagensEnum.ITEM_SERVICO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+			throw new ItemModeloException(MensagensEnum.ITEM_SERVICO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
 		}
 		return hashDeItem.get(titulo);
 	}
@@ -103,7 +103,7 @@ public class ItemModelo {
 			Item itemRecuperado = recuperarItemPorTitulo(item.getTitulo());
 			hashDeItem.put(itemRecuperado.getTitulo(), item);
 		} catch (ItemModeloValidacaoException e) {
-			LOGGER.warn(MensagensEnum.ITEM_MODELO_ERRO_AO_VALIDAR_ITEM.getValor());
+			LOGGER.warn(MensagensEnum.ITEM_SERVICO_ERRO_AO_VALIDAR_ITEM.getValor());
 			throw new ItemModeloException(e.getMessage());
 		}
 	}
@@ -120,8 +120,8 @@ public class ItemModelo {
 	 */
 	public Item removerItemPorTitulo(String titulo) throws ItemModeloException {
 		if (titulo == null) {
-			LOGGER.error(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
-			throw new ItemModeloException(MensagensEnum.ITEM_MODELO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+			LOGGER.error(MensagensEnum.ITEM_SERVICO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
+			throw new ItemModeloException(MensagensEnum.ITEM_SERVICO_PARAMETRO_DE_BUSCA_TITULO_VAZIO.getValor());
 		}
 		return hashDeItem.remove(titulo);
 	}

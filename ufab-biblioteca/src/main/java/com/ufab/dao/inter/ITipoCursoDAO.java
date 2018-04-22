@@ -1,4 +1,4 @@
-package com.ufab.dao;
+package com.ufab.dao.inter;
 
 import java.util.List;
 

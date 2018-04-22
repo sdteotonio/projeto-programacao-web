@@ -1,4 +1,4 @@
-package com.ufab.servico;
+package com.ufab.servico.inter;
 
 import java.util.List;
 

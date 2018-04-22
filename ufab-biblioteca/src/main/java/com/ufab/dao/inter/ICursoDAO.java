@@ -1,12 +1,11 @@
-package com.ufab.dao;
+package com.ufab.dao.inter;
 
 import java.util.List;
 
 import com.ufab.entidade.Curso;
-import com.ufab.excecao.CursoDaoException;
 
 public interface ICursoDAO {
-	public void inserir(Curso c) throws CursoDaoException;
+	public void inserir(Curso c);
 
 	public List<Curso> recuperarTodos();
 

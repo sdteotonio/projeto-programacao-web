@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.ufab.dao.inter.ITipoCursoDAO;
 import com.ufab.entidade.TipoCurso;
 
 @Repository

@@ -7,8 +7,9 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ufab.dao.ITipoCursoDAO;
+import com.ufab.dao.inter.ITipoCursoDAO;
 import com.ufab.entidade.TipoCurso;
+import com.ufab.servico.inter.ITipoCursoServico;
 
 @Service
 @Transactional

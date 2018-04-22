@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 
@@ -23,8 +25,8 @@ import com.ufab.entidade.Curso;
 import com.ufab.entidade.TipoCurso;
 import com.ufab.excecao.CursoModeloException;
 import com.ufab.excecao.CursoServicoException;
-import com.ufab.servico.ICursoServico;
-import com.ufab.servico.ITipoCursoServico;
+import com.ufab.servico.inter.ICursoServico;
+import com.ufab.servico.inter.ITipoCursoServico;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = { Config.class })
@@ -37,9 +39,51 @@ public class CursoServicoTest {
 	@Autowired
 	private ITipoCursoServico tipoCursoServico;
 
+	@Test
+	public void listarCursos() {
+
+		assertTrue(cursoServico.recuperarTodos() != null);
+	}
+
 	@Test(expected = CursoServicoException.class)
 	public void inserirNulo() throws CursoServicoException {
 		cursoServico.inserir(null);
+	}
+
+	@Test(expected = CursoServicoException.class)
+	public void atualizarNulo() throws CursoServicoException {
+		cursoServico.atualizar(null);
+	}
+
+	@Test
+	public void atualizarInvalido() {
+		Curso c = new Curso();
+		// Sem nome
+		try {
+			cursoServico.atualizar(c);
+		} catch (CursoServicoException e) {
+			assertTrue(true);
+		}
+		// Sem area
+		c.setNome("CursoTeste");
+		try {
+			cursoServico.atualizar(c);
+		} catch (CursoServicoException e) {
+			assertTrue(true);
+		}
+		// Sem area
+		c.setTipoCurso(new TipoCurso());
+		try {
+			cursoServico.atualizar(c);
+		} catch (CursoServicoException e) {
+			assertTrue(true);
+		}
+
+	}
+
+	@Test(expected = CursoServicoException.class)
+	public void removerNulo() throws CursoServicoException {
+		cursoServico.remover(null);
 	}
 
 	@Test
@@ -118,9 +162,8 @@ public class CursoServicoTest {
 			assertTrue(false);
 		}
 
-		cursoServico.remover(curso);
-
 		try {
+			cursoServico.remover(curso);
 			Curso c2 = cursoServico.recuperarPorCod(curso.getCod());
 			assertEquals(c2, null);
 		} catch (CursoServicoException e) {
