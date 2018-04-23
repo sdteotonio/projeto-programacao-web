@@ -8,12 +8,9 @@ import org.springframework.stereotype.Repository;
 
 import com.ufab.dao.inter.ICursoDAO;
 import com.ufab.entidade.Curso;
-
-
 @Repository
 @Transactional
 public class CursoDAO extends DAO implements ICursoDAO {
-
 
 	@Override
 	public void inserir(Curso c) {

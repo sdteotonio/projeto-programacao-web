@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.ufab.dao.inter.IItemDAO;
 import com.ufab.entidade.Item;
 import com.ufab.excecao.ItemServicoException;
-
 @Repository
 @Transactional
 public class ItemDAO extends DAO implements IItemDAO {

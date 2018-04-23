@@ -1,29 +1,17 @@
 package com.ufab.servico.test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.transaction.Transactional;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.ContextLoader;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import com.ufab.config.Config;
 import com.ufab.entidade.Curso;
 import com.ufab.entidade.TipoCurso;
-import com.ufab.excecao.CursoModeloException;
 import com.ufab.excecao.CursoServicoException;
 import com.ufab.servico.inter.ICursoServico;
 import com.ufab.servico.inter.ITipoCursoServico;
@@ -41,7 +29,6 @@ public class CursoServicoTest {
 
 	@Test
 	public void listarCursos() {
-
 		assertTrue(cursoServico.recuperarTodos() != null);
 	}
 
@@ -99,6 +86,7 @@ public class CursoServicoTest {
 		c1.setTipoCurso(t1);
 		c1.setNome("Computação");
 
+		c1.setTag("CC");
 		c1.setCod(-1);
 		try {
 			cursoServico.inserir(c1);
@@ -156,6 +144,7 @@ public class CursoServicoTest {
 		curso.setNome("Farmacia");
 		curso.setArea("Saude");
 		curso.setTipoCurso(tipoCurso);
+		curso.setTag("FA");
 		try {
 			cursoServico.inserir(curso);
 		} catch (CursoServicoException e) {
@@ -192,6 +181,7 @@ public class CursoServicoTest {
 		curso.setNome("Matematica");
 		curso.setArea("Exatas");
 		curso.setTipoCurso(tipoCurso);
+		curso.setTag("MT");
 		try {
 			cursoServico.inserir(curso);
 		} catch (CursoServicoException e) {

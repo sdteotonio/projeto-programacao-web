@@ -25,6 +25,8 @@ import com.ufab.servico.inter.ICursoServico;
 @Service
 public class CursoServico implements ICursoServico {
 
+	private static final int TAMANHO_MAXIMO_DA_TAG = 2;
+
 	private final Logger LOGGER = Logger.getLogger(CursoServico.class);
 
 	@Autowired
@@ -95,6 +97,10 @@ public class CursoServico implements ICursoServico {
 			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_O_TIPO_DE_CURSO_NAO_PODE_SER_NULO.getValor());
 		} else if (curso.getArea() == null) {
 			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_A_AREA_PODE_NAO_SER_NULO.getValor());
+		} else if (curso.getTag() == null) {
+			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_TAG_NULO.getValor());
+		} else if (curso.getTag().length() > TAMANHO_MAXIMO_DA_TAG) {
+			throw new CursoValidacaoException(MensagensEnum.CURSO_SERVICO_TAG_INVALIDA.getValor());
 		}
 	}
 

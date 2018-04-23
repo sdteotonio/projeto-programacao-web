@@ -1,12 +1,14 @@
 package com.ufab.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -34,6 +36,11 @@ public class Curso implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "FK_TipoCurso_cod")
 	private TipoCurso tipoCurso;
+
+	@ManyToMany(mappedBy = "cursos")
+	private List<Aluno> alunos;
+
+	private String tag;
 
 	public TipoCurso getTipoCurso() {
 		return tipoCurso;
@@ -66,5 +73,22 @@ public class Curso implements Serializable {
 	public void setArea(String area) {
 		this.area = area;
 	}
+
+	public List<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(List<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+	
 
 }

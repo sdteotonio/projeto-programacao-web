@@ -2,3 +2,4 @@
 /.recommenders/
 ufab-biblioteca/.classpath
 /Servers/
+ufab-biblioteca/*.log
