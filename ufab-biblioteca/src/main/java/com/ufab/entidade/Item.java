@@ -2,6 +2,7 @@ package com.ufab.entidade;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,9 +37,10 @@ public abstract class Item implements Serializable {
 	private String nome;
 	@Column(name = "quant_max_locacao")
 	private int quantMax;
-	@ManyToOne
+	@ManyToOne (cascade = {CascadeType.ALL})
 	@JoinColumn(name = "FK_TipoItem_cod")
 	private TipoItem tipoItem;
+	
 
 	public String getTitulo() {
 		return titulo;

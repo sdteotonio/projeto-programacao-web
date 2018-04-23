@@ -11,13 +11,12 @@ import org.springframework.stereotype.Service;
 import com.ufab.dao.inter.ICursoDAO;
 import com.ufab.entidade.Curso;
 import com.ufab.enumerador.MensagensEnum;
-import com.ufab.excecao.CursoModeloException;
 import com.ufab.excecao.CursoServicoException;
 import com.ufab.excecao.CursoValidacaoException;
 import com.ufab.servico.inter.ICursoServico;
 
 /***
- * Servico para tratar de todas as manipulações de negocio com o Curso
+ * Servico para tratar de todas as manipulacoes de negocio com o Curso
  * 
  * @author Davi
  *

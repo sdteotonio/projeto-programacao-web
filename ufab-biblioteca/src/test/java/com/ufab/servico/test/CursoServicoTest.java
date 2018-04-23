@@ -58,7 +58,7 @@ public class CursoServicoTest {
 		} catch (CursoServicoException e) {
 			assertTrue(true);
 		}
-		// Sem area
+		// Sem Tipo
 		c.setTipoCurso(new TipoCurso());
 		try {
 			cursoServico.atualizar(c);

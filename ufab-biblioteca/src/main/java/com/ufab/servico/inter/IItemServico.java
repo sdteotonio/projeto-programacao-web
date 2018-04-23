@@ -23,13 +23,15 @@ public interface IItemServico {
 	 * @param codigo
 	 *            Valor que será utilizado para recuperação.
 	 * @return Caso encontre, retorna com um objeto do tipo Curso.
+	 * @throws ItemServicoException 
 	 */
-	public Item recuperarPorCodigo(int codigo);
+	public Item recuperarPorCodigo(int codigo) throws ItemServicoException;
 
 	/**
 	 * Listar todos os Itens cadastrados no sistema.
 	 * 
 	 * @return Um List de Item.
+	 * @throws ItemServicoException
 	 */
 	public List<Item> recuperarTodos();
 

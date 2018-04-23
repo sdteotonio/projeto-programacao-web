@@ -9,7 +9,7 @@ import com.ufab.enumerador.MensagensEnum;
 import com.ufab.excecao.ItemModeloException;
 import com.ufab.excecao.ItemModeloValidacaoException;
 
-//TODO: Alterar a ItemModelo para trablhar com todos os tipoos de Itens, passar a responsabildiade para cada Modelo de item.
+//TODO: Alterar a ItemModelo para trabalhar com todos os tipoos de Itens, passar a responsabildiade para cada Modelo de item.
 /**
  * Responsavel por gerenciar todas as funcionalidades de Item
  * 
