@@ -1,7 +1,7 @@
 package com.ufab.excecao;
 
 /**
- * Responsavel por estourar os erros de validação de um curso.
+ * Responsavel por estourar os erros de validacao de um curso.
  * @author Davi
  *
  */

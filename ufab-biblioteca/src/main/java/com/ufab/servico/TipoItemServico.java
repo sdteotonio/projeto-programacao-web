@@ -1,0 +1,32 @@
+package com.ufab.servico;
+
+import java.util.List;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ufab.dao.inter.ITipoItemDAO;
+import com.ufab.entidade.TipoItem;
+import com.ufab.servico.inter.ITipoItemServico;
+
+@Service
+@Transactional
+public class TipoItemServico implements ITipoItemServico {
+	
+	@Autowired
+	private ITipoItemDAO iTipoItemDAO;
+	
+
+	@Override
+	public void inserir(TipoItem tipoItem) {
+		iTipoItemDAO.inserir(tipoItem);
+	}
+
+	@Override
+	public List<TipoItem> listarTodos() {
+		return iTipoItemDAO.listarTodos();
+	}
+	
+}

@@ -2,13 +2,17 @@ package com.ufab.entidade;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity(name = "tipoitem")
 @Table(name = "tipoitem")
+
 
 /***
  * Classe de objetos do tipo "TipoItem", com seus respectivos valores e m�todos.
@@ -24,6 +28,7 @@ public class TipoItem implements Serializable {
 	@GeneratedValue
 	private int cod;
 	private String nome;
+	@ManyToOne (cascade = {CascadeType.ALL})
 
 	public int getCod() {
 		return cod;
