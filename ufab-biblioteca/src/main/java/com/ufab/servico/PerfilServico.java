@@ -8,7 +8,12 @@ import org.springframework.stereotype.Service;
 import com.ufab.dao.inter.IPerfilDAO;
 import com.ufab.entidade.Perfil;
 import com.ufab.servico.inter.IPerfilServico;
-
+/***
+ * Servico para tratar de todas as manipulacoes de negocio com o Perfil
+ * 
+ * @author Davi
+ *
+ */
 @Service
 public class PerfilServico implements IPerfilServico {
 

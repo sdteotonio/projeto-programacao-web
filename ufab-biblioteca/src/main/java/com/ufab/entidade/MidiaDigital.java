@@ -3,6 +3,7 @@ package com.ufab.entidade;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -31,7 +32,7 @@ public class MidiaDigital extends Item implements Serializable {
 	@Column(name = "data_gravacao")
 	private Date dataGravacao;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "FK_TipoMidiaDigital_cod")
 	private TipoMidiaDigital tipoMidiaDigital;
 

@@ -30,7 +30,7 @@ public interface IUsuarioServico {
 	 * 
 	 * @param cpf
 	 *            CPF do usuário que deseja ser recuperado.
-	 * @return
+	 * @return Um Usuario que possui o CPF informado
 	 */
 	public Usuario recuperarPorCpf(String cpf);
 

@@ -1,1 +1,10 @@
+com.ufab.config
+com.ufab.controlador
+com.ufab.dao
+com.ufab.dao.inter
 com.ufab.entidade
+com.ufab.enumerador
+com.ufab.excecao
+com.ufab.modelo
+com.ufab.servico
+com.ufab.servico.inter

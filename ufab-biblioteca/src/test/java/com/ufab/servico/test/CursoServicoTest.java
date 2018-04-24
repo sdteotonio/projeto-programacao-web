@@ -124,42 +124,6 @@ public class CursoServicoTest {
 
 	}
 
-	@Test
-	public void testRemoverCurso() {
-		Curso curso = new Curso();
-
-		// Verificar caso algum teste ja tenha inserido um TipoDeCurso
-
-		TipoCurso tipoCurso = null;
-		try {
-			tipoCurso = tipoCursoServico.listarTodos().get(0);
-		} catch (IndexOutOfBoundsException e) {
-			// Precisa criar, não existe na base
-			tipoCurso = new TipoCurso();
-			tipoCurso.setNome("Graduação");
-			tipoCursoServico.inserir(tipoCurso);
-		}
-
-		// Inserir um Curso qualquer
-		curso.setNome("Farmacia");
-		curso.setArea("Saude");
-		curso.setTipoCurso(tipoCurso);
-		curso.setTag("FA");
-		try {
-			cursoServico.inserir(curso);
-		} catch (CursoServicoException e) {
-			assertTrue(false);
-		}
-
-		try {
-			cursoServico.remover(curso);
-			Curso c2 = cursoServico.recuperarPorCod(curso.getCod());
-			assertEquals(c2, null);
-		} catch (CursoServicoException e) {
-			assertTrue(false);
-		}
-
-	}
 
 	@Test
 	public void testAtualizarCurso() {

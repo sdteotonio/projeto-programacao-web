@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @Entity(name = "tipoitem")
 @Table(name = "tipoitem")
 
-
 /***
  * Classe de objetos do tipo "TipoItem", com seus respectivos valores e m�todos.
  * 
@@ -27,8 +26,9 @@ public class TipoItem implements Serializable {
 	@Id
 	@GeneratedValue
 	private int cod;
+	
+	
 	private String nome;
-	@ManyToOne (cascade = {CascadeType.ALL})
 
 	public int getCod() {
 		return cod;

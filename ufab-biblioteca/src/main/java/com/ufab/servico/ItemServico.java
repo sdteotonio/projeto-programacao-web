@@ -15,38 +15,38 @@ import com.ufab.servico.inter.IItemServico;
 
 /***
  * Servico para tratar de todas as manipulacoes de negocio com o Item
+ * 
  * @author Bianca
  *
- */ 
+ */
 
-@Service 
+@Service
 public class ItemServico implements IItemServico {
 
-	
 	private final Logger LOGGER = Logger.getLogger(ItemServico.class);
-	
+
 	@Autowired
 	private IItemDAO itemDao;
-	
-	
+
 	@Override
 	public void inserir(Item item) throws ItemServicoException {
 		try {
 			validar(item);
 			itemDao.inserir(item);
-		}catch(ItemValidacaoException e) {
+		} catch (ItemValidacaoException e) {
 			LOGGER.error(MensagensEnum.ITEM_SERVICO_ERRO_AO_VALIDAR_ITEM.getValor(), e);
-		}catch (Exception e) {
+			throw new ItemServicoException(MensagensEnum.ITEM_SERVICO_ERRO_AO_VALIDAR_ITEM.getValor());
+		} catch (Exception e) {
 			LOGGER.error(MensagensEnum.ITEM_SERVICO_ERRO_DESCONHECIDO.getValor(), e);
 			throw new ItemServicoException(MensagensEnum.ITEM_SERVICO_ERRO_DESCONHECIDO.getValor());
 		}
-		
+
 	}
 
 	@Override
 	public Item recuperarPorCodigo(int codigo) throws ItemServicoException {
-		return itemDao.recuperarPorCodigo(codigo); 
-		
+		return itemDao.recuperarPorCodigo(codigo);
+
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class ItemServico implements IItemServico {
 			LOGGER.error(MensagensEnum.ITEM_SERVICO_ERRO_AO_VALIDAR_ITEM.getValor(), e);
 			throw new ItemServicoException(MensagensEnum.ITEM_SERVICO_ERRO_AO_VALIDAR_ITEM.getValor());
 		}
-		
+
 	}
 
 	@Override
@@ -76,11 +76,10 @@ public class ItemServico implements IItemServico {
 		}
 		itemDao.remover(item);
 	}
-		
-	
+
 	/**
-	 * Validar os parametros de um item, para verificar se os mesmos estao validos para
-	 * utilizacao.
+	 * Validar os parametros de um item, para verificar se os mesmos estao validos
+	 * para utilizacao.
 	 * 
 	 * @author Bianca
 	 * 
@@ -97,7 +96,7 @@ public class ItemServico implements IItemServico {
 			throw new ItemValidacaoException(MensagensEnum.ITEM_SERVICO_O_NOME_PODE_NAO_SER_NULO.getValor());
 		} else if (item.getTipoItem() == null) {
 			throw new ItemValidacaoException(MensagensEnum.ITEM_SERVICO_O_TIPO_DE_ITEM_NAO_PODE_SER_NULO.getValor());
-		} else if (item.getTitulo()== null) {
+		} else if (item.getTitulo() == null) {
 			throw new ItemValidacaoException(MensagensEnum.ITEM_SERVICO_O_TITULO_PODE_NAO_SER_NULO.getValor());
 		}
 	}

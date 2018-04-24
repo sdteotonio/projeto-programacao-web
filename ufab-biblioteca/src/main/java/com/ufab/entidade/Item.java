@@ -33,14 +33,15 @@ public abstract class Item implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codigo;
+
+	@Column(unique = true)
 	private String titulo;
 	private String nome;
 	@Column(name = "quant_max_locacao")
 	private int quantMax;
-	@ManyToOne (cascade = {CascadeType.ALL})
+	@ManyToOne(cascade = { CascadeType.ALL })
 	@JoinColumn(name = "FK_TipoItem_cod")
 	private TipoItem tipoItem;
-	
 
 	public String getTitulo() {
 		return titulo;

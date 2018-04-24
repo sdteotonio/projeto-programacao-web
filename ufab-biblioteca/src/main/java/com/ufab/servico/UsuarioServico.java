@@ -23,6 +23,12 @@ import com.ufab.servico.inter.IAlunoServico;
 import com.ufab.servico.inter.IPermissaoServico;
 import com.ufab.servico.inter.IUsuarioServico;
 
+/***
+ * Servico para tratar de todas as manipulacoes de negocio com o Usuario
+ * 
+ * @author Davi
+ *
+ */
 @Service
 @Transactional
 public class UsuarioServico implements IUsuarioServico {
@@ -43,9 +49,6 @@ public class UsuarioServico implements IUsuarioServico {
 		try {
 			validarUsuario(usuario);
 			if (usuario.getPerfil().getTipoPerfil().equals(TipoPerfil.ALUNO)) {
-				Aluno aluno = (Aluno) usuario;
-				String matricula = alunoServico.gerarMatricula(aluno);
-				aluno.setMatricula(matricula);
 				alunoServico.validarAluno((Aluno) usuario);
 			}
 			usuarioDao.inserir(usuario);

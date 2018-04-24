@@ -13,7 +13,12 @@ import com.ufab.enumerador.TipoPermissao;
 import com.ufab.excecao.PermissaoServicoException;
 import com.ufab.excecao.UsuarioServicoException;
 import com.ufab.servico.inter.IPermissaoServico;
-
+/***
+ * Servico para tratar de todas as manipulacoes de negocio com a Permissao
+ * 
+ * @author Davi
+ *
+ */
 @Service
 public class PermissaoServico implements IPermissaoServico {
 

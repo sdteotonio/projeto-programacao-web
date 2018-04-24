@@ -10,7 +10,12 @@ import org.springframework.stereotype.Service;
 import com.ufab.dao.inter.ITipoCursoDAO;
 import com.ufab.entidade.TipoCurso;
 import com.ufab.servico.inter.ITipoCursoServico;
-
+/***
+ * Servico para tratar de todas as manipulacoes de negocio com o Tipo de curso
+ * 
+ * @author Davi
+ *
+ */
 @Service
 @Transactional
 public class TipoCursoServico implements ITipoCursoServico {

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,14 +19,22 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.ufab.config.Config;
+import com.ufab.entidade.Alocacao;
+import com.ufab.entidade.AlocacaoPrimaryKey;
 import com.ufab.entidade.Aluno;
+import com.ufab.entidade.Curso;
 import com.ufab.entidade.Funcionario;
 import com.ufab.entidade.Perfil;
 import com.ufab.entidade.Permissao;
+import com.ufab.entidade.TipoCurso;
 import com.ufab.enumerador.TipoNivelAluno;
 import com.ufab.enumerador.TipoPerfil;
 import com.ufab.enumerador.TipoPermissao;
+import com.ufab.excecao.CursoServicoException;
 import com.ufab.excecao.UsuarioServicoException;
+import com.ufab.servico.inter.IAlocacaoServico;
+import com.ufab.servico.inter.IAlunoServico;
+import com.ufab.servico.inter.ICursoServico;
 import com.ufab.servico.inter.IPerfilServico;
 import com.ufab.servico.inter.IUsuarioServico;
 
@@ -39,6 +48,15 @@ public class UsuarioServicoTest {
 
 	@Autowired
 	private IPerfilServico perfilServico;
+
+	@Autowired
+	private IAlunoServico alunoServico;
+
+	@Autowired
+	private IAlocacaoServico alocacaoServico;
+
+	@Autowired
+	private ICursoServico cursoServico;
 
 	@Before
 	public void config() {
@@ -184,6 +202,37 @@ public class UsuarioServicoTest {
 		a.setRg("65165687");
 		a.setSenha("asdasdasasdas");
 		a.setTipoNivelAluno(TipoNivelAluno.DOUTORADO);
+
+		// Gerear alocacao pra matricula
+		Alocacao alocacao = new Alocacao();
+		alocacao.setAluno(a);
+		Curso c = null;
+
+		try {
+			c = cursoServico.recuperarTodos().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			c = new Curso();
+			c.setArea("Exatas");
+			c.setNome("Fisica");
+			c.setTag("FS");
+
+			TipoCurso tp = new TipoCurso();
+			tp.setNome("Graduacao");
+
+			c.setTipoCurso(tp);
+			try {
+				cursoServico.inserir(c);
+			} catch (CursoServicoException e1) {
+				assertTrue(false);
+			}
+		} finally {
+			alocacao.setCurso(c);
+		}
+		alocacao.setId(new AlocacaoPrimaryKey("2017", "1", c.getCod(), a.getCpf()));
+
+		String matricula = alunoServico.gerarMatricula(alocacao, a);
+		a.setMatricula(matricula);
+
 		Perfil p = null;
 		try {
 			List<Perfil> listaPerfil = perfilServico.recuperarTodos();
@@ -207,6 +256,105 @@ public class UsuarioServicoTest {
 		} catch (UsuarioServicoException e) {
 			assertTrue(false);
 		}
+		alocacaoServico.inserir(alocacao);
+	}
+
+	@Test(expected = UsuarioServicoException.class)
+	public void inserirAlunoSemParametroNivel() throws UsuarioServicoException {
+		Aluno a = new Aluno();
+		a.setCpf("3123213231");
+		a.setDataNascimento(new Date(Date.from(Instant.now()).getTime()));
+		a.setDataCadastro(new Date(Date.from(Instant.now()).getTime()));
+		a.setEndereco("EnderecoTeste");
+		a.setFone("546546546");
+		a.setNaturalidade("anasdasdasd");
+		a.setNomeCompleto("Nomecasdasdas");
+		a.setRg("65165687");
+		a.setSenha("asdasdasasdas");
+		// Gerear alocacao pra matricula
+		Alocacao alocacao = new Alocacao();
+		alocacao.setAluno(a);
+		Curso c = null;
+
+		try {
+			c = cursoServico.recuperarTodos().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			c = new Curso();
+			c.setArea("Exatas");
+			c.setNome("Fisica-3");
+			c.setTag("FS");
+
+			TipoCurso tp = new TipoCurso();
+			tp.setNome("Graduacao");
+
+			c.setTipoCurso(tp);
+			try {
+				cursoServico.inserir(c);
+			} catch (CursoServicoException e1) {
+				assertTrue(false);
+			}
+		} finally {
+			alocacao.setCurso(c);
+		}
+		alocacao.setId(new AlocacaoPrimaryKey("2017", "1", c.getCod(), a.getCpf()));
+		a.setTipoNivelAluno(TipoNivelAluno.DOUTORADO);
+		String matricula = alunoServico.gerarMatricula(alocacao, a);
+		a.setMatricula(matricula);
+		Perfil p = null;
+		try {
+			List<Perfil> listaPerfil = perfilServico.recuperarTodos();
+			if (listaPerfil.size() == 0) {
+				throw new Exception();
+			}
+			for (Perfil perfil : listaPerfil) {
+				if (perfil.getTipoPerfil().equals(TipoPerfil.ALUNO)) {
+					p = perfil;
+				}
+			}
+		} catch (Exception e) {
+			p = new Perfil();
+			p.setTipoPerfilNome(TipoPerfil.ALUNO);
+			perfilServico.inserir(p);
+		} finally {
+			a.setPerfil(p);
+		}
+		a.setTipoNivelAluno(null);
+		usuarioServico.inserir(a);
+		alocacaoServico.inserir(alocacao);
+	}
+
+	@Test(expected = UsuarioServicoException.class)
+	public void inserirAlunoSemParametroMatricula() throws UsuarioServicoException {
+		Aluno a = new Aluno();
+		a.setCpf("565474767566");
+		a.setDataNascimento(new Date(Date.from(Instant.now()).getTime()));
+		a.setDataCadastro(new Date(Date.from(Instant.now()).getTime()));
+		a.setEndereco("EnderecoTeste");
+		a.setFone("546546546");
+		a.setNaturalidade("anasdasdasd");
+		a.setNomeCompleto("Nomecasdasdas");
+		a.setRg("65165687");
+		a.setSenha("asdasdasasdas");
+		a.setTipoNivelAluno(TipoNivelAluno.DOUTORADO);
+		Perfil p = null;
+		try {
+			List<Perfil> listaPerfil = perfilServico.recuperarTodos();
+			if (listaPerfil.size() == 0) {
+				throw new Exception();
+			}
+			for (Perfil perfil : listaPerfil) {
+				if (perfil.getTipoPerfil().equals(TipoPerfil.ALUNO)) {
+					p = perfil;
+				}
+			}
+		} catch (Exception e) {
+			p = new Perfil();
+			p.setTipoPerfilNome(TipoPerfil.ALUNO);
+			perfilServico.inserir(p);
+		} finally {
+			a.setPerfil(p);
+		}
+		usuarioServico.inserir(a);
 	}
 
 	@Test
@@ -340,6 +488,35 @@ public class UsuarioServicoTest {
 		b.setRg("342132132112321");
 		b.setSenha("asdasdasdasd");
 		b.setTipoNivelAluno(TipoNivelAluno.MESTRADO);
+		// Gerear alocacao pra matricula
+		Alocacao alocacao = new Alocacao();
+		alocacao.setAluno(b);
+		Curso c = null;
+
+		try {
+			c = cursoServico.recuperarTodos().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			c = new Curso();
+			c.setArea("Exatas");
+			c.setNome("Fisica-4");
+			c.setTag("FS");
+
+			TipoCurso tp = new TipoCurso();
+			tp.setNome("Graduacao");
+
+			c.setTipoCurso(tp);
+			try {
+				cursoServico.inserir(c);
+			} catch (CursoServicoException e1) {
+				assertTrue(false);
+			}
+		} finally {
+			alocacao.setCurso(c);
+		}
+		alocacao.setId(new AlocacaoPrimaryKey("2017", "1", c.getCod(), b.getCpf()));
+
+		String matricula = alunoServico.gerarMatricula(alocacao, b);
+		b.setMatricula(matricula);
 		Perfil p1 = null;
 		try {
 			List<Perfil> listaPerfil = perfilServico.recuperarTodos();
@@ -360,6 +537,7 @@ public class UsuarioServicoTest {
 		}
 		try {
 			usuarioServico.inserir(b);
+			alocacaoServico.inserir(alocacao);
 		} catch (UsuarioServicoException e) {
 			assertTrue(false);
 		}
@@ -394,7 +572,7 @@ public class UsuarioServicoTest {
 			p = new Perfil();
 			p.setTipoPerfilNome(TipoPerfil.ADMINSTRADOR);
 			List<Permissao> permissoesAdm = new ArrayList<Permissao>();
-			
+
 			Permissao p1_adm = new Permissao();
 			p1_adm.setTipoPermissao(TipoPermissao.EXCLUIR_ALUNO);
 
@@ -428,6 +606,35 @@ public class UsuarioServicoTest {
 		b.setRg("342132132112321");
 		b.setSenha("asdasdasdasd");
 		b.setTipoNivelAluno(TipoNivelAluno.GRADUACAO);
+		// Gerear alocacao pra matricula
+		Alocacao alocacao = new Alocacao();
+		alocacao.setAluno(b);
+		Curso c = null;
+
+		try {
+			c = cursoServico.recuperarTodos().get(0);
+		} catch (IndexOutOfBoundsException e) {
+			c = new Curso();
+			c.setArea("Exatas");
+			c.setNome("Fisica");
+			c.setTag("FS");
+
+			TipoCurso tp = new TipoCurso();
+			tp.setNome("Graduacao");
+
+			c.setTipoCurso(tp);
+			try {
+				cursoServico.inserir(c);
+			} catch (CursoServicoException e1) {
+				assertTrue(false);
+			}
+		} finally {
+			alocacao.setCurso(c);
+		}
+		alocacao.setId(new AlocacaoPrimaryKey("2017", "1", c.getCod(), b.getCpf()));
+
+		String matricula = alunoServico.gerarMatricula(alocacao, b);
+		b.setMatricula(matricula);
 		Perfil p1 = null;
 		try {
 			List<Perfil> listaPerfil = perfilServico.recuperarTodos();
@@ -448,6 +655,7 @@ public class UsuarioServicoTest {
 		}
 		try {
 			usuarioServico.inserir(b);
+			alocacaoServico.inserir(alocacao);
 		} catch (UsuarioServicoException e) {
 			assertTrue(false);
 		}
@@ -456,7 +664,6 @@ public class UsuarioServicoTest {
 		} catch (Exception e) {
 			assertTrue(false);
 		}
-
 		// Testar se foi removido
 		assertEquals(null, usuarioServico.recuperarPorCpf(b.getCpf()));
 	}

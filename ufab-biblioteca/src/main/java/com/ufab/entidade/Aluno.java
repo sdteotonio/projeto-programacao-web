@@ -12,6 +12,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -33,16 +35,14 @@ public class Aluno extends Usuario implements Serializable {
 	@Column(unique = true)
 	private String matricula;
 
-	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "aluno_curso", joinColumns = { @JoinColumn(name = "cpf_alu") }, inverseJoinColumns = {
-			@JoinColumn(name = "cod_curso") })
-	private List<Curso> cursos;
-
 	@Enumerated(EnumType.STRING)
 	private TipoNivelAluno tipoNivelAluno;
 
 	@Column(name = "nome_mae")
 	private String nomeMae;
+
+	@OneToMany(mappedBy = "aluno")
+	private List<Alocacao> alocacoes;
 
 	public String getMatricula() {
 		return matricula;
@@ -52,13 +52,13 @@ public class Aluno extends Usuario implements Serializable {
 		this.matricula = matricula;
 	}
 
-	public List<Curso> getCursos() {
-		return cursos;
-	}
-
-	public void setCursos(List<Curso> cursos) {
-		this.cursos = cursos;
-	}
+	// public List<Curso> getCursos() {
+	// return cursos;
+	// }
+	//
+	// public void setCursos(List<Curso> cursos) {
+	// this.cursos = cursos;
+	// }
 
 	public TipoNivelAluno getTipoNivelAluno() {
 		return tipoNivelAluno;
@@ -75,5 +75,15 @@ public class Aluno extends Usuario implements Serializable {
 	public void setNomeMae(String nomeMae) {
 		this.nomeMae = nomeMae;
 	}
+
+	public List<Alocacao> getAlocacoes() {
+		return alocacoes;
+	}
+
+	public void setAlocacoes(List<Alocacao> alocacoes) {
+		this.alocacoes = alocacoes;
+	}
+	
+	
 
 }

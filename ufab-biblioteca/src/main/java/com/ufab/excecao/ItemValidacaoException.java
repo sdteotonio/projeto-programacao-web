@@ -1,7 +1,7 @@
 package com.ufab.excecao;
 
 /***
- * Responsável por estourar os erros de validacao de um item
+ * Responsavel por estourar os erros de validacao de um item
  * @author Bianca
  *
  */

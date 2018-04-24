@@ -10,7 +10,12 @@ import org.springframework.stereotype.Service;
 import com.ufab.dao.inter.ITipoItemDAO;
 import com.ufab.entidade.TipoItem;
 import com.ufab.servico.inter.ITipoItemServico;
-
+/***
+ * Servico para tratar de todas as manipulacoes de negocio com o Tipo de item
+ * 
+ * @author Davi
+ *
+ */
 @Service
 @Transactional
 public class TipoItemServico implements ITipoItemServico {

@@ -23,7 +23,7 @@ public interface IItemServico {
 	 * @param codigo
 	 *            Valor que será utilizado para recuperação.
 	 * @return Caso encontre, retorna com um objeto do tipo Curso.
-	 * @throws ItemServicoException 
+	 * @throws ItemServicoException Caso o item esteja invalido
 	 */
 	public Item recuperarPorCodigo(int codigo) throws ItemServicoException;
 
@@ -31,7 +31,6 @@ public interface IItemServico {
 	 * Listar todos os Itens cadastrados no sistema.
 	 * 
 	 * @return Um List de Item.
-	 * @throws ItemServicoException
 	 */
 	public List<Item> recuperarTodos();
 
@@ -40,7 +39,7 @@ public interface IItemServico {
 	 * 
 	 * @param item
 	 *            Item que deseja ser atualizado.
-	 * @throws ItemServicoException
+	 * @throws ItemServicoException Caso o item esteja invalido
 	 */
 	public void atualizar(Item item) throws ItemServicoException;
 
@@ -49,7 +48,7 @@ public interface IItemServico {
 	 * 
 	 * @param item
 	 *            Item que deseja ser removido.
-	 * @throws ItemServicoException
+	 * @throws ItemServicoException Caso o item esteja invalido
 	 */
 	public void remover(Item item) throws ItemServicoException;
 }

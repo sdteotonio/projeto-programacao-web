@@ -25,6 +25,7 @@ public abstract class Usuario implements Serializable {
 	private static final long serialVersionUID = -2545934978443985246L;
 
 	@Id
+	@Column(name = "usuario_cpf")
 	private String cpf;
 
 	@Column(name = "data_cadastro")
@@ -36,7 +37,7 @@ public abstract class Usuario implements Serializable {
 	private String endereco;
 	private String naturalidade;
 
-	private String rg;	
+	private String rg;
 	@Column(name = "nome_completo")
 	private String nomeCompleto;
 
@@ -45,7 +46,6 @@ public abstract class Usuario implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "FK_Perfil_cod")
 	private Perfil perfil;
-	
 
 	public String getCpf() {
 		return cpf;
@@ -126,6 +126,5 @@ public abstract class Usuario implements Serializable {
 	public void setPerfil(Perfil perfil) {
 		this.perfil = perfil;
 	}
-	
 
 }
