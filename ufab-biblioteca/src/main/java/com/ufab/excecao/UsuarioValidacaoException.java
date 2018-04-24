@@ -1,10 +1,10 @@
 package com.ufab.excecao;
 
-public class UsuarioValicaoException extends Exception {
+public class UsuarioValidacaoException extends Exception {
 
 	private static final long serialVersionUID = 6299523122973898636L;
 
-	public UsuarioValicaoException(String msg) {
+	public UsuarioValidacaoException(String msg) {
 		super(msg);
 	}
 }
