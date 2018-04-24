@@ -8,9 +8,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity(name = "trabalhoconclusao")
-@Table(name = "trabalhoconclusao")
-@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 /***
  * Classe de objetos do tipo "trabalhoConclusao", que herdam as caracteristicas
@@ -19,6 +16,9 @@ import javax.persistence.Table;
  * @author Bianca
  *
  */
+@Entity(name = "trabalhoconclusao")
+@Table(name = "trabalhoconclusao")
+@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 public class TrabalhoConclusao extends Item implements Serializable {
 
 	private static final long serialVersionUID = -4654520096435655910L;

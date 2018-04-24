@@ -5,24 +5,25 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
+/***
+ * Classe que define a chave primaria da entidade Alocacao
+ * 
+ * @author Bianca
+ * 
+ * @param ano
+ *            - Ano de ingresso no curso
+ * @param periodo
+ *            - Periodo de ingresso
+ * @param codCurso
+ *            - Codigo de identificacao do curso
+ * @param cpfAlu
+ *            - Cfp do aluno como chave de identificacao
+ */
+
 @Embeddable
 public class AlocacaoPrimaryKey implements Serializable {
 
 	private static final long serialVersionUID = -4575425848885346079L;
-
-	
-	
-	/***
-	 * Classe que define a chave primária da entidade Alocacao
-	 * 
-	 * @author Bianca
-	 * 
-	 * @param ano   - Ano de ingresso no curso
-	 * @param periodo - Periodo de ingresso
-	 * @param codCurso - Codigo de identificacao do curso
-	 * @param cpfAlu  - Cfp do aluno como chave de identificacao
-	 */
-	
 
 	public AlocacaoPrimaryKey(String ano, String periodo, int codCurso, String cpfAlu) {
 		super();

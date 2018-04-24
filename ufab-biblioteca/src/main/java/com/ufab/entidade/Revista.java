@@ -9,16 +9,16 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity(name = "revista")
-@Table(name = "revista")
-@PrimaryKeyJoinColumn(name = "FK_Item_cod")
-
 /***
  * Classe de objetos do tipo Revista, que herdam as caracteristicas do Item,
  * com valores e metodos dos mesmos.
  * @author Bianca
  *
  */
+@Entity(name = "revista")
+@Table(name = "revista")
+@PrimaryKeyJoinColumn(name = "FK_Item_cod")
+
 public class Revista extends Item implements Serializable{
 	
 

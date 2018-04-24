@@ -8,9 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity(name = "livro")
-@Table(name = "livro")
-@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 /***
  * Classe de objetos do tipo Livro, que herdam as caracteristicas do Item, com
@@ -19,6 +16,9 @@ import javax.persistence.Table;
  * @author Bianca
  *
  */
+@Entity(name = "livro")
+@Table(name = "livro")
+@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 public class Livro extends Item implements Serializable {
 

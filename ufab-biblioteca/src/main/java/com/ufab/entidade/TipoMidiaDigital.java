@@ -7,13 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name = "tipomidiadigital")
-@Table(name = "tipomidiadigital")
 /***
  * Classe e de objetos do tipo "TipoMidiaDigital", com seus respectivos valores e metodos.
  * @author Bianca
  *
  */
+@Entity(name = "tipomidiadigital")
+@Table(name = "tipomidiadigital")
 public class TipoMidiaDigital implements Serializable{
 	private static final long serialVersionUID = 3940390738051218355L;
 	@Id

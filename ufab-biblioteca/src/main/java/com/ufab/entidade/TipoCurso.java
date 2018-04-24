@@ -5,8 +5,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name = "tipocurso")
-@Table(name = "tipocurso")
 
 /***
  * Classe que define o tipo do Curso.
@@ -14,6 +12,8 @@ import javax.persistence.Table;
  * @author Bianca
  *
  */
+@Entity(name = "tipocurso")
+@Table(name = "tipocurso")
 public class TipoCurso {
 
 	@Id

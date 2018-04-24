@@ -6,16 +6,15 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-@Entity(name = "alocacao")
-@Table(name = "alocacao")
-
 /***
- * Classe para alocação de alunos em um curso
+ * Classe para alocacao de alunos em um curso
  * 
  * @author Bianca
  *
  */
+@Entity(name = "alocacao")
+@Table(name = "alocacao")
+
 public class Alocacao {
 
 	@EmbeddedId

@@ -5,14 +5,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name="tipotrabalhoconclusao")
-@Table(name="tipotrabalhoconclusao")
-
 /***
- * Classe que define o tipo do objeto Trabalho de Conclusão.
+ * Classe que define o tipo do objeto Trabalho de Conclusao.
  * @author Bianca
  *
  */
+@Entity(name="tipotrabalhoconclusao")
+@Table(name="tipotrabalhoconclusao")
 public class TipoTrabalhoConclusao {
 	
 	@Id

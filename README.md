@@ -1,10 +1,10 @@
    # Biblioteca - UFAB
 > Instruções dos artefatos da aplicação
 #  Diagrama de Classe: 
-    Modelagem/Classes/BBUFAB_1.0.jpg
+    Modelagem/Classes/BBUFAB_1.1.jpg
 # Código java do sistema:  
-	biblioteca/src/main/java
+	ufab-biblioteca/src/main/java/com/ufab
 # Documentação do sistema (Javadoc):
-	biblioteca/doc
+	/doc
 # Código de testes (JUnit):
-	biblioteca/src/test/java		
+	ufab-biblioteca/src/test/java/com/ufab/servico/test

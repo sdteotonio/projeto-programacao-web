@@ -14,9 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Entity(name = "item")
-@Table(name = "item")
-@Inheritance(strategy = InheritanceType.JOINED)
 
 /***
  * Classe de objetos do tipo Item, com valores e metodos dos mesmos.
@@ -24,6 +21,9 @@ import javax.persistence.Table;
  * @author Bianca
  *
  */
+@Entity(name = "item")
+@Table(name = "item")
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item implements Serializable {
 
 	/**

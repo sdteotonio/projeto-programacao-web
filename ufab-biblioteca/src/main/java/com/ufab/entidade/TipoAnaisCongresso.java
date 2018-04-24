@@ -7,9 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity(name = "tipoanaiscongresso")
-@Table(name = "tipoanaiscongresso")
-
 /***
  * Classe de objetos do tipo "tipo Anais de Congresso" , com seus respectivos
  * valores e metodos.
@@ -17,6 +14,8 @@ import javax.persistence.Table;
  * @author Bianca
  *
  */
+@Entity(name = "tipoanaiscongresso")
+@Table(name = "tipoanaiscongresso")
 
 public class TipoAnaisCongresso implements Serializable {
 

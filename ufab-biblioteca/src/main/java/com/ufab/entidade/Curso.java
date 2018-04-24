@@ -14,8 +14,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-@Entity(name = "curso")
-@Table(name = "curso")
 
 /**
  * Classe par objetos do tipo Curso, com valores e metodos para os mesmos.
@@ -23,6 +21,8 @@ import javax.persistence.Table;
  * @author Bianca
  *
  */
+@Entity(name = "curso")
+@Table(name = "curso")
 public class Curso implements Serializable {
 
 	private static final long serialVersionUID = 3059184459770169333L;

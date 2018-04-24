@@ -9,17 +9,17 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
+
+/***
+ * Classe para objetos do tipo Anais de Congresso que herdam de item suas
+ * caracteristicas, com valores e metodos para os mesmos.
+ * 
+ * @author Bianca
+ */
 @Entity(name = "anaiscongresso")
 @Table(name = "anaiscongresso")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 public class AnaisCongresso extends Item implements Serializable {
-
-	/***
-	 * Classe para objetos do tipo Anais de Congresso que herdam de item suas
-	 * caracteristicas, com valores e metodos para os mesmos.
-	 * 
-	 * @author Bianca
-	 */
 
 	private static final long serialVersionUID = -4450914185431808017L;
 	@Column(name = "nome_congresso")

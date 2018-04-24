@@ -11,9 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
-@Entity(name = "midiadigital")
-@Table(name = "midiadigital")
-@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 /***
  * Classe de objetos do tipo Midia Digital, que herdam as caracteristicas do
  * Item, com valores e metodos dos mesmos.
@@ -21,6 +18,9 @@ import javax.persistence.Table;
  * @author Bianca
  *
  */
+@Entity(name = "midiadigital")
+@Table(name = "midiadigital")
+@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 public class MidiaDigital extends Item implements Serializable {
 	/**

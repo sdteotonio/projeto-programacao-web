@@ -8,9 +8,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-@Entity(name = "jornal")
-@Table(name = "jornal")
-@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 /***
  *  Classe de objetos do tipo jornal, que herdam do item suas caracter�sticas. 
@@ -18,6 +15,9 @@ import javax.persistence.UniqueConstraint;
  * @author Bianca
  *
  */
+@Entity(name = "jornal")
+@Table(name = "jornal")
+@PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 public class Jornal extends Item implements Serializable {
 	
