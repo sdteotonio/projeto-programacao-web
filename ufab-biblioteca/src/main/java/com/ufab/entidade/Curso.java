@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name = "curso")
 
 /**
- * Classe par objetos do tipo Curso, com valores e métodos para os mesmos.
+ * Classe par objetos do tipo Curso, com valores e metodos para os mesmos.
  * 
  * @author Bianca
  *

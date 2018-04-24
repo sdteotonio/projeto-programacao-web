@@ -13,8 +13,8 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 /***
- * Classe de objetos do tipo "trabalhoConclus�o", que herdam as caracter�sticas
- * de Item. Com seus respectivos valores e m�todos.
+ * Classe de objetos do tipo "trabalhoConclusao", que herdam as caracteristicas
+ * de Item. Com seus respectivos valores e metodos.
  * 
  * @author Bianca
  *

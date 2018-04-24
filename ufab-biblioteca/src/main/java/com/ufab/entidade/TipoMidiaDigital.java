@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity(name = "tipomidiadigital")
 @Table(name = "tipomidiadigital")
 /***
- * Classe e de objetos do tipo "TipoMidiaDigital", com seus respectivos valores e m�todos.
+ * Classe e de objetos do tipo "TipoMidiaDigital", com seus respectivos valores e metodos.
  * @author Bianca
  *
  */

@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 
 /***
- * Classe de objetos do tipo Item, com valores e m�todos dos mesmos.
+ * Classe de objetos do tipo Item, com valores e metodos dos mesmos.
  * 
  * @author Bianca
  *

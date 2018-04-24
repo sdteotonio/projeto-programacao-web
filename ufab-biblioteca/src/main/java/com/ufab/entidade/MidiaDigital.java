@@ -15,8 +15,8 @@ import javax.persistence.Table;
 @Table(name = "midiadigital")
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 /***
- * Classe de objetos do tipo Midia Digital, que herdam as caracter�sticas do
- * Item, com valores e m�todos dos mesmos.
+ * Classe de objetos do tipo Midia Digital, que herdam as caracteristicas do
+ * Item, com valores e metodos dos mesmos.
  * 
  * @author Bianca
  *

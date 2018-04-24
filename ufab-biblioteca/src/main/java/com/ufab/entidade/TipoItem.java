@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @Table(name = "tipoitem")
 
 /***
- * Classe de objetos do tipo "TipoItem", com seus respectivos valores e m�todos.
+ * Classe de objetos do tipo "TipoItem", com seus respectivos valores e metodos.
  * 
  * @author Bianca
  *

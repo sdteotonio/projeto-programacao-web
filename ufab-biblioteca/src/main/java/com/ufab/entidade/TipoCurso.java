@@ -7,6 +7,13 @@ import javax.persistence.Table;
 
 @Entity(name = "tipocurso")
 @Table(name = "tipocurso")
+
+/***
+ * Classe que define o tipo do Curso.
+ * 
+ * @author Bianca
+ *
+ */
 public class TipoCurso {
 
 	@Id

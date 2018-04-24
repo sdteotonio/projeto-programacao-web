@@ -14,8 +14,8 @@ import javax.persistence.Table;
 @PrimaryKeyJoinColumn(name = "FK_Item_cod")
 
 /***
- * Classe de objetos do tipo Revista, que herdam as caracter�sticas do Item,
- * com valores e m�todos dos mesmos.
+ * Classe de objetos do tipo Revista, que herdam as caracteristicas do Item,
+ * com valores e metodos dos mesmos.
  * @author Bianca
  *
  */

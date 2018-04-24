@@ -12,6 +12,16 @@ public class AlocacaoPrimaryKey implements Serializable {
 
 	
 	
+	/***
+	 * Classe que define a chave primária da entidade Alocacao
+	 * 
+	 * @author Bianca
+	 * 
+	 * @param ano   - Ano de ingresso no curso
+	 * @param periodo - Periodo de ingresso
+	 * @param codCurso - Codigo de identificacao do curso
+	 * @param cpfAlu  - Cfp do aluno como chave de identificacao
+	 */
 	
 
 	public AlocacaoPrimaryKey(String ano, String periodo, int codCurso, String cpfAlu) {

@@ -16,7 +16,7 @@ public class AnaisCongresso extends Item implements Serializable {
 
 	/***
 	 * Classe para objetos do tipo Anais de Congresso que herdam de item suas
-	 * caracter�ticas, com valores e m�todos para os mesmos.
+	 * caracteristicas, com valores e metodos para os mesmos.
 	 * 
 	 * @author Bianca
 	 */

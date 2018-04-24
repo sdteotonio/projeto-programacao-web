@@ -7,6 +7,12 @@ import javax.persistence.Table;
 
 @Entity(name="tipotrabalhoconclusao")
 @Table(name="tipotrabalhoconclusao")
+
+/***
+ * Classe que define o tipo do objeto Trabalho de Conclusão.
+ * @author Bianca
+ *
+ */
 public class TipoTrabalhoConclusao {
 	
 	@Id

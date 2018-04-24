@@ -9,6 +9,13 @@ import javax.persistence.Table;
 
 @Entity(name = "alocacao")
 @Table(name = "alocacao")
+
+/***
+ * Classe para alocação de alunos em um curso
+ * 
+ * @author Bianca
+ *
+ */
 public class Alocacao {
 
 	@EmbeddedId

@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 /***
  * Classe de objetos do tipo "tipo Anais de Congresso" , com seus respectivos
- * valores e m�todos.
+ * valores e metodos.
  * 
  * @author Bianca
  *

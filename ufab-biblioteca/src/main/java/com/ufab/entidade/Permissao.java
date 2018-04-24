@@ -14,6 +14,12 @@ import com.ufab.enumerador.TipoPermissao;
 
 @Entity(name = "permissao")
 @Table(name = "permissao")
+
+/***
+ *  Classe que define a permissão para os perfis do sistema
+ * @author Bianca
+ *
+ */
 public class Permissao implements Serializable {
 
 	private static final long serialVersionUID = -5184051873377181177L;

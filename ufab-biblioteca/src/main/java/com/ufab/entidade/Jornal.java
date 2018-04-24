@@ -14,7 +14,7 @@ import javax.persistence.UniqueConstraint;
 
 /***
  *  Classe de objetos do tipo jornal, que herdam do item suas caracter�sticas. 
- *  Com valores e m�todos dos mesmos. 
+ *  Com valores e metodos dos mesmos. 
  * @author Bianca
  *
  */
