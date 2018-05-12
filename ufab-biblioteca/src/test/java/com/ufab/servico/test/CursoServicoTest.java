@@ -8,15 +8,17 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.ufab.config.Config;
 import com.ufab.entidade.Curso;
 import com.ufab.entidade.TipoCurso;
 import com.ufab.excecao.CursoServicoException;
-import com.ufab.servico.inter.ICursoServico;
-import com.ufab.servico.inter.ITipoCursoServico;
+import com.ufab.servico.ICursoServico;
+import com.ufab.servico.ITipoCursoServico;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @ContextConfiguration(classes = { Config.class })
 
 public class CursoServicoTest {

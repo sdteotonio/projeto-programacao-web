@@ -1,5 +1,7 @@
 package com.ufab.entidade;
 
+import java.io.Serializable;
+
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,7 +17,9 @@ import javax.persistence.Table;
 @Entity(name = "alocacao")
 @Table(name = "alocacao")
 
-public class Alocacao {
+public class Alocacao implements Serializable{
+
+	private static final long serialVersionUID = 6339037942589705227L;
 
 	@EmbeddedId
 	private AlocacaoPrimaryKey id;

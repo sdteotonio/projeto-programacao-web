@@ -15,12 +15,12 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
 @Configuration
 @ComponentScan("com.ufab")
-//@EnableWebMvc
 @PropertySource("classpath:application.properties")
 @EnableTransactionManagement
 public class Config {
@@ -37,14 +37,14 @@ public class Config {
 	@Resource
 	private Environment env;
 
-//	@Bean
-//	public UrlBasedViewResolver setupViewResolver() {
-//		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
-//		resolver.setPrefix("/WEB-INF/views/");
-//		resolver.setSuffix(".jsp");
-//		resolver.setViewClass(JstlView.class);
-//		return resolver;
-//	}
+	@Bean
+	public UrlBasedViewResolver setupViewResolver() {
+		UrlBasedViewResolver resolver = new UrlBasedViewResolver();
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+		resolver.setViewClass(JstlView.class);
+		return resolver;
+	}
 
 	@Bean
 	public DataSource dataSource() {
@@ -81,5 +81,7 @@ public class Config {
 		transactionManager.setSessionFactory(sessionFactory().getObject());
 		return transactionManager;
 	}
+
+	
 
 }

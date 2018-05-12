@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.ufab.config.Config;
 import com.ufab.entidade.Item;
@@ -20,10 +21,11 @@ import com.ufab.entidade.TipoCurso;
 import com.ufab.entidade.TipoItem;
 import com.ufab.entidade.TipoMidiaDigital;
 import com.ufab.excecao.ItemServicoException;
-import com.ufab.servico.inter.IItemServico;
-import com.ufab.servico.inter.ITipoItemServico;
+import com.ufab.servico.IItemServico;
+import com.ufab.servico.ITipoItemServico;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @ContextConfiguration(classes = { Config.class })
 public class ItemServicoTest {
 

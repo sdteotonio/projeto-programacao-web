@@ -1,6 +1,7 @@
 package com.ufab.entidade;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,6 +13,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -26,9 +28,6 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Item implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -2445630987238795469L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +42,9 @@ public abstract class Item implements Serializable {
 	@JoinColumn(name = "FK_TipoItem_cod")
 	private TipoItem tipoItem;
 
+	@OneToMany(mappedBy = "item")
+	private List<Locacao> locacoes;
+	
 	public String getTitulo() {
 		return titulo;
 	}

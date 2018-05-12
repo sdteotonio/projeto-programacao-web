@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.datetime.standard.TemporalAccessorParser;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import com.ufab.config.Config;
 import com.ufab.entidade.Alocacao;
@@ -32,13 +33,14 @@ import com.ufab.enumerador.TipoPerfil;
 import com.ufab.enumerador.TipoPermissao;
 import com.ufab.excecao.CursoServicoException;
 import com.ufab.excecao.UsuarioServicoException;
-import com.ufab.servico.inter.IAlocacaoServico;
-import com.ufab.servico.inter.IAlunoServico;
-import com.ufab.servico.inter.ICursoServico;
-import com.ufab.servico.inter.IPerfilServico;
-import com.ufab.servico.inter.IUsuarioServico;
+import com.ufab.servico.IAlocacaoServico;
+import com.ufab.servico.IAlunoServico;
+import com.ufab.servico.ICursoServico;
+import com.ufab.servico.IPerfilServico;
+import com.ufab.servico.IUsuarioServico;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@WebAppConfiguration
 @ContextConfiguration(classes = { Config.class })
 public class UsuarioServicoTest {
 	private static boolean dataLoaded = false;
