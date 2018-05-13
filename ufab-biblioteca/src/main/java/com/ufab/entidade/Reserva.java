@@ -47,4 +47,32 @@ public class Reserva {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "codigo", referencedColumnName = "codigo", nullable = false, updatable = false, insertable = false)
 	private Item item;
+
+	public Date getDt_reserva() {
+		return dt_reserva;
+	}
+
+	public void setDt_reserva(Date dt_reserva) {
+		this.dt_reserva = dt_reserva;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+	
+	
+	
+	
 }

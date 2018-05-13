@@ -29,7 +29,7 @@ public class AlunoServico implements IAlunoServico {
 			throw new AlunoValidacaoException(MensagensEnum.ALUNO_SERVICO_ERRO_AO_VALIDAR_NIVEL.getValor());
 		}
 	}
-
+	//TODO: Reafatorar esse metodo, estranho ter q usar a alocacao(que ja possui um aluno) e o Aluno para receber uma matricula.
 	@Override
 	public String gerarMatricula(Alocacao alocacao, Aluno aluno) {
 		StringBuilder stringBuilder = new StringBuilder();

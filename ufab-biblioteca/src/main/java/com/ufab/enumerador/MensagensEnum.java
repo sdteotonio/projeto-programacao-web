@@ -51,7 +51,21 @@ public enum MensagensEnum {
 	PERMISSAO_SERVICO_USUARIO_NAO_POSSUI_PERMISSAO("O usuário não possui permissao para esta ação."),
 //	Aluno Servico
 	ALUNO_SERVICO_ERRO_AO_VALIDAR_MATRICULA("A matrícula do aluno deve ser informada."), 
-	ALUNO_SERVICO_ERRO_AO_VALIDAR_NIVEL("O nível do aluno deve ser informado.");
+	ALUNO_SERVICO_ERRO_AO_VALIDAR_NIVEL("O nível do aluno deve ser informado."), 
+//	Locacao Servico
+	LOCACAO_SERVICO_ERRO_AO_VALIDAR("Erro ao validar a locacao."),
+	LOCACAO_SERVICO_VALIDACAO_NULL("A locacao nao pode ser vazia."),
+	LOCACAO_SERVICO_VALIDACAO_DT_LOCACAO("A data da locacao deve ser informada."),
+	LOCACAO_SERVICO_VALIDACAO_DT_DEVOLUCAO("A data de devolucao deve ser informada."),
+	LOCACAO_SERVICO_VALIDACAO_ALUNO("O aluno da locacao deve ser informado."),
+	LOCACAO_SERVICO_VALIDACAO_ITEM("O item da locacao deve ser informado."), 
+//	Reserva Servico
+	RESERVA_SERVICO_VALIDACAO_NULL("A reserva nao pode ser vazia."),
+	RESERVA_SERVICO_VALIDACAO_DT_RESERVA("A data da reserva não pode ser vazia."),
+	RESERVA_SERVICO_VALIDACAO_ALUNO("O Aluno para a reserva deve ser informado."),
+	RESERVA_SERVICO_VALIDACAO_ITEM("O Item para reserva deve ser informado."), 
+	RESERVA_SERVICO_ERRO_AO_VALIDAR("Erro ao validar uma reserva.")
+	;
 
 
 	
