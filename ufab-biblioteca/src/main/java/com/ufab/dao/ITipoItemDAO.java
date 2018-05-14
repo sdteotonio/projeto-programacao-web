@@ -1,6 +1,7 @@
 package com.ufab.dao;
 
 import java.util.List;
+
 import com.ufab.entidade.TipoItem;
 
 public interface ITipoItemDAO {

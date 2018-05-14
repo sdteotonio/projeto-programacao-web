@@ -1,13 +1,11 @@
 package com.ufab.servico.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ufab.entidade.Alocacao;
 import com.ufab.entidade.Aluno;
 import com.ufab.enumerador.MensagensEnum;
 import com.ufab.excecao.AlunoValidacaoException;
-import com.ufab.servico.IAlocacaoServico;
 import com.ufab.servico.IAlunoServico;
 /***
  * Servico para tratar de todas as manipulacoes de negocio com o Aluno

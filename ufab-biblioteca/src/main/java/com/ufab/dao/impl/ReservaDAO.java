@@ -15,25 +15,23 @@ public class ReservaDAO implements IReservaDAO {
 
 	@Override
 	public void inserir(Reserva reserva) {
-		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public List<Reserva> recuperarTodos() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void remover(Reserva reserva) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
 	@Override
 	public void atualizar(Reserva reserva) {
-		// TODO Auto-generated method stub
+		
 
 	}
 

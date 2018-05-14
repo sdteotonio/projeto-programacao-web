@@ -11,7 +11,6 @@ import com.ufab.entidade.Usuario;
 import com.ufab.enumerador.MensagensEnum;
 import com.ufab.enumerador.TipoPermissao;
 import com.ufab.excecao.PermissaoServicoException;
-import com.ufab.excecao.UsuarioServicoException;
 import com.ufab.servico.IPermissaoServico;
 /***
  * Servico para tratar de todas as manipulacoes de negocio com a Permissao

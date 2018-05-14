@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.ufab.dao.IUsuarioDAO;
 import com.ufab.entidade.Aluno;
-import com.ufab.entidade.Permissao;
 import com.ufab.entidade.Usuario;
 import com.ufab.enumerador.MensagensEnum;
 import com.ufab.enumerador.TipoPerfil;

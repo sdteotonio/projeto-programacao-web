@@ -7,7 +7,6 @@ import javax.servlet.ServletRegistration.Dynamic;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 public class WebInitializer implements WebApplicationInitializer {
 
