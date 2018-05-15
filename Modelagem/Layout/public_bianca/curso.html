@@ -35,83 +35,64 @@
     <div class="justify-content-center align-items-center align-content-center align-self-center" style="/*height:100vh;*/overflow-y:auto;">
         <div class="container-fluid d-flex justify-content-center container-form">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-inline-flex align-self-end box-app" data-aos="fade-down" data-aos-delay="250">
-                <h1>Usuários -&nbsp;<i class="fa fa-users"></i></h1>
+                <h1>Cursos -&nbsp;<i class="fa fa-list-alt"></i></h1>
             </div>
         </div>
         <hr>
         <div class="container-fluid d-flex justify-content-center container-form">
-            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 box-overlay-app" data-aos="fade-right" data-aos-delay="500" id="form-side">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 box-overlay-app" data-aos="fade-right" data-aos-delay="500">
                 <form class="box-app">
                     <div class="form-group">
-                        <h4 class="text-left">Papel:</h4><select class="form-control"><option value="" selected="">Administrador</option><option value="">Funcionário</option><option value="">Aluno</option></select></div>
-                    <hr>
+                        <h4 class="text-left">Curso:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10" autofocus=""></div>
                     <div class="form-group">
-                        <h4 class="text-left">Tipo de aluno:</h4><select class="form-control"><option value="">Graduação</option><option value="">Mestrado</option><option value="">Doutorado</option><option value="">Especialização</option></select></div>
+                        <h4 class="text-left">Área:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10" autofocus=""></div>
                     <div class="form-group">
-                        <h4 class="text-left">Matrícula:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10"></div>
-                    <div class="form-group">
-                        <h4 class="text-left">Nome da mãe:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10"></div>
-                    <hr>
-                    <hr>
-                    <div class="form-group">
-                        <h4 class="text-left">Usuário:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10"></div>
-                    <hr>
-                    <div class="form-group">
-                        <h4 class="text-left">CPF:</h4><input class="form-control form-control" type="text" required="" maxlength="11" minlength="11" autofocus=""></div>
-                    <div class="form-group">
-                        <h4 class="text-left">Nome:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10"></div>
-                    <div class="form-group">
-                        <h4 class="text-left">Senha:</h4><input class="form-control" type="password"></div>
-                    <div class="form-group">
-                        <h4 class="text-left">Data de nascimento:</h4><input class="form-control form-control" type="text" required="" placeholder="##/##/###" maxlength="10" minlength="10"></div>
-                    <div class="form-group">
-                        <h4 class="text-left">Endereço:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10"></div>
-                    <div class="form-group">
-                        <h4 class="text-left">Telefone celular:</h4><input class="form-control form-control" type="text" required="" placeholder="(###) # ####-####" maxlength="15" minlength="14"></div>
-                    <div class="form-group">
-                        <h4 class="text-left">Naturalidade:</h4><input class="form-control form-control" type="text" required="" maxlength="50" minlength="10"></div>
-                    <div class="form-group">
-                        <h4 class="text-left">RG:</h4><input class="form-control form-control" type="text" required="" maxlength="50" minlength="10"></div>
+                        <h4 class="text-left">Tipo de Curso:</h4><select class="form-control"><option value="">Graduação</option><option value="">Pós-Graduação</option></select></div>
                     <div class="form-row">
                         <div class="col"><button class="btn btn-success btn-block" type="button">Inserir</button></div>
                         <div class="col"><button class="btn btn-primary btn-block" type="button">Atualizar</button></div>
                     </div>
                 </form>
             </div>
-            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250" id="table-side">
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250">
                 <div class="table-responsive">
                     <table class="table table-striped table-hover table-sm">
                         <thead>
                             <tr>
-                                <th>CPF</th>
-                                <th>Nome</th>
-                                <th>Papel</th>
+                                <th>Curso</th>
+                                <th>Área</th>
                                 <th>Ação</th>
                             </tr>
                         </thead>
                         <tbody class="justify-content-center align-items-center align-content-center">
                             <tr>
-                                <td>117.765.994-54</td>
-                                <td>Sérgio Davi</td>
-                                <td>Adminstrador</td>
+                                <td>Ciência da Computação</td>
+                                <td>Exatas</td>
                                 <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
                             </tr>
                             <tr>
-                                <td>117.765.994-54</td>
-                                <td>Sérgio Davi</td>
-                                <td>Adminstrador</td>
+                                <td>Administração</td>
+                                <td>Humanas</td>
                                 <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
                             </tr>
                             <tr>
-                                <td>117.765.994-54</td>
-                                <td>Sérgio Davi</td>
-                                <td>Adminstrador</td>
+                                <td>Engenharia Elétrica</td>
+                                <td>Exatas</td>
                                 <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
                             </tr>
                             <tr>
-                                <td>117.765.994-54</td>
-                                <td>Sérgio Davi</td>
-                                <td>Adminstrador</td>
+                                <td>Fisioterapia</td>
+                                <td>Saúde</td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Medicina</td>
+                                <td>Saúde</td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td>Engenharia Civil</td>
+                                <td>Exatas</td>
                                 <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
                             </tr>
                         </tbody>
