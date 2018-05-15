@@ -58,3 +58,22 @@
   margin-bottom:0;
 }
 
+.icon-custom {
+  font-size:181px;
+  color:#7ab73d;
+}
+
+.btn-dash {
+  display:block;
+  display:block;
+  width:100%;
+}
+
+.btn:not(:disabled):not(.disabled) {
+  margin-top:10%;
+}
+
+.form-control.meu-input {
+  width:40%;
+}
+
