@@ -1,4 +1,4 @@
-package com.ufab.config;
+package com.ufab.seguranca;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

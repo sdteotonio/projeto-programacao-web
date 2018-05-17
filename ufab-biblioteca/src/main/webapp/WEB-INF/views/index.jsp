@@ -56,12 +56,12 @@
 	<a class="btn btn-primary align-self-end btn-index" type="button"
 		data-aos="fade-right" data-aos-duration="1000"
 		href="<c:url value='/login' />" data-aos-offset="10"
-		style="margin-right: 0px; font-size: 21px; color: #fff;">Acessar
+		style="margin-right: 0px; margin-top:-5%; font-size: 21px; color: #fff;">Acessar
 		painel&nbsp;<i class="fa fa-sign-in"></i>
 	</a>
 	<div class="footer-basic">
 		<footer>
-			<p class="copyright">UEPB © 2018</p>
+			<p class="copyright">UEPB @ 2018</p>
 		</footer>
 	</div>
 	<script src="assets/js/jquery.min.js"></script>

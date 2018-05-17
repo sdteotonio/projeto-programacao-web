@@ -6,7 +6,9 @@ package com.ufab.enumerador;
  *
  */
 public enum MensagensEnum {
-//	Item Servico
+	// Geral 
+	USUARIO_NAO_EXISTE("Usuário não existe."),
+	//	Item Servico
 	ITEM_SERVICO_O_ITEM_NAO_PODE_SER_NULO("O Item nao pode ser Nulo."), 
 	ITEM_SERVICO_ERRO_AO_VALIDAR_ITEM("Erro ao validar Item."), 
 	ITEM_SERVICO_O_NOME_PODE_NAO_SER_NULO("O Item deve conter um nome."),
@@ -64,7 +66,7 @@ public enum MensagensEnum {
 	RESERVA_SERVICO_VALIDACAO_DT_RESERVA("A data da reserva não pode ser vazia."),
 	RESERVA_SERVICO_VALIDACAO_ALUNO("O Aluno para a reserva deve ser informado."),
 	RESERVA_SERVICO_VALIDACAO_ITEM("O Item para reserva deve ser informado."), 
-	RESERVA_SERVICO_ERRO_AO_VALIDAR("Erro ao validar uma reserva.")
+	RESERVA_SERVICO_ERRO_AO_VALIDAR("Erro ao validar uma reserva."), 
 	;
 
 

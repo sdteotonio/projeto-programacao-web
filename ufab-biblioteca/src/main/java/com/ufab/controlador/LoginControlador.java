@@ -15,4 +15,5 @@ public class LoginControlador {
 		m.setViewName("login");
 		return m;
 	}
+
 }

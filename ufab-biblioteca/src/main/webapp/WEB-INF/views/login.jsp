@@ -24,29 +24,23 @@
 		<form method="post" action="login" data-aos="fade-up"
 			data-aos-duration="1000">
 			<h2 class="sr-only">Login Form</h2>
-			<div class="illustration">
-				<i class="fa fa-book"></i>
-				<div
-					class="d-flex align-items-center align-content-center align-self-center div-name-ufab">
-					<h2 class="d-inline-flex">
-						<em>Biblioteca</em>
-					</h2>
-					<h1 class="d-inline-flex">
-						<strong>&nbsp;UFAB</strong><br>
-					</h1>
-				</div>
-			</div>
+			<div class="illustration"><i class="fa fa-book icon-custom"></i>
+                <div class="d-flex align-items-center align-content-center align-self-center div-name-ufab">
+                    <h2 class="d-inline-flex"><em>Biblioteca</em></h2>
+                    <h1 class="d-inline-flex"><strong>&nbsp;UFAB</strong><br></h1>
+                </div>
+            </div>
 			<c:if test="${param.error}">
-				<div class="alert alert-danger" role="alert">Usuário ou senha
+				<div class="alert alert-danger" role="alert">Usuario ou senha
 					incorreto.</div>
 			</c:if>
 			<div class="form-group">
 				<input class="form-control" type="text" name="username"
-					placeholder="Usuário">
+					placeholder="UsuÃ¡rio" value="11772699454">
 			</div>
 			<div class="form-group">
 				<input class="form-control" type="password" name="password"
-					placeholder="Senha">
+					placeholder="Senha" value="teste">
 			</div>
 			<div class="form-group">
 				<button class="btn btn-primary btn-block" type="submit">Entrar</button>
