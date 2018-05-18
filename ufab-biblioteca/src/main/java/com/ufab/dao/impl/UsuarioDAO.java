@@ -23,7 +23,7 @@ public class UsuarioDAO extends DAO implements Serializable, IUsuarioDAO {
 
 	@Override
 	public List<Usuario> recuperarTodos() {
-		return getCurrentSession().createQuery("FORM usuario").list();
+		return getCurrentSession().createQuery("FROM usuario").list();
 	}
 
 	@Override
