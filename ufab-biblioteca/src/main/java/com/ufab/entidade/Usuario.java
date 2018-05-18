@@ -21,7 +21,7 @@ import javax.persistence.Table;
 @Entity(name = "usuario")
 @Table(name = "usuario")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Usuario implements Serializable {
+public class Usuario implements Serializable {
 	private static final long serialVersionUID = -2545934978443985246L;
 
 	@Id

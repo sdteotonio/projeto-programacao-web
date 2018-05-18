@@ -45,7 +45,7 @@
         
         <div class="container-fluid d-flex justify-content-center container-form">
             <div id="form-side"></div>
-            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250" id="table-side">
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="margin-bottom: 2%;">
                      <h4 class="text-left">Adicionar usuário:</h4>
                     <select class="form-control">
@@ -59,27 +59,8 @@
                         </c:forEach>
                     </select>
                 </div>
-                <div class="table-responsive">
-                    <table class="table table-striped table-hover table-sm">
-                        <thead>
-                            <tr>
-                                <th>CPF</th>
-                                <th>Nome</th>
-                                <th>Papel</th>
-                                <th>Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody class="justify-content-center align-items-center align-content-center">
-                        <c:forEach var="usuAtual" items="${usuarios}">
-                            <tr>
-                                <td>${usuAtual.getCpf()}</td>
-                                <td>${usuAtual.getNomeCompleto()}</td>
-                                <td>${usuAtual.getPerfil().getTipoPerfil().toString()}</td>
-                                <td class="d-inline float-left"><button onClick="editarUsuario('${usuAtual.getCpf()}')" class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
-                            </tr>
-                             </c:forEach>
-                        </tbody>
-                    </table>
+                <div class="table-responsive"  id="table-side">
+                    
                 </div>
             </div>
         </div>
@@ -92,9 +73,9 @@
     <script>
         $( document ).ready(function() {
             window.scrollTo(0,0);
+            atualizarTabela();
         });
-
-        function formPerso(tipo) {
+function formPerso(tipo) {
              $.get( "usuario/form?tipoForm="+tipo, function( data ) {
                 $("#form-side").replaceWith( data );
             });
@@ -104,6 +85,30 @@
             console.log("Editar Usuario",cpf);
             
         }
+
+        function atualizarTabela() {
+             $.get( "usuario/tabela", function( data ) {
+                $("#table-side").html( data );
+            });
+        }
+
+        function inserirUsuario(tipoForm){
+            var form = $("#form-usuario");
+            var dados = $("#form-usuario").serialize();
+            console.log(form.action);
+            
+            $.ajax({
+                url: "usuario?tipoForm="+tipoForm,
+                method: "POST",
+                data: dados 
+            }).done(function(retorno){
+            
+                form.trigger("reset");
+            }).fail(function(retorno){
+            
+            });  
+        }
+
     </script>
 
 </html>
