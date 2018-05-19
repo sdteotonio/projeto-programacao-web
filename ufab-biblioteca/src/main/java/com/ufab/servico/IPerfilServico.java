@@ -3,6 +3,7 @@ package com.ufab.servico;
 import java.util.List;
 
 import com.ufab.entidade.Perfil;
+import com.ufab.enumerador.TipoPerfil;
 
 public interface IPerfilServico {
 	/**
@@ -19,5 +20,6 @@ public interface IPerfilServico {
 	 * @return Uma lista com todas os perfis cadastrados no sistema.
 	 */
 	public List<Perfil> recuperarTodos();
+
 
 }
