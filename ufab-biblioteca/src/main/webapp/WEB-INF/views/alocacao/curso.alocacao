@@ -1,0 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+<%@ page isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<table class="table table-striped table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Matricula</th>
+                            </tr>
+                        </thead>
+                        <tbody class="justify-content-center align-items-center align-content-center">
+                        <c:forEach var="alocAtual" items="${alocacoes}">
+                            <tr>
+                                <td>${alocAtual.getAluno().getNome()}</td>
+                                <td>${alocAtual.getAluno.getMatricula()}</td>
+                            </tr>
+                             </c:forEach>
+                        </tbody>
+</table>
