@@ -92,5 +92,9 @@ public class Curso implements Serializable {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+	
+	public List<Alocacao> getAlocacoes() {
+		return alocacoes;
+	}
 
 }
