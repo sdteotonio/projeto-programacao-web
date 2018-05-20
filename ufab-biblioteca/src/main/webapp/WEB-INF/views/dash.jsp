@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page isELIgnored="false"%>
- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -52,7 +51,7 @@
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-list-alt icon"></i>
-                        <h3 class="name">Cursos</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
+                        <h3 class="name">Cursos</h3><a class="btn btn-success btn-block btn-dash" href="<c:url value='/curso'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-sitemap icon"></i>

@@ -77,13 +77,6 @@ public class Curso implements Serializable {
 		this.area = area;
 	}
 
-	// public List<Aluno> getAlunos() {
-	// return alunos;
-	// }
-	//
-	// public void setAlunos(List<Aluno> alunos) {
-	// this.alunos = alunos;
-	// }
 
 	public String getTag() {
 		return tag;

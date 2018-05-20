@@ -18,13 +18,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ufab.entidade.Administrador;
+import com.ufab.entidade.Alocacao;
+import com.ufab.entidade.AlocacaoPrimaryKey;
 import com.ufab.entidade.Aluno;
+import com.ufab.entidade.Curso;
 import com.ufab.entidade.Funcionario;
 import com.ufab.entidade.Usuario;
 import com.ufab.enumerador.MensagensEnum;
+import com.ufab.enumerador.TipoNivelAluno;
 import com.ufab.enumerador.TipoPerfil;
+import com.ufab.excecao.CursoServicoException;
 import com.ufab.excecao.UfabUtilidadeException;
 import com.ufab.excecao.UsuarioServicoException;
+import com.ufab.servico.IAlocacaoServico;
+import com.ufab.servico.IAlunoServico;
 import com.ufab.servico.ICursoServico;
 import com.ufab.servico.IPerfilServico;
 import com.ufab.servico.IUsuarioServico;
@@ -41,6 +48,12 @@ public class UsuarioControlador {
 
 	@Autowired
 	private ICursoServico cursoServico;
+
+	@Autowired
+	private IAlunoServico alunoServico;
+
+	@Autowired
+	private IAlocacaoServico alocacaoServico;
 
 	private Logger LOGGER = Logger.getLogger(UsuarioControlador.class);
 
@@ -61,6 +74,7 @@ public class UsuarioControlador {
 		mv.addObject("tipoForm", tipoForm);
 		if (tipoForm.equals(TipoPerfil.ALUNO.name())) {
 			mv.addObject("cursoAluno", cursoServico.recuperarTodos());
+			mv.addObject("selectNivelAluno", TipoNivelAluno.values());
 		}
 
 		if (cpfUsu != null) {
@@ -89,21 +103,44 @@ public class UsuarioControlador {
 	@RequestMapping(value = "/usuario/inserir", method = RequestMethod.POST, params = { "tipoForm" })
 	public void inserirUsuario(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(required = true, value = "tipoForm") String tipoForm) throws IOException {
-		Usuario nUsuario = null;
-		if (tipoForm.equals(TipoPerfil.ADMINISTRADOR.toString())) {
-			nUsuario = new Administrador();
-			nUsuario.setPerfil(perfilServico.recuperarPorTipo(TipoPerfil.ADMINISTRADOR));
-		} else if (tipoForm.equals(TipoPerfil.ALUNO.toString())) {
-			nUsuario = new Aluno();
-			nUsuario.setPerfil(perfilServico.recuperarPorTipo(TipoPerfil.ALUNO));
-			((Aluno) nUsuario).setNomeMae(request.getParameter("nomeDaMae"));
-		}
 		try {
-			prepararObjetoUsuario(nUsuario, request);
-			usuarioServico.inserir(nUsuario);
-		} catch (UfabUtilidadeException e) {
-			LOGGER.error(MensagensEnum.CONTROLADOR_ERRO_RECUPERA_PARAMETRO.getValor(), e);
-			response.setStatus(HttpStatus.BAD_REQUEST.value());
+			// Precisamos refatorar esse metodo, está um lixo.
+			if (tipoForm.equals(TipoPerfil.ADMINISTRADOR.toString())) {
+				Usuario nUsuario = null;
+				nUsuario = new Administrador();
+				nUsuario.setPerfil(perfilServico.recuperarPorTipo(TipoPerfil.ADMINISTRADOR));
+				usuarioServico.inserir(nUsuario);
+			} else if (tipoForm.equals(TipoPerfil.ALUNO.toString())) {
+				Alocacao al = new Alocacao();
+				Aluno nAluno = new Aluno();
+				nAluno.setPerfil(perfilServico.recuperarPorTipo(TipoPerfil.ALUNO));
+				nAluno.setNomeMae(request.getParameter("nomeDaMae"));
+				nAluno.setTipoNivelAluno(TipoNivelAluno.valueOf(request.getParameter("tipoAluno")));
+				try {
+					prepararObjetoUsuario(nAluno, request);
+
+					al.setAluno(nAluno);
+
+					Curso c = cursoServico.recuperarPorCod(Integer.parseInt(request.getParameter("cursoAluno")));
+					al.setCurso(c);
+
+					String ano = request.getParameter("ano");
+					String periodo = request.getParameter("periodo");
+					al.setId(new AlocacaoPrimaryKey(ano, periodo, c.getCod(), nAluno.getCpf()));
+					nAluno.setMatricula(alunoServico.gerarMatricula(al));
+					usuarioServico.inserir(nAluno);
+					alocacaoServico.inserir(al);
+				} catch (NumberFormatException e) {
+					LOGGER.error(MensagensEnum.CONTROLADOR_ERRO_DESCONHECIDO.getValor(), e);
+					response.setStatus(HttpStatus.BAD_REQUEST.value());
+				} catch (CursoServicoException e) {
+					LOGGER.error(MensagensEnum.CONTROLADOR_ERRO_RECUPERAR_PARAMETRO.getValor(), e);
+					response.setStatus(HttpStatus.BAD_REQUEST.value());
+				} catch (UfabUtilidadeException e) {
+					LOGGER.error(MensagensEnum.CONTROLADOR_ERRO_RECUPERAR_PARAMETRO.getValor(), e);
+					response.setStatus(HttpStatus.BAD_REQUEST.value());
+				}
+			}
 		} catch (UsuarioServicoException e) {
 			LOGGER.error(MensagensEnum.CONTROLADOR_ERRO_AO_INSERIR.getValor(), e);
 			response.setStatus(HttpStatus.BAD_REQUEST.value());
@@ -125,6 +162,3 @@ public class UsuarioControlador {
 
 	}
 }
-
-
-

@@ -57,4 +57,5 @@ public interface ICursoServico {
 	 *             Lanca excecao caso ocorra um erro na validacao do Curso
 	 */
 	public void atualizar(Curso curso) throws CursoServicoException;
+
 }

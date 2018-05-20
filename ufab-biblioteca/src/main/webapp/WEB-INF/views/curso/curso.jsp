@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
+
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca UFAB</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -17,7 +20,6 @@
 </head>
 
 <body>
-    <%-- NavBar --%>
     <div>
         <nav class="navbar navbar-dark navbar-expand-md navigation-clean" style="background-color:#7ab73d;color:rgb(255,255,255);">
             <div class="container"><a class="navbar-brand" href="<c:url value='/dash'/>"><i class="fa fa-book"></i></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -25,42 +27,26 @@
                     class="collapse navbar-collapse" id="navcol-1">
                     <p class="navbar-text">Biblioteca UFAB</p>
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">${usuarioAuth.getNomeCompleto()} - ${usuarioAuth.getPerfil().getTipoPerfil().toString()}</a>
-                            <div class="dropdown-menu justify-content-center align-content-center" role="menu">
-                            <a class="dropdown-item text-capitalize justify-content-center align-items-center align-self-center" role="presentation" href="<c:url value='/logout'/>">Sair</a></div>
+                        <li class="dropdown"><a class="dropdown-toggle nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false" href="#">Sérgio Davi - Administrador</a>
+                            <div class="dropdown-menu justify-content-center align-content-center" role="menu"><a class="dropdown-item text-capitalize justify-content-center align-items-center align-self-center" role="presentation" href="#">Sair</a></div>
                         </li>
                     </ul>
             </div>
     </div>
     </nav>
     </div>
-    <%-- Fim NavBar --%>
     <div class="justify-content-center align-items-center align-content-center align-self-center" style="/*height:100vh;*/overflow-y:auto;">
         <div class="container-fluid d-flex justify-content-center container-form">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-inline-flex align-self-end box-app" data-aos="fade-down" data-aos-delay="250">
-                <h1>Usuários -&nbsp;<i class="fa fa-users"></i></h1>
+                <h1>Cursos -&nbsp;<i class="fa fa-list-alt"></i></h1>
             </div>
         </div>
         <hr>
-        
         <div class="container-fluid d-flex justify-content-center container-form">
             <div id="form-side"></div>
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250">
-                <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="margin-bottom: 2%;">
-                     <h4 class="text-left">Adicionar usuário:</h4>
-                    <select class="form-control" onchange="formPerso(this.value);">
-                            <option value="" selected>
-                            Selecione
-                            </option>
-                        <c:forEach var="tipoUsu" items="${selectTipoUsu}">
-                            <option value="${tipoUsu.getTipoPerfil().name()}">
-                                    <c:out value="${tipoUsu.getTipoPerfil().name()}" />
-                            </option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <div class="table-responsive"  id="table-side">
-                    
+                <div class="table-responsive" id="table-side">
+                   
                 </div>
             </div>
         </div>
@@ -70,46 +56,61 @@
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
 </body>
-    <script>
+<script>
         $( document ).ready(function() {
             window.scrollTo(0,0);
             atualizarTabela();
+            formPerso(null);
         });
-        function formPerso(tipoForm) {
-            if(tipoForm != "" && tipoForm != null){
-                $.get( "usuario/form?tipoForm="+tipoForm, function( data ) {
+
+        function formPerso(cod) {
+            let url = "curso/form";
+            if(cod){
+                url += "?cod="+cod;
+            }
+                $.get( url, function( data ) {
                     $("#form-side").replaceWith( data );
                 });
-            }
         }
 
-        function editarUsuario(cpfUsu,tipoForm) {
-            console.log("Editar Usuario",cpfUsu);
-             $.get( "usuario/form?tipoForm="+tipoForm+"&cpfUsu="+cpfUsu, function( data ) {
+        function editarCurso(cod) {
+             $.get( "curso/form?cod="+cod, function( data ) {
                     $("#form-side").replaceWith( data );
-                });
+            });
+        }
+
+        function atualizarCurso(cod) {
+            var form = $("#form-curso");
+            let url ="curso/atualizar?cod="+cod;
+            $.ajax({
+            url: url,
+            type: 'POST',
+            data: form.serialize(),
+            success: function(response) {
+                    atualizarTabela();
+                    alert( "Curso atualizado.");
+                }
+            });
         }
 
         function atualizarTabela() {
-             $.get( "usuario/tabela", function( data ) {
+             $.get( "curso/tabela", function( data ) {
                 $("#table-side").html( data );
             });
         }
 
-        function inserirUsuario(tipoForm){
-            var form = $("#form-usuario");
-            var dados = $("#form-usuario").serialize(); 
-            $.post( "usuario/inserir?tipoForm="+tipoForm, dados, function(){
-                console.log("Teste");
+        function inserirCurso(){
+            var form = $("#form-curso");
+            let url ="curso/inserir";
+            $.post( url, form.serialize(), function(){
                 form.trigger("reset");
                 atualizarTabela();
-                alert( "Usuário inserido.");
+                alert( "Curso inserido.");
             }
             ).fail(function() {
-                alert( "Erro ao inserir usuário" );
+                alert( "Erro ao inserir curso." );
             })
         }
 
     </script>
-
 </html>

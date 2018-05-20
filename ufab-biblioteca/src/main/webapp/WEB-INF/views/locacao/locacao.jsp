@@ -38,7 +38,7 @@
     <div class="justify-content-center align-items-center align-content-center align-self-center" style="/*height:100vh;*/overflow-y:auto;">
         <div class="container-fluid d-flex justify-content-center container-form">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-inline-flex align-self-end box-app" data-aos="fade-down" data-aos-delay="250">
-                <h1>Usuários -&nbsp;<i class="fa fa-users"></i></h1>
+                <h1>Empréstimos -&nbsp;<i class="fa fa-handshake-o icon"></i></h1>
             </div>
         </div>
         <hr>

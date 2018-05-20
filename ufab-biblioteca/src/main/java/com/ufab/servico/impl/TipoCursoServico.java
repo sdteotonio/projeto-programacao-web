@@ -32,4 +32,10 @@ public class TipoCursoServico implements ITipoCursoServico {
 	public List<TipoCurso> listarTodos() {
 		return iTipoCursoDAO.listarTodos();
 	}
+
+	@Override
+	public TipoCurso recuperarPorCodigo(int tipoCursoCodigo) {
+		
+		return iTipoCursoDAO.recuperarPorCodigo(tipoCursoCodigo);
+	}
 }
