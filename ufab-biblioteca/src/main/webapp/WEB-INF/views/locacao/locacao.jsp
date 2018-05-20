@@ -1,11 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page isELIgnored="false"%>
- <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca UFAB</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -38,33 +35,19 @@
     </nav>
     </div>
     <%-- Fim NavBar --%>
-    <div class="features-boxed">
-        <div class="container">
-            <div class="row justify-content-center features">
-              
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-users icon"></i>
-                        <h3 class="name">Usuários</h3><a class="btn btn-success btn-block btn-dash" href="<c:url value='/usuario'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-folder-open icon"></i>
-                        <h3 class="name">Itens</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-list-alt icon"></i>
-                        <h3 class="name">Cursos</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-sitemap icon"></i>
-                        <h3 class="name">Alocação</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-handshake-o icon"></i>
-                        <h3 class="name">Empréstimos</h3><a class="btn btn-success btn-block btn-dash" href= "<c:url value='/locacao'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-bar-chart-o icon"></i>
-                        <h3 class="name">Relatórios</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
+    <div class="justify-content-center align-items-center align-content-center align-self-center" style="/*height:100vh;*/overflow-y:auto;">
+        <div class="container-fluid d-flex justify-content-center container-form">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 d-inline-flex align-self-end box-app" data-aos="fade-down" data-aos-delay="250">
+                <h1>Usuários -&nbsp;<i class="fa fa-users"></i></h1>
+            </div>
+        </div>
+        <hr>
+        
+        <div class="container-fluid d-flex justify-content-center container-form">
+            <div id="form-side"></div>
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250">
+                <div class="table-responsive"  id="table-side">
+                    
                 </div>
             </div>
         </div>
@@ -74,5 +57,53 @@
     <script src="assets/js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
 </body>
+    <script>
+        $( document ).ready(function() {
+            window.scrollTo(0,0);
+            atualizarTabela();
+        });
+        
+        function formPerso(tipo) {
+            $.get( "locacao/form?tipoForm="+tipo, function( data ) {
+               $("#form-side").replaceWith( data );
+           });
+       }
+
+
+        function editarLocacao(cod_locacao) {
+            console.log("Editar Locacao",cod_locacao);
+            
+        }
+
+        function atualizarTabela() {
+             $.get( "locacao/tabela", function( data ) {
+                $("#table-side").html( data );
+            });
+        }
+        
+        function devolver(cod_locacao) {
+            $.get( "locacao/devolver?cod="+cod_locacao, function( data ) {
+          	atualizarTabela();
+           });
+       }
+
+        function locar(tipoForm){
+            var form = $("#form-locacao");
+            var dados = $("#form-locacao").serialize();
+            console.log(form.action);
+            
+            $.ajax({
+                url: "locacao?tipoForm="+tipoForm,
+                method: "POST",
+                data: dados 
+            }).done(function(retorno){
+            
+                form.trigger("reset");
+            }).fail(function(retorno){
+            
+            });  
+        }
+
+    </script>
 
 </html>

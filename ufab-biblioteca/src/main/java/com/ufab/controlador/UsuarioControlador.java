@@ -124,5 +124,7 @@ public class UsuarioControlador {
 		nUsuario.setDataNascimento(UfabUtilidade.gerarDataPorString(request.getParameter("dtNascimento")));
 
 	}
-
 }
+
+
+
