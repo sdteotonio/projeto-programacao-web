@@ -48,13 +48,13 @@
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250">
                 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4" style="margin-bottom: 2%;">
                      <h4 class="text-left">Adicionar usuário:</h4>
-                    <select class="form-control">
-                            <option selected>
+                    <select class="form-control" onchange="formPerso(this.value);">
+                            <option value="" selected>
                             Selecione
                             </option>
                         <c:forEach var="tipoUsu" items="${selectTipoUsu}">
-                            <option onClick="formPerso('${tipoUsu.getTipoPerfil().name()}');">
-                                <c:out value="${tipoUsu.getTipoPerfil().name()}" />
+                            <option value="${tipoUsu.getTipoPerfil().name()}">
+                                    <c:out value="${tipoUsu.getTipoPerfil().name()}" />
                             </option>
                         </c:forEach>
                     </select>
@@ -75,15 +75,19 @@
             window.scrollTo(0,0);
             atualizarTabela();
         });
-function formPerso(tipo) {
-             $.get( "usuario/form?tipoForm="+tipo, function( data ) {
-                $("#form-side").replaceWith( data );
-            });
+        function formPerso(tipoForm) {
+            if(tipoForm != "" && tipoForm != null){
+                $.get( "usuario/form?tipoForm="+tipoForm, function( data ) {
+                    $("#form-side").replaceWith( data );
+                });
+            }
         }
 
-        function editarUsuario(cpf) {
-            console.log("Editar Usuario",cpf);
-            
+        function editarUsuario(cpfUsu,tipoForm) {
+            console.log("Editar Usuario",cpfUsu);
+             $.get( "usuario/form?tipoForm="+tipoForm+"&cpfUsu="+cpfUsu, function( data ) {
+                    $("#form-side").replaceWith( data );
+                });
         }
 
         function atualizarTabela() {
@@ -94,19 +98,16 @@ function formPerso(tipo) {
 
         function inserirUsuario(tipoForm){
             var form = $("#form-usuario");
-            var dados = $("#form-usuario").serialize();
-            console.log(form.action);
-            
-            $.ajax({
-                url: "usuario?tipoForm="+tipoForm,
-                method: "POST",
-                data: dados 
-            }).done(function(retorno){
-            
+            var dados = $("#form-usuario").serialize(); 
+            $.post( "usuario/inserir?tipoForm="+tipoForm, dados, function(){
+                console.log("Teste");
                 form.trigger("reset");
-            }).fail(function(retorno){
-            
-            });  
+                atualizarTabela();
+                alert( "Usuário inserido.");
+            }
+            ).fail(function() {
+                alert( "Erro ao inserir usuário" );
+            })
         }
 
     </script>

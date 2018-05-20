@@ -20,4 +20,14 @@ public class Funcionario extends Usuario {
 
 	@Column(name = "nome_usuario", unique = true)
 	private String nomeUsuario;
+
+	public String getNomeUsuario() {
+		return nomeUsuario;
+	}
+
+	public void setNomeUsuario(String nomeUsuario) {
+		this.nomeUsuario = nomeUsuario;
+	}
+	
+	
 }

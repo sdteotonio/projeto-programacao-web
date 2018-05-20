@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 box-overlay-app" data-aos="fade-right" data-aos-delay="500" id="form-side">
-<form class="box-app" action="usuario" id="form-usuario">
+<form class="box-app" action="usuario/inserir" id="form-usuario">
 
     <%-- Formulario para aluno --%>
 	<c:if test="${tipoForm == 'ALUNO'}">
@@ -23,6 +23,19 @@
         <h4 class="text-left">Nome da mãe:</h4>
         <input name="nomeDaMae" class="form-control form-control" type="text" required="" maxlength="100" minlength="10">
     </div>
+    <div class="form-group">
+     <h4 class="text-left">Curso do aluno:</h4>
+        <select class="form-control" required name="cursoAluno">
+                <option value="" selected>
+                    Selecione
+                </option>
+                <c:forEach var="curso" items="${selectCurso}">
+                <option value="${curso.getCod()}">
+                    <c:out value="${curso.getNome()}" />
+                </option>
+                </c:forEach>
+        </select>
+    </div>
     <hr>
 	</c:if>
 
@@ -30,7 +43,7 @@
     <c:if test="${tipoForm == 'FUNCIONARIO'}">
     <div class="form-group">
         <h4 class="text-left">Usuário:</h4>
-        <input name="usuario" class="form-control form-control" type="text" required="" maxlength="100" minlength="10">
+        <input name="usuario" value="${usuario.getNomeUsuario()}"  class="form-control form-control" type="text" required="" maxlength="100" minlength="10">
     </div>
     <hr>
     </c:if>
@@ -38,7 +51,7 @@
     <%-- Form para todos --%>
     <div class="form-group">
         <h4 class="text-left">CPF:</h4>
-        <input class="form-control form-control" name="cpf" type="text" required="" maxlength="11" minlength="11" autofocus="">
+        <input class="form-control form-control" value="${usuario.getCpf()}" name="cpf" type="text" required="" maxlength="11" minlength="11" autofocus="">
     </div>
     <div class="form-group">
         <h4 class="text-left">Nome:</h4>
@@ -72,11 +85,15 @@
     </div>
 </form>
     <div class="form-row">
-        <div class="col">
-            <button class="btn btn-success btn-block" onClick="inserirUsuario(${tipoForm})">Inserir</button>
-        </div>
-        <div class="col">
-            <button class="btn btn-primary btn-block">Atualizar</button>
-        </div>
+        <c:if test="${usuario.getCpf() == null}">
+            <div class="col">
+                <button class="btn btn-success btn-block" onClick="inserirUsuario('${tipoForm}')">Inserir</button>
+            </div>        
+        </c:if>
+        <c:if test="${usuario.getCpf() != null}">
+            <div class="col">
+                <button class="btn btn-primary btn-block">Atualizar</button>
+            </div>
+        </c:if>
     </div>
 </div>

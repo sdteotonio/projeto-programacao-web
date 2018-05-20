@@ -65,7 +65,7 @@ public class UsuarioServicoTest {
 		if (!dataLoaded) {
 			// Perfil do adm
 			Perfil perfil = new Perfil();
-			perfil.setTipoPerfilNome(TipoPerfil.ADMINSTRADOR);
+			perfil.setTipoPerfilNome(TipoPerfil.ADMINISTRADOR);
 
 			List<Permissao> permissoesAdm = new ArrayList<Permissao>();
 			Permissao p1_adm = new Permissao();
@@ -566,13 +566,13 @@ public class UsuarioServicoTest {
 				throw new Exception();
 			}
 			for (Perfil perfil : listaPerfil) {
-				if (perfil.getTipoPerfil().equals(TipoPerfil.ADMINSTRADOR)) {
+				if (perfil.getTipoPerfil().equals(TipoPerfil.ADMINISTRADOR)) {
 					p = perfil;
 				}
 			}
 		} catch (Exception e) {
 			p = new Perfil();
-			p.setTipoPerfilNome(TipoPerfil.ADMINSTRADOR);
+			p.setTipoPerfilNome(TipoPerfil.ADMINISTRADOR);
 			List<Permissao> permissoesAdm = new ArrayList<Permissao>();
 
 			Permissao p1_adm = new Permissao();

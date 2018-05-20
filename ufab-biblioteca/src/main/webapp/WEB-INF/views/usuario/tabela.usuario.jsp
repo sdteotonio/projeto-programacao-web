@@ -16,7 +16,7 @@
                                 <td>${usuAtual.getCpf()}</td>
                                 <td>${usuAtual.getNomeCompleto()}</td>
                                 <td>${usuAtual.getPerfil().getTipoPerfil().toString()}</td>
-                                <td class="d-inline float-left"><button onClick="editarUsuario('${usuAtual.getCpf()}')" class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                                <td class="d-inline float-left"><button onClick="editarUsuario('${usuAtual.getCpf()}','${usuAtual.getPerfil().getTipoPerfil().toString()}')" class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
                             </tr>
                              </c:forEach>
                         </tbody>
