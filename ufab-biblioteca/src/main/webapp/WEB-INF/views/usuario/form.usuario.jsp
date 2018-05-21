@@ -71,7 +71,7 @@
     <%-- Form para todos --%>
     <div class="form-group">
         <h4 class="text-left">CPF:</h4>
-        <input class="form-control form-control" value="${usuario.getCpf()}" name="cpf" type="text" required="" maxlength="11" minlength="11" autofocus="">
+        <input class="form-control form-control" onkeypress="return apenasNmr(event);" value="${usuario.getCpf()}" name="cpf" type="text" required="" maxlength="11" minlength="11" autofocus="">
     </div>
     <div class="form-group">
         <h4 class="text-left">Nome:</h4>
@@ -94,8 +94,8 @@
     </div>
     <div class="form-group">
         <h4 class="text-left">Telefone celular:</h4>
-        <input class="form-control form-control"  name="fone" value="${usuario.getFone()}" type="text" required="" placeholder="(###) # ####-####"
-            maxlength="15" minlength="14">
+        <input class="form-control form-control"   onkeypress="return apenasNmr(event);" name="fone" value="${usuario.getFone()}" type="text" required="" placeholder="(###) # ####-####"
+            maxlength="15" minlength="10">
     </div>
     <div class="form-group">
         <h4 class="text-left">Naturalidade:</h4>
@@ -103,7 +103,7 @@
     </div>
     <div class="form-group">
         <h4 class="text-left">RG:</h4>
-        <input class="form-control form-control"  name="rg" value="${usuario.getRg()}" type="text" required="" maxlength="50" minlength="10">
+        <input class="form-control form-control" onkeypress="return apenasNmr(event);"  name="rg" value="${usuario.getRg()}" type="text" required="" maxlength="50" minlength="10">
     </div>
 </form>
     <div class="form-row">

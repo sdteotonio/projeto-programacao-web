@@ -34,7 +34,7 @@
 					incorreto.</div>
 			</c:if>
 			<div class="form-group">
-				<input class="form-control" type="text" name="username"
+				<input class="form-control" maxlength="11" minlength="11" onkeypress="return apenasNmr(event);" type="text" name="username"
 					placeholder="Usuário">
 			</div>
 			<div class="form-group">
@@ -49,6 +49,7 @@
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<script src="assets/js/bs-animation.js"></script>
+	<script src="assets/js/util.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
 </body>
 
