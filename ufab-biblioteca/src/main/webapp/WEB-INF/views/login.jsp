@@ -36,11 +36,11 @@
 			</c:if>
 			<div class="form-group">
 				<input class="form-control" type="text" name="username"
-					placeholder="Usuário" value="11772699454">
+					placeholder="Usuário">
 			</div>
 			<div class="form-group">
 				<input class="form-control" type="password" name="password"
-					placeholder="Senha" value="teste">
+					placeholder="Senha">
 			</div>
 			<div class="form-group">
 				<button class="btn btn-primary btn-block" type="submit">Entrar</button>
