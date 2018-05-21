@@ -114,7 +114,7 @@
         </c:if>
         <c:if test="${usuario.getCpf() != null}">
             <div class="col">
-                <button class="btn btn-primary btn-block">Atualizar</button>
+                <button class="btn btn-primary btn-block"disabled >Atualizar</button>
             </div>
         </c:if>
     </div>

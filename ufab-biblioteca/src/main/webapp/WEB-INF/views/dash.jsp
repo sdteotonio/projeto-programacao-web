@@ -46,25 +46,26 @@
                         <h3 class="name">Usuários</h3><a class="btn btn-success btn-block btn-dash" href="<c:url value='/usuario'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-folder-open icon"></i>
-                        <h3 class="name">Itens</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-list-alt icon"></i>
                         <h3 class="name">Cursos</h3><a class="btn btn-success btn-block btn-dash" href="<c:url value='/curso'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
-                    <div class="box"><i class="fa fa-sitemap icon"></i>
-                        <h3 class="name">Alocação</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-handshake-o icon"></i>
                         <h3 class="name">Empréstimos</h3><a class="btn btn-success btn-block btn-dash" href= "<c:url value='/locacao'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
                 </div>
+                <%-- <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-folder-open icon"></i>
+                        <h3 class="name">Itens</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
+                </div>
+                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                    <div class="box"><i class="fa fa-sitemap icon"></i>
+                        <h3 class="name">Alocação</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
+                </div>
+                
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-bar-chart-o icon"></i>
                         <h3 class="name">Relatórios</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
+                </div> --%>
             </div>
         </div>
     </div>

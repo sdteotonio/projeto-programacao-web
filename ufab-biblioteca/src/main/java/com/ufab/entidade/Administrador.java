@@ -13,5 +13,6 @@ import javax.persistence.Table;
 public class Administrador extends Usuario {
 
 	private static final long serialVersionUID = -8849533159458427899L;
-
+	
+	
 }

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ufab.servico.ILocacaoServico;
+import com.ufab.servico.IUsuarioServico;
 
 
 @Controller
@@ -17,7 +18,9 @@ public class LocacaoControlador {
 		@Autowired
 		private ILocacaoServico locacaoServico;
 		
-
+		@Autowired
+		private IUsuarioServico usuarioServico;
+		
 		@RequestMapping(value = "/locacao/tabela", method = RequestMethod.GET)
 		public ModelAndView getTabela(Model model) {
 			ModelAndView modv = new ModelAndView();
@@ -30,6 +33,7 @@ public class LocacaoControlador {
 		public ModelAndView indexLocacao(Model model) {
 			ModelAndView modv = new ModelAndView();
 			modv.setViewName("locacao/locacao");
+			modv.addObject("usuarioAuth", usuarioServico.recuperarUsuarioAutenticado());
 			return modv;
 		}
 		

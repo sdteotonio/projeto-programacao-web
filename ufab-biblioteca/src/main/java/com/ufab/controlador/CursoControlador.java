@@ -19,6 +19,7 @@ import com.ufab.enumerador.MensagensEnum;
 import com.ufab.excecao.CursoServicoException;
 import com.ufab.servico.ICursoServico;
 import com.ufab.servico.ITipoCursoServico;
+import com.ufab.servico.IUsuarioServico;
 
 @Controller
 public class CursoControlador {
@@ -29,11 +30,15 @@ public class CursoControlador {
 	@Autowired
 	private ITipoCursoServico tipoCursoServico;
 
+	@Autowired
+	private IUsuarioServico usuarioServico;
+	
 	private Logger LOGGER = Logger.getLogger(CursoControlador.class);
 
 	@RequestMapping(value = "/curso", method = RequestMethod.GET)
 	public ModelAndView indexCurso(Model model) {
 		ModelAndView m = new ModelAndView();
+		m.addObject("usuarioAuth", usuarioServico.recuperarUsuarioAutenticado());
 		m.setViewName("curso/curso");
 		return m;
 	}
