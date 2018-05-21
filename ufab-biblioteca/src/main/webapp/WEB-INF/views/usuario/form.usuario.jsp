@@ -29,7 +29,7 @@
         
         <div class="form-group">
         <h4 class="text-left">Ano:</h4>
-        <input class="form-control form-control" name="ano" placeholder="Ano de entrada..." type="text" required="" maxlength="4" minlength="4">
+        <input class="form-control form-control" onkeypress="return apenasNmr(event);" name="ano" placeholder="Ano de entrada..." type="text" required="" maxlength="4" minlength="4">
     </div>
     <div class="form-group">
         <h4 class="text-left">Período:</h4>

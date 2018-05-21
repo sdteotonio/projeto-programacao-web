@@ -40,7 +40,7 @@
     <div class="features-boxed">
         <div class="container">
             <div class="row justify-content-center features">
-              
+              <c:if test="${usuarioAuth.getPerfil().getTipoPerfil().toString()== 'ADMINISTRADOR'}"> 
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-users icon"></i>
                         <h3 class="name">Usuários</h3><a class="btn btn-success btn-block btn-dash" href="<c:url value='/usuario'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
@@ -66,6 +66,15 @@
                     <div class="box"><i class="fa fa-bar-chart-o icon"></i>
                         <h3 class="name">Relatórios</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
                 </div> --%>
+                </c:if>
+                 <c:if test="${usuarioAuth.getPerfil().getTipoPerfil().toString() != 'ADMINISTRADOR'}"> 
+                 <div class="container">
+                <div class="jumbotron">
+                    <h1>Biblioteca UFAB</h1>
+                    <p>Desculpe, mas ainda não há opções para você :(</p>
+                </div>
+                </div>
+                </c:if>
             </div>
         </div>
     </div>

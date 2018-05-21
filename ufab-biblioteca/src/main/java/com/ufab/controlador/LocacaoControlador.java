@@ -3,11 +3,13 @@ package com.ufab.controlador;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ufab.entidade.Locacao;
 import com.ufab.servico.ILocacaoServico;
 import com.ufab.servico.IUsuarioServico;
 
@@ -37,6 +39,13 @@ public class LocacaoControlador {
 			return modv;
 		}
 		
+		@RequestMapping(value = "/locacao/inserir", method = RequestMethod.POST)
+		public ModelAndView inserirAlocaco(Model model) {
+			ModelAndView modv = new ModelAndView();
+			
+			return modv;
+		}
+		
 		@RequestMapping(value = "/locacao/form", method = RequestMethod.GET)
 		public ModelAndView getForm(Model model, @RequestParam(required = false) String tipoForm) {
 			ModelAndView mv = new ModelAndView();
@@ -44,4 +53,6 @@ public class LocacaoControlador {
 			mv.addObject("tipoForm", tipoForm);
 			return mv;
 		}
+		
+		
 }
