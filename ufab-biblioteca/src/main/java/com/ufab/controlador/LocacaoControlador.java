@@ -13,7 +13,11 @@ import com.ufab.entidade.Locacao;
 import com.ufab.servico.ILocacaoServico;
 import com.ufab.servico.IUsuarioServico;
 
-
+/***
+ * Classe controladora de locação que possui métodos que são ações no sistema
+ * @author Bianca
+ *
+ */
 @Controller
 public class LocacaoControlador {
 	
@@ -23,6 +27,11 @@ public class LocacaoControlador {
 		@Autowired
 		private IUsuarioServico usuarioServico;
 		
+		/***
+		 * Método invocado pela URL "/locacao/tabela" que recupera do sistema todas as locações do sistema
+		 * @param model - Auxiliar que ajudará a adicionar atributos a view criada
+		 * @return - retorna a view que está sendo chamada
+		 */
 		@RequestMapping(value = "/locacao/tabela", method = RequestMethod.GET)
 		public ModelAndView getTabela(Model model) {
 			ModelAndView modv = new ModelAndView();
@@ -31,6 +40,11 @@ public class LocacaoControlador {
 			return modv;
 		}
 		
+		/***
+		 * Método invocado pela URL "/locacao" que recupera do sistema o usuário autenticado 
+		 * @param model - Auxiliar que ajudará a adicionar atributos a view criada
+		 * @return - retorna a view que está sendo chamada
+		 */
 		@RequestMapping(value = "/locacao", method = RequestMethod.GET)
 		public ModelAndView indexLocacao(Model model) {
 			ModelAndView modv = new ModelAndView();
@@ -39,6 +53,11 @@ public class LocacaoControlador {
 			return modv;
 		}
 		
+        /***
+         * Método invocado pela URL "/locacao/inserir" responsável por inserir uma locação
+         * @param model - Auxiliar que ajudará a adicionar atributos a view criada
+         * @return - retorna a view que está sendo chamada 
+         */
 		@RequestMapping(value = "/locacao/inserir", method = RequestMethod.POST)
 		public ModelAndView inserirAlocaco(Model model) {
 			ModelAndView modv = new ModelAndView();
@@ -46,6 +65,12 @@ public class LocacaoControlador {
 			return modv;
 		}
 		
+		/***
+		 * Método invocado pela URL "/locacao/form" que faz um GET no formulario
+		 * @param model  - Auxiliar que ajudara a adicionar atributos a view criada
+		 * @param tipoForm  - parâmetro do tipo String
+		 * @return - retorna a view que está sendo chamada
+		 */
 		@RequestMapping(value = "/locacao/form", method = RequestMethod.GET)
 		public ModelAndView getForm(Model model, @RequestParam(required = false) String tipoForm) {
 			ModelAndView mv = new ModelAndView();

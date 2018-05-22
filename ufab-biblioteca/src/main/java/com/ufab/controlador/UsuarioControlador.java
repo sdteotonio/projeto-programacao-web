@@ -37,6 +37,11 @@ import com.ufab.servico.IPerfilServico;
 import com.ufab.servico.IUsuarioServico;
 import com.ufab.util.UfabUtilidade;
 
+/***
+ * Classe controladora de Usuário que possui métodos que são ações no sistema
+ * @author Bianca
+ *
+ */
 @Controller
 public class UsuarioControlador {
 
@@ -56,7 +61,12 @@ public class UsuarioControlador {
 	private IAlocacaoServico alocacaoServico;
 
 	private Logger LOGGER = Logger.getLogger(UsuarioControlador.class);
-
+	
+	/***
+	 * Metodo invocado pela URL "/usuario" que retornao usuário autenticado e o seu perfil
+	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada
+	 * @return - retorna a view que está sendo chamada
+	 */
 	@RequestMapping(value = "/usuario", method = RequestMethod.GET)
 	public ModelAndView indexUsuario(Model model) {
 		ModelAndView mv = new ModelAndView();
@@ -66,6 +76,13 @@ public class UsuarioControlador {
 		return mv;
 	}
 
+	/***
+	 * Método invocado pela URL "/usuario/form"  que recupera o perfil do usuário para definir o modelo do formulario a ser montado
+	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada
+	 * @param tipoForm - parâmentro de formulario
+	 * @param cpfUsu - parâmentro de busca
+	 * @return - retorna a view que está sendo chamada 
+	 */
 	@RequestMapping(value = "/usuario/form", method = RequestMethod.GET)
 	public ModelAndView getForm(Model model, @RequestParam(required = true, value = "tipoForm") String tipoForm,
 			@RequestParam(required = false) String cpfUsu) {
@@ -92,6 +109,11 @@ public class UsuarioControlador {
 		return mv;
 	}
 
+	/***
+	 * Método invocado pela URL "/usuario/tabela"  que recupera a tabela de exibição de dados do usuário
+	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada
+	 * @return - retorna a view que está sendo chamada 
+	 */
 	@RequestMapping(value = "/usuario/tabela", method = RequestMethod.GET)
 	public ModelAndView getTabela(Model model) {
 		ModelAndView mv = new ModelAndView();
@@ -100,6 +122,14 @@ public class UsuarioControlador {
 		return mv;
 	}
 
+	/***
+	 * Metodo invocado pela URL "/usuario/inserir" que insere um usuário no sistema através do seu tipo, montando o 
+	 * formulário especifico para a opção. 
+	 * @param request - requisição ao cliente
+	 * @param response - resposta ao cliente
+	 * @param tipoForm - parametro do tipo string - formulario
+	 * @throws IOException - validação do sistema,lançando a exceçao
+	 */
 	@RequestMapping(value = "/usuario/inserir", method = RequestMethod.POST, params = { "tipoForm" })
 	public void inserirUsuario(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam(required = true, value = "tipoForm") String tipoForm) throws IOException {
@@ -148,6 +178,12 @@ public class UsuarioControlador {
 
 	}
 
+	/**
+	 * Método que monta o objeto usuário
+	 * @param nUsuario 
+	 * @param request
+	 * @throws UfabUtilidadeException
+	 */
 	private void prepararObjetoUsuario(Usuario nUsuario, HttpServletRequest request) throws UfabUtilidadeException {
 
 		nUsuario.setCpf(request.getParameter("cpf"));

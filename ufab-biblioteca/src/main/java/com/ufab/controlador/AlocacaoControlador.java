@@ -12,6 +12,11 @@ import com.ufab.excecao.CursoServicoException;
 import com.ufab.servico.IAlocacaoServico;
 import com.ufab.servico.ICursoServico;
 
+/***
+ * Classe controladora de alocações que possui métodos que são ações no sistema.
+ * @author Bianca
+ *
+ */
 
 @Controller
 public class AlocacaoControlador {
@@ -22,6 +27,12 @@ public class AlocacaoControlador {
 	@Autowired
 	private IAlocacaoServico alocacaoServico;
 
+	
+	/***
+	 * Método Método invocado pela URL "/alocacao/tabela"  responsável por recuperar os cursos do sistema 
+	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
+	 * @return - retorna a view que está sendo chamada (modv)
+	 */
 	@RequestMapping(value = "/alocacao/tabela", method = RequestMethod.GET)
 	public ModelAndView getTabela(Model model) {
 		ModelAndView modv = new ModelAndView();
@@ -30,6 +41,13 @@ public class AlocacaoControlador {
 		return modv;
 	}
 	
+	/***
+	 * Método Método invocado pela URL "/alocacao/curso" responsável por recuperar a lista de alocaçao do 
+	 * curso de acordo com seu código de identificação
+	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
+	 * @param cod - Parâmetro de busca
+	 * @return - retorna a view que está sendo chamada (modv) 
+	 */
 	@RequestMapping(value = "/alocacao/curso", method = RequestMethod.GET)
 	public ModelAndView getCurso(Model model, @RequestParam(required = true, value = "cod") int cod) {
 		ModelAndView modv = new ModelAndView();
