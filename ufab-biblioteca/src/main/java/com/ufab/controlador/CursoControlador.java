@@ -22,7 +22,7 @@ import com.ufab.servico.ITipoCursoServico;
 import com.ufab.servico.IUsuarioServico;
 
 /***
- *  Classe controladora de curso que possui métodos que são ações no sistema.
+ *  Classe controladora de curso que possui m todos que s o a  es no sistema.
  * @author Bianca
  *
  */
@@ -42,9 +42,9 @@ public class CursoControlador {
 	
 	
 	/***
-	 * Método invocado pela URL "/curso", responsável por recuperar o usuário logado.
-	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @return - Retorna a view que está sendo chamada (m)
+	 * M todo invocado pela URL "/curso", respons vel por recuperar o usu rio logado.
+	 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @return - Retorna a view que est  sendo chamada (m)
 	 */
 
 	@RequestMapping(value = "/curso", method = RequestMethod.GET)
@@ -56,11 +56,11 @@ public class CursoControlador {
 	}
 	
 	/***
-	 * Método POST invocando pela URL "/curso/inserir" que faz inserção de curso no sistema
-	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @param req - requisição para o cliente
+	 * M todo POST invocando pela URL "/curso/inserir" que faz inser  o de curso no sistema
+	 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @param req - requisi  o para o cliente
 	 * @param res - resposta para o cliente
-	 * @return - retorna a view que está sendo chamada (m)
+	 * @return - retorna a view que est  sendo chamada (m)
 	 */
 
 	@RequestMapping(value = "/curso/inserir", method = RequestMethod.POST)
@@ -85,10 +85,10 @@ public class CursoControlador {
 	}
 	
 	/***
-	 * Método GET invocado pela URL "/curso/tabela" para retornar os cursos existentes no sistema, montando a 
-	 * tabela de visualização com seus respectivos atributos.
-	 * @param model  - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @return  - retorna a view que está sendo chamada (m)
+	 * M todo GET invocado pela URL "/curso/tabela" para retornar os cursos existentes no sistema, montando a 
+	 * tabela de visualiza  o com seus respectivos atributos.
+	 * @param model  - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @return  - retorna a view que est  sendo chamada (m)
 	 */
 
 	@RequestMapping(value = "/curso/tabela", method = RequestMethod.GET)
@@ -100,11 +100,11 @@ public class CursoControlador {
 	}
 	
 	/***
-	 * Método invocando pela URL "/curso/form" responsável por recuperar os cursos pelo código.
-	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @param cod - parâmetro 
+	 * M todo invocando pela URL "/curso/form" respons vel por recuperar os cursos pelo c digo.
+	 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @param cod - par metro 
 	 * @param res - resposta para o cliente
-	 * @return - Retorna a view que está sendo chamada (m)
+	 * @return - Retorna a view que est  sendo chamada (m)
 	 */
 
 	@RequestMapping(value = "/curso/form", method = RequestMethod.GET)
@@ -126,12 +126,12 @@ public class CursoControlador {
 	}
 	
 	/***
-	 * Método invocado pela URL "/curso/atualizar" responsável por atualizar um curso
-	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @param cod - Parâmetro
-	 * @param req - requisição para o cliente
+	 * M todo invocado pela URL "/curso/atualizar" respons vel por atualizar um curso
+	 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @param cod - Par metro
+	 * @param req - requisi  o para o cliente
 	 * @param res - resposta para o cliente
-	 * @return - Retorna a view que está sendo chamada
+	 * @return - Retorna a view que est  sendo chamada
 	 */
 	@RequestMapping(value = "/curso/atualizar", method = RequestMethod.POST)
 	public ModelAndView atualizarCurso(Model model, @RequestParam(value = "cod", required = true) Integer cod, HttpServletRequest req , HttpServletResponse res){

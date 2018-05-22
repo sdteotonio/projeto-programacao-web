@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ufab.servico.IUsuarioServico;
 
 /***
- * Classe controladora da dash da aplicação que possui métodos que são ações no sistema.
+ * Classe controladora da dash da aplica  o que possui m todos que s o a  es no sistema.
  * @author Bianca
  *
  */
@@ -22,9 +22,9 @@ public class DashControlador {
 	private IUsuarioServico usuarioServico;
 
 	/***
-	 *  Método invocado pela URL "/dash" que recupera do sistema o tipo de usuário autenticado  para montar a view
-	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @return  - retorna a view que está sendo chamada
+	 *  M todo invocado pela URL "/dash" que recupera do sistema o tipo de usu rio autenticado  para montar a view
+	 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @return  - retorna a view que est  sendo chamada
 	 */
 	@RequestMapping(value = "/dash", method = RequestMethod.GET)
 	public ModelAndView getDash(Model model) {

@@ -14,7 +14,7 @@ import com.ufab.servico.ILocacaoServico;
 import com.ufab.servico.IUsuarioServico;
 
 /***
- * Classe controladora de locação que possui métodos que são ações no sistema
+ * Classe controladora de loca  o que possui m todos que s o a  es no sistema
  * @author Bianca
  *
  */
@@ -28,9 +28,9 @@ public class LocacaoControlador {
 		private IUsuarioServico usuarioServico;
 		
 		/***
-		 * Método invocado pela URL "/locacao/tabela" que recupera do sistema todas as locações do sistema
-		 * @param model - Auxiliar que ajudará a adicionar atributos a view criada
-		 * @return - retorna a view que está sendo chamada
+		 * M todo invocado pela URL "/locacao/tabela" que recupera do sistema todas as loca  es do sistema
+		 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada
+		 * @return - retorna a view que est  sendo chamada
 		 */
 		@RequestMapping(value = "/locacao/tabela", method = RequestMethod.GET)
 		public ModelAndView getTabela(Model model) {
@@ -41,9 +41,9 @@ public class LocacaoControlador {
 		}
 		
 		/***
-		 * Método invocado pela URL "/locacao" que recupera do sistema o usuário autenticado 
-		 * @param model - Auxiliar que ajudará a adicionar atributos a view criada
-		 * @return - retorna a view que está sendo chamada
+		 * M todo invocado pela URL "/locacao" que recupera do sistema o usu rio autenticado 
+		 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada
+		 * @return - retorna a view que est  sendo chamada
 		 */
 		@RequestMapping(value = "/locacao", method = RequestMethod.GET)
 		public ModelAndView indexLocacao(Model model) {
@@ -54,9 +54,9 @@ public class LocacaoControlador {
 		}
 		
         /***
-         * Método invocado pela URL "/locacao/inserir" responsável por inserir uma locação
-         * @param model - Auxiliar que ajudará a adicionar atributos a view criada
-         * @return - retorna a view que está sendo chamada 
+         * M todo invocado pela URL "/locacao/inserir" respons vel por inserir uma loca  o
+         * @param model - Auxiliar que ajudar  a adicionar atributos a view criada
+         * @return - retorna a view que est  sendo chamada 
          */
 		@RequestMapping(value = "/locacao/inserir", method = RequestMethod.POST)
 		public ModelAndView inserirAlocaco(Model model) {
@@ -66,10 +66,10 @@ public class LocacaoControlador {
 		}
 		
 		/***
-		 * Método invocado pela URL "/locacao/form" que faz um GET no formulario
+		 * M todo invocado pela URL "/locacao/form" que faz um GET no formulario
 		 * @param model  - Auxiliar que ajudara a adicionar atributos a view criada
-		 * @param tipoForm  - parâmetro do tipo String
-		 * @return - retorna a view que está sendo chamada
+		 * @param tipoForm  - par metro do tipo String
+		 * @return - retorna a view que est  sendo chamada
 		 */
 		@RequestMapping(value = "/locacao/form", method = RequestMethod.GET)
 		public ModelAndView getForm(Model model, @RequestParam(required = false) String tipoForm) {

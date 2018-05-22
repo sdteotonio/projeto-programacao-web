@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 /***
- * Classe controladora da view inicial do sistema que possui métodos que são ações.
+ * Classe controladora da view inicial do sistema que possui m todos que s o a  es.
  * @author Bianca
  *
  */
@@ -15,7 +15,7 @@ public class InicioControlador {
 
 	
 	/***
-	 * Método que declara o valor da url "/" como index em todas as rotas da aplicação 
+	 * M todo que declara o valor da url "/" como index em todas as rotas da aplica  o 
 	 * @param model
 	 * @return
 	 */

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 
 /***
- *  Classe de objetos do tipo jornal, que herdam do item suas caracter�sticas. 
+ *  Classe de objetos do tipo jornal, que herdam do item suas caracter sticas. 
  *  Com valores e metodos dos mesmos. 
  * @author Bianca
  *

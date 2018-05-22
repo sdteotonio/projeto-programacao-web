@@ -13,7 +13,7 @@ import com.ufab.servico.IAlocacaoServico;
 import com.ufab.servico.ICursoServico;
 
 /***
- * Classe controladora de alocações que possui métodos que são ações no sistema.
+ * Classe controladora de aloca  es que possui m todos que s o a  es no sistema.
  * @author Bianca
  *
  */
@@ -29,9 +29,9 @@ public class AlocacaoControlador {
 
 	
 	/***
-	 * Método Método invocado pela URL "/alocacao/tabela"  responsável por recuperar os cursos do sistema 
-	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @return - retorna a view que está sendo chamada (modv)
+	 * M todo M todo invocado pela URL "/alocacao/tabela"  respons vel por recuperar os cursos do sistema 
+	 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @return - retorna a view que est  sendo chamada (modv)
 	 */
 	@RequestMapping(value = "/alocacao/tabela", method = RequestMethod.GET)
 	public ModelAndView getTabela(Model model) {
@@ -42,11 +42,11 @@ public class AlocacaoControlador {
 	}
 	
 	/***
-	 * Método Método invocado pela URL "/alocacao/curso" responsável por recuperar a lista de alocaçao do 
-	 * curso de acordo com seu código de identificação
-	 * @param model - Auxiliar que ajudará a adicionar atributos a view criada.
-	 * @param cod - Parâmetro de busca
-	 * @return - retorna a view que está sendo chamada (modv) 
+	 * M todo M todo invocado pela URL "/alocacao/curso" respons vel por recuperar a lista de aloca ao do 
+	 * curso de acordo com seu c digo de identifica  o
+	 * @param model - Auxiliar que ajudar  a adicionar atributos a view criada.
+	 * @param cod - Par metro de busca
+	 * @return - retorna a view que est  sendo chamada (modv) 
 	 */
 	@RequestMapping(value = "/alocacao/curso", method = RequestMethod.GET)
 	public ModelAndView getCurso(Model model, @RequestParam(required = true, value = "cod") int cod) {

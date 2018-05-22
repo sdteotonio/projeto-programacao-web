@@ -82,8 +82,8 @@ public class CursoServico implements ICursoServico {
 	 * @param curso
 	 *            Curso recebido para validacao
 	 * @throws CursoValidacaoException
-	 *             Caso seja detectado que o curso est� inv�lido para inser��o, uma
-	 *             exception como esta ser� disparada.
+	 *             Caso seja detectado que o curso esta invalido para inser , uma
+	 *             exception como esta sera disparada.
 	 */
 	private void validar(Curso curso) throws CursoValidacaoException {
 		if (curso == null) {
