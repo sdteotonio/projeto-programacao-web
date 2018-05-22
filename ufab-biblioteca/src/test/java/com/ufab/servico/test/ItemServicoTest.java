@@ -55,12 +55,9 @@ public class ItemServicoTest {
 	public void atualizarInvalido() throws ItemServicoException {
 		Livro l = new Livro();
 
-		TipoItem tipoItem = new TipoItem();
-
-		tipoItem.setNome("Livro");
 
 		l.setTitulo("TituloTesteDoLivroUpdate");
-		l.setTipoItem(tipoItem);
+		l.setTipoItem(TipoItem.LIVRO);
 		l.setNome("Lingua Inglesa");
 		l.setTema("Inlges");
 		l.setArea("Letras");
@@ -106,7 +103,7 @@ public class ItemServicoTest {
 		}
 
 		// Sem Tipo
-		j.setTipoItem(new TipoItem());
+		j.setTipoItem(TipoItem.JORNAL);
 		try {
 			itemServico.inserir(j);
 		} catch (ItemServicoException e) {
@@ -118,12 +115,10 @@ public class ItemServicoTest {
 	public void inserirRecuperarItemLivro() {
 		Livro l = new Livro();
 
-		TipoItem tipoItem = new TipoItem();
-
-		tipoItem.setNome("Livro");
+	
 
 		l.setTitulo("TituloTesteDoLivro");
-		l.setTipoItem(tipoItem);
+		l.setTipoItem(TipoItem.LIVRO);
 		l.setNome("Lingua Inglesa");
 		l.setTema("Inlges");
 		l.setArea("Letras");
@@ -160,10 +155,7 @@ public class ItemServicoTest {
 
 		midiaDigital.setTipoMidiaDigital(tipoMidiaDigital);
 
-		TipoItem tipoItem = new TipoItem();
-		tipoItem.setNome("MidiaDigital");
-
-		midiaDigital.setTipoItem(tipoItem);
+		midiaDigital.setTipoItem(TipoItem.MIDIA_DIGITAL);
 		midiaDigital.setQuantMax(10);
 		midiaDigital.setNome("NomeMidiaDigital");
 		midiaDigital.setDataGravacao(new Date());
@@ -187,11 +179,9 @@ public class ItemServicoTest {
 		jornal.setTitulo("TituloJornal_1");
 		jornal.setNome("NomeJornal");
 
-		TipoItem tipoItem = new TipoItem();
-		tipoItem.setCod(0);
-		tipoItem.setNome("Jornal");
 
-		jornal.setTipoItem(tipoItem);
+
+		jornal.setTipoItem(TipoItem.JORNAL);
 
 		itemServico.inserir(jornal);
 		itemServico.inserir(jornal);
@@ -204,7 +194,7 @@ public class ItemServicoTest {
 		j1.setTitulo("Jornal");
 		j1.setNome("NomeJornal");
 
-		j1.setTipoItem(new TipoItem());
+		j1.setTipoItem(TipoItem.JORNAL);
 		try {
 			itemServico.inserir(j1);
 		} catch (ItemServicoException e) {
@@ -239,7 +229,7 @@ public class ItemServicoTest {
 		j1.setNome("NomeJornalExcluir");
 		j1.setCodigo(0);
 
-		j1.setTipoItem(new TipoItem());
+		j1.setTipoItem(TipoItem.JORNAL);
 		try {
 			itemServico.inserir(j1);
 		} catch (ItemServicoException e) {
