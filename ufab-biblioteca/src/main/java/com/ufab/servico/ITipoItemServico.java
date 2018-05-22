@@ -4,6 +4,11 @@ import java.util.List;
 
 import com.ufab.entidade.TipoItem;
 
+/**
+ * @author Davi
+ *
+ *@deprecated Com a retidada da entidade TipoItem, a classe de servico ficou desuso.
+ */
 public interface ITipoItemServico {
 	/**
 	 * @param tipoItem

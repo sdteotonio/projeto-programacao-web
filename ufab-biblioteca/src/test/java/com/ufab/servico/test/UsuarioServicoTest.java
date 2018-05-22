@@ -232,7 +232,7 @@ public class UsuarioServicoTest {
 		}
 		alocacao.setId(new AlocacaoPrimaryKey("2017", "1", c.getCod(), a.getCpf()));
 
-		String matricula = alunoServico.gerarMatricula(alocacao, a);
+		String matricula = alunoServico.gerarMatricula(alocacao);
 		a.setMatricula(matricula);
 
 		Perfil p = null;
