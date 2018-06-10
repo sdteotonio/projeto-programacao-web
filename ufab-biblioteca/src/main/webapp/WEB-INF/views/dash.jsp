@@ -55,16 +55,16 @@
                 </div>
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-folder-open icon"></i>
-                        <h3 class="name">Itens</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
+                        <h3 class="name">Itens</h3><a class="btn btn-success btn-block btn-dash" href= "<c:url value='/item'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
                 </div>
-                <div class="col-sm-6 col-md-5 col-lg-4 item">
+                <%-- <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-sitemap icon"></i>
-                        <h3 class="name">Alocação</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
-                </div>
+                        <h3 class="name">Alocação</h3><a class="btn btn-success btn-block btn-dash" href= "<c:url value='/emprestimo'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
+                </div> --%>
                 
                 <div class="col-sm-6 col-md-5 col-lg-4 item">
                     <div class="box"><i class="fa fa-bar-chart-o icon"></i>
-                        <h3 class="name">Relatórios</h3><a class="btn btn-success btn-block btn-dash" ><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
+                        <h3 class="name">Relatórios</h3><a class="btn btn-success btn-block btn-dash" href= "<c:url value='/relatorio'/>"><i class="fa fa-cog"></i>&nbsp;Gerenciar</a></div>
                 </div>
                 </c:if>
                  <c:if test="${usuarioAuth.getPerfil().getTipoPerfil().toString() != 'ADMINISTRADOR'}"> 
