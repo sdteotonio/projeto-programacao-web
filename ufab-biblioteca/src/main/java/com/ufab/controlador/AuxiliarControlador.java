@@ -9,7 +9,7 @@ public class AuxiliarControlador {
 	
 	@RequestMapping(value="/item")
 	public ModelAndView tela1() {
-		return new ModelAndView("item");
+		return new ModelAndView("telaItem");
 	}
 	@RequestMapping(value="/dividas")
 	public ModelAndView tela2() {
