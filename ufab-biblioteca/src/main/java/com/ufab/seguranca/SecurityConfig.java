@@ -36,6 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 						).permitAll()                  
 				.antMatchers(
 						"/curso/**",
+						"/item/**",
+						"/dividas/**",
+						"/relatorio/**",
+						"/reserva/**",
 						"/usuario/**"
 						).authenticated()                                  
 				.anyRequest().authenticated()                                                   
