@@ -41,8 +41,7 @@
                 <h1>Relatórios -&nbsp;<i class="fa fa-bar-chart-o"></i></h1>
             </div>
         </div>
-        <hr>
-        <div class="col"><button class="btn btn-primary my-auto" type="button" style="margin:14px;">Empréstimos &nbsp;&nbsp;<i class="fa fa-handshake-o"></i></button><button class="btn btn-success d-inline-block my-auto" type="button" style="width:134px;">&nbsp; Dívidas&nbsp; &nbsp;<i class="fa fa-dollar"></i></button></div>
+        
         <div
             class="container-fluid d-flex justify-content-center container-form" style="height:501px;margin:9px;font-size:16px;">
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 box-overlay-app" data-aos="fade-down" data-aos-delay="250">
@@ -67,7 +66,7 @@
                                 <td>10/04/2018</td>
                                 <td>&nbsp; &nbsp; &nbsp; &nbsp; S</td>
                                 <td><br>R$ 2,00&nbsp;</td>
-                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-print"></i></button></td>
                             </tr>
                             <tr>
                                 <td><br>Bianca Furtado</td>
@@ -76,7 +75,7 @@
                                 <td><br>07/05/2018<br><br></td>
                                 <td><br>&nbsp; &nbsp; &nbsp; &nbsp;N</td>
                                 <td><br>R$ 3,50&nbsp;</td>
-                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-print"></i></button></td>
                             </tr>
                             <tr>
                                 <td><br>Sérgio Davi</td>
@@ -85,7 +84,7 @@
                                 <td><br>10/05/2018<br><br></td>
                                 <td>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;N</td>
                                 <td><br>R$ 1,50&nbsp;</td>
-                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-print"></i></button></td>
                             </tr>
                             <tr>
                                 <td><br>Samuel Rufino</td>
@@ -94,7 +93,7 @@
                                 <td>&nbsp; 10/05/2018</td>
                                 <td><br>&nbsp; &nbsp; &nbsp; &nbsp;S</td>
                                 <td><br>R$ 6,00&nbsp;</td>
-                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-print"></i></button></td>
                             </tr>
                             <tr>
                                 <td><br>Pablo Monteiro</td>
@@ -103,7 +102,7 @@
                                 <td><br>10/05/2018<br><br></td>
                                 <td><br>&nbsp; &nbsp; &nbsp; N</td>
                                 <td><br>R$ 1,00&nbsp;</td>
-                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-print"></i></button></td>
                             </tr>
                             <tr>
                                 <td><br>José George</td>
@@ -112,7 +111,7 @@
                                 <td><br>10/05/2018<br><br></td>
                                 <td><br>&nbsp; &nbsp; &nbsp; &nbsp;S</td>
                                 <td><br>R$ 1,50&nbsp;<br><br></td>
-                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-edit"></i></button></td>
+                                <td class="d-inline float-left"><button class="btn btn-light btn-table" type="button"><i class="fa fa-print"></i></button></td>
                             </tr>
                         </tbody>
                     </table>

@@ -50,7 +50,15 @@
                     <div class="form-group">
                         <h4 class="text-left">Título:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10" autofocus=""></div>
                     <div class="form-group">
-                        <h4 class="text-left">Tipo de Item:</h4><select class="form-control"></select></div>
+                        <h4 class="text-left">Tipo de Item:</h4>
+                        
+                        <select class="form-control">
+                        <option>Livro</option>
+                        <option>TCC</option>
+                        <option>Jornal</option>
+                        <option>Revista</option>
+                        <option>Midia Digital</option>
+                        </select></div>
                     <div class="form-group">
                         <h4 class="text-left">Edição:</h4><input class="form-control form-control" type="text" required="" maxlength="100" minlength="10" autofocus=""></div>
                     <div class="form-group">
